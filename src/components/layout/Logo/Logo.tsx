@@ -3,12 +3,13 @@ import styles from "./Logo.module.scss";
 const Logo = () => {
 	return (
 		<div className={styles.wrapper}>
-			<div className={styles.first}>
-				<p>Logo</p>
-			</div>
+			<img
+				src="/src/assets/images/logo.png"
+				alt="Logo"
+				className={styles.logo}
+			/>
 		</div>
 	);
 };
 
 export default Logo;
- 
