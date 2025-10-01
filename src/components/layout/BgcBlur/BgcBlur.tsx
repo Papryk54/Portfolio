@@ -6,7 +6,7 @@ type BlurBallProps = {
 	color?: "primary" | "accent" | "green" | "red";
 	position?: "left1" | "left2" | "left3" | "right1" | "right2" | "right3";
 };
-
+ 
 const blurBalls: BlurBallProps[] = [
 	{ size: "medium", color: "primary", position: "left1" },
 	{ size: "large", color: "accent", position: "right2" },

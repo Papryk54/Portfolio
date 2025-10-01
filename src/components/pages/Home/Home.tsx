@@ -9,6 +9,6 @@ const Home = () => {
 			<NavBar />
 		</div>
 	);
-};
+}; 
 
 export default Home;
