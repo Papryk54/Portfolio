@@ -1,0 +1,63 @@
+// MAIN COLORS
+
+$primary-color: #ffebbb; // buttons / headers
+$primary-color-dark: darken($primary-color, 20%); // interactive element hovers
+$primary-color-light: lighten(
+	$primary-color,
+	10%
+); // links / active element / focus
+$accent-color: #efbaff; // icons / strong / span
+$accent-color-dark: darken($accent-color, 20%); // text hovers
+$accent-color-light: lighten($accent-color, 20%); // CTA / highlights like "new"
+
+// TEXT & BACKGROUND COLORS
+
+$background-primary: #01050e; // main background
+$background-secondary: #0d1a37; // cards / sections
+$background-teritary: #273962; // hover on cards / sections
+$text-color: #b1b8c8; // main text
+$text-color-light: lighten($text-color, 20%); // links / highlights
+$text-color-dark: $background-primary; // When text is on primary-color
+
+$alert-color: #ffc6ba;
+$success-color: #baffe4;
+
+// FONTS
+@font-face {
+	font-family: "Roboto-Regular";
+	src: url("../assets/fonts/Roboto/Roboto-Regular.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Roboto-Bold";
+	src: url("../assets/fonts/Roboto/Roboto-Bold.ttf") format("truetype");
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "RobotoCondensed-Regular";
+	src: url("../assets/fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf")
+		format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Amarante-Regular";
+	src: url("../assets/fonts/Amarante/Amarante-Regular.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+$font-main: "Roboto-Regular", sans-serif;
+$font-main-bold: "Roboto-Bold", sans-serif;
+$font-secondary: "RobotoCondensed-Regular", sans-serif;
+$font-special: "Amarante-Regular", sans-serif;
+$font-size-basic: 18px;
+
+// OTHER VARIABLES
+
+$border-radius: 10px;
+$border-radius-large: 20px;
