@@ -1,7 +1,6 @@
-import ContactButton from "../../features/ContactButton/ContactButton";
-import NavBarButtons from "../../features/NavBarButtons/NavBarButtons";
-import Logo from "../Logo/Logo";
+import Logo from "./utils/Logo/Logo";
 import styles from "./NavBar.module.scss";
+import LanguageButton from "./utils/ContactButton/LanguageButton";
 
 const NavBar = () => {
 	return (
@@ -9,11 +8,8 @@ const NavBar = () => {
 			<div className={styles.left}>
 				<Logo />
 			</div>
-			<div className={styles.center}>
-				<NavBarButtons />
-			</div>
 			<div className={styles.right}>
-				<ContactButton />
+				<LanguageButton />
 			</div>
 		</div>
 	);

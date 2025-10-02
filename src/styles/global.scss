@@ -7,7 +7,7 @@
 *::after {
 	box-sizing: border-box;
 }
- 
+
 * {
 	margin: 0;
 	padding: 0;
@@ -94,14 +94,15 @@ body {
 	font-family: $font-main;
 	align-items: center;
 	text-align: center;
-	overflow-x: hidden;
+	overflow: hidden;
 }
 
 #root {
-	max-width: 1280px;
-	margin: 0 auto;
+	width: 100vw;
+	height: 100vh;
 }
 
 :root {
 	font-size: $font-size-basic;
+	
 }
