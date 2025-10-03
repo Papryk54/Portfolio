@@ -2,21 +2,17 @@
 
 // MAIN COLORS
 
-$primary-color: #ffebbb;
+$primary-color: #ff204e;
 $primary-color-dark: color.adjust($primary-color, $lightness: -20%);
 $primary-color-light: color.adjust($primary-color, $lightness: 10%);
-$accent-color: #efbaff;
-$accent-color-dark: color.adjust($accent-color, $lightness: -20%);
-$accent-color-light: color.adjust($accent-color, $lightness: 20%);
 
 // TEXT & BACKGROUND COLORS
 
-$background-primary: #01050e;
-$background-secondary: #0d1a37;
-$background-teritary: #273962;
-$text-color: hsl(216, 5%, 82%);
-$text-color-light: color.adjust($text-color, $lightness: 20%);
-$text-color-dark: $background-primary;
+$background-primary: #e0e0e0;
+$background-secondary: #949494;
+$background-teritary: #727272;
+$text-color: #1a1a1a;
+$text-color-light: #dddddd;
 
 $alert-color: #ffc6ba;
 $success-color: #baffe4;
@@ -61,3 +57,4 @@ $font-size-basic: 18px;
 $border-radius: 5px;
 $border-radius-large: 10px;
 $shadow-color: rgba(0, 0, 0, 0.5);
+$transition-basic: 0.3s;

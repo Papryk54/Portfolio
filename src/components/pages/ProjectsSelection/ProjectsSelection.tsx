@@ -6,21 +6,29 @@ const ProjectsSelection = () => {
 			<div className={styles.header}>
 				<div className={styles.navArrows}>
 					<button className={styles.arrowButtonLeft}>
-						<p>{"<"}</p>
+						<img
+							src="/src/assets/images/arrow-dark.png"
+							alt="Logo"
+							className={styles.arrowLeft}
+						/>
 					</button>
 					<button className={styles.arrowButtonRight}>
-						<p>{">"}</p>
+						<img
+							src="/src/assets/images/arrow-dark.png"
+							alt="Logo"
+							className={styles.arrowRight}
+						/>
 					</button>
 				</div>
 				<h2 className={styles.title}>ABOUT ME</h2>
 			</div>
 			<div className={styles.imgGallery}>
-				<img src="/src/assets/images/placeholderImg.png" alt="About me" />
+				{/* <img src="/src/assets/images/placeholderImg.png" alt="About me" />
 				<img src="/src/assets/images/placeholderImg.png" alt="DevCompanion" />
 				<img src="/src/assets/images/placeholderImg.png" alt="Team Project" />
 				<img src="/src/assets/images/placeholderImg.png" alt="Online Store" />
 				<img src="/src/assets/images/placeholderImg.png" alt="Mobile App" />
-				<img src="/src/assets/images/placeholderImg.png" alt="Game" />
+				<img src="/src/assets/images/placeholderImg.png" alt="Game" /> */}
 			</div>
 			<p className={styles.description}>
 				Here you can select and view various projects that showcase my skills

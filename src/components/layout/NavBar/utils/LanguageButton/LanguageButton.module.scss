@@ -1,0 +1,52 @@
+@use "../../../../../styles/variables.scss" as vars;
+
+.wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50px;
+	width: 140px;
+	height: 40px;
+	border: 1px solid vars.$background-teritary;
+	z-index: 2;
+	transition: border-color vars.$transition-basic,
+		background-color vars.$transition-basic, box-shadow vars.$transition-basic;
+}
+
+.button {
+	flex: 1;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	transition: background-color vars.$transition-basic,
+		color vars.$transition-basic, border-radius vars.$transition-basic;
+	font-size: 24px;
+	height: 40px;
+	padding: 4px;
+	p {
+		color: vars.$text-color-light;
+		font-family: vars.$font-secondary;
+		line-height: 32px;
+		border-radius: 50px;
+		transition: background-color vars.$transition-basic,
+			color vars.$transition-basic, border-radius vars.$transition-basic;
+		&:not(.active):hover {
+			background-color: vars.$background-teritary;
+			transition: background-color vars.$transition-basic;
+		}
+	}
+}
+
+.active {
+	p {
+		background: vars.$background-primary;
+		color: vars.$text-color;
+		transition: background-color vars.$transition-basic,
+			color vars.$transition-basic;
+	}
+}
+
+.icon {
+	height: 50%;
+	transition: height vars.$transition-basic;
+}

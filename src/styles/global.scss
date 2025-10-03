@@ -45,7 +45,7 @@ strong {
 
 span,
 strong {
-	color: vars.$accent-color;
+	color: vars.$primary-color;
 }
 
 p {
@@ -63,7 +63,7 @@ h3,
 h4,
 h5,
 h6 {
-	color: vars.$accent-color;
+	color: vars.$primary-color;
 	text-wrap: balance;
 }
 
@@ -76,7 +76,7 @@ a {
 	padding: 10px 20px;
 	background-color: vars.$primary-color;
 	border: none;
-	color: vars.$text-color-dark;
+	color: vars.$text-color;
 	border-radius: 5px;
 	transition: background-color 0.5s;
 

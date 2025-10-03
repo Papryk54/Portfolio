@@ -1,6 +1,6 @@
 import Logo from "./utils/Logo/Logo";
 import styles from "./NavBar.module.scss";
-import LanguageButton from "./utils/ContactButton/LanguageButton";
+import LanguageButton from "./utils/LanguageButton/LanguageButton";
 import { useSelector } from "react-redux";
 import { selectLocation } from "../../../redux/locationReducer/locationReducer.selectors";
 

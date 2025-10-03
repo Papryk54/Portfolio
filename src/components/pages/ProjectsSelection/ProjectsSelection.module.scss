@@ -14,7 +14,7 @@
 	justify-content: space-between;
 	padding: 1rem;
 	gap: 20px;
-	margin-right: 200px;
+	margin-right: 50%;
 }
 
 .navArrows {
@@ -38,6 +38,17 @@
 	width: 45px;
 	border: none;
 	border-radius: 2px 50px 50px 2px;
+}
+
+.arrowLeft, .arrowRight {
+	height: 24px;
+	width: 24px;
+	cursor: pointer;
+	margin: 0 auto;
+}
+
+.arrowLeft {
+	transform: rotate(180deg);
 }
 
 .title {

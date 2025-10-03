@@ -33,7 +33,6 @@
 	font-weight: 400;
 	line-height: 25px;
 	font-family: vars.$font-main;
-	color: vars.$text-color;
 	display: flex;
 	justify-content: flex-start;
 	flex-direction: column;
@@ -43,7 +42,7 @@
 		font-size: 36px;
     line-height: 35px;
 		font-weight: 700;
-		color: vars.$text-color;
+		color: vars.$text-color-light;
     text-align: left;
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -52,7 +51,7 @@
 		font-size: 14px;
 		font-weight: 300;
 		line-height: 20px;
-		color: vars.$text-color;
+		color: vars.$text-color-light;
 		text-align: left;
 		font-family: vars.$font-secondary;
 	}
@@ -75,7 +74,7 @@
 		justify-content: center;
 		align-items: center;
 		.scrollText {
-			color: vars.$text-color-dark;
+			color: vars.$text-color;
 			text-transform: uppercase;
 			text-align: left;
 			width: 100%;
@@ -90,7 +89,7 @@
 		height: 100%;
 		border: none;
 		p {
-			color: vars.$text-color-dark;
+			color: vars.$text-color;
 			font-family: vars.$font-main-bold;
 			text-transform: uppercase;
 		}

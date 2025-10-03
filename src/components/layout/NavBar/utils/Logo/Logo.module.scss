@@ -3,21 +3,7 @@
 .wrapper {
 	display: flex;
 	align-items: center;
-}
-
-.logo {
-	display: flex;
-	width: 200px;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
-	user-select: none;
-	transition: transform 0.3s;
-
-	&:hover {
-		transform: scale(1.05);
-	}
+	height: 100px;
 }
 
 .logoButton {
@@ -25,4 +11,93 @@
 	border: none;
 	padding: 0;
 	cursor: pointer;
+
+	.logo {
+		display: flex;
+		width: 40px;
+		height: 40px;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		user-select: none;
+		transition: transform vars.$transition-basic;
+
+		&:hover {
+			transform: scale(1.05);
+		}
+	}
+}
+
+.logoText {
+	display: flex;
+	align-items: center;
+	height: 50px;
+	width: 200px;
+	max-width: 200px;
+	margin-left: 10px;
+
+	.logoName {
+		font-size: 12px;
+		letter-spacing: 2px;
+		font-family: vars.$font-secondary;
+		color: vars.$text-color-light;
+	}
+}
+
+.backToTopButton {
+	background: vars.$background-teritary;
+	border: none;
+	cursor: pointer;
+	border-radius: 50px;
+	transition: background-color vars.$transition-basic;
+
+	&:hover {
+		background-color: vars.$text-color-light;
+		.backToTopText {
+			color: vars.$text-color;
+			transition: color vars.$transition-basic;
+		}
+	}
+
+	.backToTopContainer {
+		display: flex;
+		align-items: center;
+		padding: 15px;
+		gap: 5px;
+	}
+
+	.backToTopText {
+		font-size: 12px;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		font-family: vars.$font-main;
+		color: vars.$text-color-light;
+		transition: color vars.$transition-basic;
+	}
+
+	.arrowFadeWrapper {
+		position: relative;
+		width: 20px;
+		height: 20px;
+
+		.backToTopIcon {
+			position: absolute;
+			top: 0;
+			left: 0;
+			max-width: 20px;
+			max-height: 20px;
+			transition: opacity vars.$transition-basic,
+				transform vars.$transition-basic;
+			rotate: 180deg;
+		}
+		.arrowVisible {
+			opacity: 1;
+			z-index: 2;
+		}
+		.arrowHidden {
+			opacity: 0;
+			z-index: 1;
+		}
+	}
 }
