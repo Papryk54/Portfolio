@@ -1,27 +1,26 @@
+@use "sass:color";
+
 // MAIN COLORS
 
-$primary-color: #ffebbb; // buttons / headers
-$primary-color-dark: darken($primary-color, 20%); // interactive element hovers
-$primary-color-light: lighten(
-	$primary-color,
-	10%
-); // links / active element / focus
-$accent-color: #efbaff; // icons / strong / span
-$accent-color-dark: darken($accent-color, 20%); // text hovers
-$accent-color-light: lighten($accent-color, 20%); // CTA / highlights like "new"
+$primary-color: #ffebbb;
+$primary-color-dark: color.adjust($primary-color, $lightness: -20%);
+$primary-color-light: color.adjust($primary-color, $lightness: 10%);
+$accent-color: #efbaff;
+$accent-color-dark: color.adjust($accent-color, $lightness: -20%);
+$accent-color-light: color.adjust($accent-color, $lightness: 20%);
 
 // TEXT & BACKGROUND COLORS
 
-$background-primary: #01050e; // main background
-$background-secondary: #0d1a37; // cards / sections
-$background-teritary: #273962; // hover on cards / sections
-$text-color: hsl(216, 5%, 82%); // main text
-$text-color-light: lighten($text-color, 20%); // links / highlights
-$text-color-dark: $background-primary; // When text is on primary-color
+$background-primary: #01050e;
+$background-secondary: #0d1a37;
+$background-teritary: #273962;
+$text-color: hsl(216, 5%, 82%);
+$text-color-light: color.adjust($text-color, $lightness: 20%);
+$text-color-dark: $background-primary;
 
 $alert-color: #ffc6ba;
 $success-color: #baffe4;
- 
+
 // FONTS
 @font-face {
 	font-family: "Roboto-Regular";

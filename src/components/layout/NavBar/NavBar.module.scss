@@ -1,3 +1,5 @@
+@use "../../../styles/variables.scss" as vars;
+
 .wrapper {
 	display: flex;
 	align-items: center;
@@ -16,9 +18,21 @@
 }
 
 .center {
-	flex: 1;
+	flex: 2;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
+	gap: 10px;
+}
+
+.projectNav {
+	padding: 0 12px;
+	font-size: 12px;
+	line-height: 50px;
+	color: vars.$text-color-dark;
+	border-radius: 50px;
+	border: none;
+	cursor: pointer;
+	transition: color 0.3s;
 }
 
 .right {
