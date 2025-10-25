@@ -1,0 +1,39 @@
+@use "../../../styles//variables.scss" as vars;
+
+.projectInfo {
+	width: 50%;
+}
+
+.description {
+	height: 90%;
+	border: solid 1px vars.$text-color-light;
+	padding: vars.$spacing-lg;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.descLabel {
+	font-family: vars.$font-main-bold;
+	font-size: vars.$font-xl;
+	color: vars.$primary-color;
+	margin-bottom: vars.$spacing-sm;
+	text-align: left;
+}
+
+.descriptionText {
+	font-family: vars.$font-secondary;
+	color: vars.$text-color-light;
+	line-height: 1.5;
+	overflow-y: auto;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	text-align: left;
+}
+
+.technologiesUsed {
+	height: 10%;
+	border: solid 1px vars.$text-color-light;
+}

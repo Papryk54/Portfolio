@@ -5,16 +5,26 @@ const initialState: ProjectReducerState = {
 	list: [
 		{
 			id: 0,
-			description:
+			description: [
 				"Discover my design corner: from drawing to all types of graphics, discover how an artistic project is born in the digital world.",
+				"This project showcases my skills in full-stack development, combining a sleek frontend with a robust backend to deliver an exceptional user experience.",
+				"Built with React, Redux, and TypeScript on the frontend, and Node.js with Express and MongoDB on the backend, this application demonstrates my ability to create scalable and efficient web solutions.",
+			],
+			features: [],
+			futureDevelopment: [],
 			image: "/src/assets/images/placeholderImg.png",
 			stack: [],
 			name: "Project 1",
 		},
 		{
 			id: 1,
-			description:
-				"Discover my design corner: from drawing to all types of graphics, discover how an artistic project is born in the digital world.",
+			description: [
+				"Description: Discover my design corner: from drawing to all types of graphics, discover how an artistic project is born in the digital world.",
+				"This project showcases my skills in full-stack development, combining a sleek frontend with a robust backend to deliver an exceptional user experience.",
+				"Built with React, Redux, and TypeScript on the frontend, and Node.js with Express and MongoDB on the backend, this application demonstrates my ability to create scalable and efficient web solutions.",
+			],
+			features: ["Feature 1", "Feature 2", "Feature 3", "Feature 4", "Feature 5", "Feature 6"],
+			futureDevelopment: ["Future Development 1", "Future Development 2", "Future Development 3", "Future Development 4", "Future Development 5", "Future Development 6"],
 			image: "/src/assets/images/placeholderImg.png",
 			stack: [
 				"react",
@@ -31,24 +41,39 @@ const initialState: ProjectReducerState = {
 		},
 		{
 			id: 2,
-			description:
+			description: [
 				"Discover my design corner: from drawing to all types of graphics, discover how an artistic project is born in the digital world.",
+				"This project showcases my skills in full-stack development, combining a sleek frontend with a robust backend to deliver an exceptional user experience.",
+				"Built with React, Redux, and TypeScript on the frontend, and Node.js with Express and MongoDB on the backend, this application demonstrates my ability to create scalable and efficient web solutions.",
+			],
+			features: [],
+			futureDevelopment: [],
 			image: "/src/assets/images/placeholderImg.png",
 			stack: ["react", "redux", "typescript", "sass"],
 			name: "Project 3",
 		},
 		{
 			id: 3,
-			description:
+			description: [
 				"Discover my design corner: from drawing to all types of graphics, discover how an artistic project is born in the digital world.",
+				"This project showcases my skills in full-stack development, combining a sleek frontend with a robust backend to deliver an exceptional user experience.",
+				"Built with React, Redux, and TypeScript on the frontend, and Node.js with Express and MongoDB on the backend, this application demonstrates my ability to create scalable and efficient web solutions.",
+			],
+			features: [],
+			futureDevelopment: [],
 			image: "/src/assets/images/placeholderImg.png",
 			stack: ["react", "redux", "typescript", "sass"],
 			name: "Project 4",
 		},
 		{
 			id: 4,
-			description:
+			description: [
 				"Discover my design corner: from drawing to all types of graphics, discover how an artistic project is born in the digital world.",
+				"This project showcases my skills in full-stack development, combining a sleek frontend with a robust backend to deliver an exceptional user experience.",
+				"Built with React, Redux, and TypeScript on the frontend, and Node.js with Express and MongoDB on the backend, this application demonstrates my ability to create scalable and efficient web solutions.",
+			],
+			features: [],
+			futureDevelopment: [],
 			image: "/src/assets/images/placeholderImg.png",
 			stack: ["react", "redux", "typescript", "sass"],
 			name: "Project 5",

@@ -3,9 +3,9 @@ import Home from "./components/pages/Home/Home";
 import { Routes, Route } from "react-router-dom";
 import ProjectPage from "./components/pages/ProjectPage/ProjectPage";
 import gsap from "gsap";
-import { Draggable, ScrollToPlugin, ScrollTrigger } from "gsap/all";
+import { Draggable, ScrollToPlugin, ScrollTrigger, SplitText } from "gsap/all";
 
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, Draggable);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, Draggable, SplitText);
 
 function App() {
 	return (

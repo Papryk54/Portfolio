@@ -23,7 +23,7 @@ const TechStack = () => {
 			bounds: stackItemsContainer.current,
 			inertia: true,
 		});
-	});
+	}, [id]);
 	if (!projectItem) return null;
 
 	return (

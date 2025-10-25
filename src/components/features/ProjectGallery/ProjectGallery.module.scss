@@ -1,0 +1,62 @@
+@use "../../../styles/variables.scss" as vars;
+
+.projectGallery {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: nowrap;
+	width: 50%;
+	height: 100%;
+	border: solid 1px vars.$text-color-light;
+	padding: vars.$spacing-lg;
+	gap: vars.$spacing-lg;
+}
+
+.galleryHeader {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	position: relative;
+	gap: vars.$spacing-xs;
+	height: 5%;
+	width: 100%;
+}
+
+.imageTitle {
+	font-family: vars.$font-main-bold;
+	font-size: vars.$font-2xl;
+	color: vars.$text-color-light;
+}
+
+.imageMain {
+	object-fit: cover;
+	border: solid 1px vars.$text-color-light;
+	height: 55%;
+	width: 80%;
+}
+
+.otherImages {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: vars.$spacing-sm;
+	height: 20%;
+	.imageOther {
+		object-fit: cover;
+		border: solid 1px vars.$text-color-light;
+		height: calc(50% - vars.$spacing-sm);
+		aspect-ratio: 1 / 1;
+	}
+}
+
+.githubLink {
+	position: absolute;
+	right: vars.$spacing-sm;
+	height: 80%;
+	img {
+		height: 100%;
+	}
+}

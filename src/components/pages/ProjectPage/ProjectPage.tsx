@@ -3,14 +3,21 @@ import NavBar from "../../layout/NavBar/NavBar";
 import styles from "./ProjectPage.module.scss";
 import arrowIcon from "../../../assets/icons/arrow-light.png";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
-import TechStack from "../../utils/TechStack/TechStack";
+import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setActiveProject } from "../../../redux/projectReducer/projectReducer.slice";
+import ProjectDescription from "../../layout/ProjectDescription/ProjectDescription";
+import ProjectGallery from "../../features/ProjectGallery/ProjectGallery";
 
 const ProjectPage = () => {
+	const dispatch = useDispatch();
+	const { id } = useParams<{ id: string }>();
 	const mainRef = useRef<HTMLDivElement>(null);
 	const headerRef = useRef<HTMLDivElement>(null);
 	const wrapperRef = useRef<HTMLDivElement>(null);
+
+	dispatch(setActiveProject(Number(id)));
 
 	const handleGoToMainSection = () => {
 		if (mainRef.current) {
@@ -22,18 +29,6 @@ const ProjectPage = () => {
 		}
 	};
 
-	useGSAP(() => {
-		gsap.to(mainRef.current, {
-			scrollTrigger: {
-				trigger: mainRef.current,
-				start: "top top",
-				end: "bottom center",
-				scrub: true,
-				markers: true,
-			},
-			ease: "none",
-		});
-	});
 	return (
 		<div ref={wrapperRef} className={`${styles.wrapper} ${styles.scrollable}`}>
 			<NavBar />
@@ -48,37 +43,8 @@ const ProjectPage = () => {
 				</button>
 			</div>
 			<div ref={mainRef} className={styles.mainSection}>
-				<div className={styles.projectInfo}>
-					<div className={styles.description}>
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi
-							saepe laborum eius molestiae fugiat inventore architecto? Rem
-							explicabo, nihil atque quos beatae id repellendus commodi
-							reiciendis fugiat voluptatibus soluta dolorem. Lorem ipsum dolor,
-							sit amet consectetur adipisicing elit. Cupiditate blanditiis illo
-							libero, nostrum enim numquam tenetur dolores cumque ad maxime
-							aliquid doloribus, iusto odit deserunt laudantium pariatur quis
-							qui reiciendis.
-						</p>
-					</div>
-					<div className={styles.technologiesUsed}>
-						<TechStack />
-						<a className={styles.githubLink} href="#">
-							<img src="#" alt="githubLogo" />
-						</a>
-					</div>
-				</div>
-				<div className={styles.projectGallery}>
-					<h3 className={styles.imageTitle}>Image Title</h3>
-					<img src="#" alt="Image" className={styles.imageMain} />
-					<div className={styles.otherImages}>
-						<img src="#" alt="Image" className={styles.imageOther} />
-						<img src="#" alt="Image" className={styles.imageOther} />
-						<img src="#" alt="Image" className={styles.imageOther} />
-						<img src="#" alt="Image" className={styles.imageOther} />
-						<img src="#" alt="Image" className={styles.imageOther} />
-					</div>
-				</div>
+				<ProjectDescription />
+				<ProjectGallery />
 			</div>
 			<div className={styles.seeAlsoSection}>
 				<p>also see section</p>

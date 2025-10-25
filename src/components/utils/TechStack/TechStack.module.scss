@@ -1,13 +1,40 @@
 @use "../../../styles/variables.scss" as vars;
 
 .projectStack {
+	position: relative;
+	overflow: hidden;
 	height: 100%;
 	width: 100%;
-	overflow: hidden;
 	padding: vars.$spacing-lg;
-	scrollbar-width: none;
-	text-align: start;
-	position: relative;
+
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		width: 20px;
+		height: 100%;
+		pointer-events: none;
+		z-index: 2;
+	}
+
+	&::before {
+		left: 0;
+		background: linear-gradient(
+			to right,
+			vars.$background-basic 10%,
+			transparent 100%
+		);
+	}
+
+	&::after {
+		right: 0;
+		background: linear-gradient(
+			to left,
+			vars.$background-basic 50%,
+			transparent 100%
+		);
+	}
 }
 
 .track {
@@ -47,6 +74,7 @@
 	height: 24px;
 	margin-left: 10px;
 	transform: translateY(-50%);
+	z-index: 3;
 }
 
 .react {

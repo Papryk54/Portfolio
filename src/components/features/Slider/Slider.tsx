@@ -27,7 +27,6 @@ const Slider = () => {
 				{project.list.map((slide, index) => (
 					<SwiperSlide key={index}>
 						<h3 className={styles.slideTitle}>{slide.name}</h3>
-						<p className={styles.slideDescription}>{slide.description}</p>
 						<img
 							src={slide.image}
 							alt={slide.name}

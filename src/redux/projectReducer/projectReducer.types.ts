@@ -12,7 +12,9 @@ export type ProjectStack =
 
 export type Project = {
 	id: number;
-	description: string;
+	description: string[];
+	features: string[];
+	futureDevelopment: string[];
 	image: string;
 	stack: ProjectStack[];
 	name: string;
