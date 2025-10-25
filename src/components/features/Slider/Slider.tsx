@@ -28,7 +28,7 @@ const Slider = () => {
 					<SwiperSlide key={index}>
 						<h3 className={styles.slideTitle}>{slide.name}</h3>
 						<img
-							src={slide.image}
+							src={slide.images[0]}
 							alt={slide.name}
 							className={styles.slideImage}
 						/>

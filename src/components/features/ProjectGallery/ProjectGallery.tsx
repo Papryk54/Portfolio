@@ -1,8 +1,21 @@
 import styles from "./ProjectGallery.module.scss";
 import githubIcon from "../../../assets/icons/socials/github-mark-white.png";
-
+import { useSelector } from "react-redux";
+import { selectActiveProjectImages } from "../../../redux/projectReducer/projectReducer.selectors";
+import { getImageByName } from "../../../utils/images";
+import { useState } from "react";
 
 const ProjectGallery = () => {
+	const images = useSelector(selectActiveProjectImages);
+	const imagesSrcs = images.map(getImageByName);
+	const [mainImgSrc, setMainImgSrc] = useState(
+		imagesSrcs[0] || "placeholder.png"
+	);
+
+	const handleImageClick = (src: string) => {
+		setMainImgSrc(src);
+	};
+
 	return (
 		<div className={styles.projectGallery}>
 			<div className={styles.galleryHeader}>
@@ -11,18 +24,21 @@ const ProjectGallery = () => {
 					<img src={githubIcon} alt="githubLogo" />
 				</a>
 			</div>
-			<img src="#" alt="Image" className={styles.imageMain} />
+			<img
+				src={mainImgSrc || "/placeholder.png"}
+				alt="Image"
+				className={styles.imageMain}
+			/>
 			<div className={styles.otherImages}>
-				<img src="#" alt="Image" className={styles.imageOther} />
-				<img src="#" alt="Image" className={styles.imageOther} />
-				<img src="#" alt="Image" className={styles.imageOther} />
-				<img src="#" alt="Image" className={styles.imageOther} />
-				<img src="#" alt="Image" className={styles.imageOther} />
-				<img src="#" alt="Image" className={styles.imageOther} />
-				<img src="#" alt="Image" className={styles.imageOther} />
-				<img src="#" alt="Image" className={styles.imageOther} />
-				<img src="#" alt="Image" className={styles.imageOther} />
-				<img src="#" alt="Image" className={styles.imageOther} />
+				{imagesSrcs.map((src, i) => (
+					<img
+						key={i}
+						src={src || "/placeholder.png"}
+						alt={`Image ${i}`}
+						className={styles.imageOther}
+						onClick={() => handleImageClick(src)}
+					/>
+				))}
 			</div>
 		</div>
 	);

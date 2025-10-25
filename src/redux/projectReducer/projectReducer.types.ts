@@ -15,7 +15,7 @@ export type Project = {
 	description: string[];
 	features: string[];
 	futureDevelopment: string[];
-	image: string;
+	images: string[];
 	stack: ProjectStack[];
 	name: string;
 };
