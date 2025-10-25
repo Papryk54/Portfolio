@@ -1,0 +1,25 @@
+.wrapper {
+	position: absolute;
+	bottom: 50px;
+	right: 110px;
+}
+
+.socialLinksList {
+	list-style: none;
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+}
+
+.socialLinkItem {
+}
+
+.socialLink {
+	img {
+		filter: invert(99%) sepia(2%) saturate(788%) hue-rotate(208deg)
+			brightness(109%) contrast(73%);
+		width: 30px;
+		height: 30px;
+    margin-right: 30px;
+	}
+}

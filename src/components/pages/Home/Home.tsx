@@ -1,43 +1,53 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import NavBar from "../../layout/NavBar/NavBar";
 import WelcomePanel from "../../layout/WelcomePanel/WelcomePanel";
-import ProjectsSelection from "../ProjectsSelection/ProjectsSelection";
 import styles from "./Home.module.scss";
-import { useDispatch, useSelector } from "react-redux";
-import { selectLocation } from "../../../redux/locationReducer/locationReducer.selectors";
-import { setLocation } from "../../../redux/locationReducer/locationReducer.slice";
+import ProjectsSelection from "../../features/ProjectsSelection/ProjectsSelection";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import Observer from "gsap/Observer";
 
 const Home = () => {
 	const homeRef = useRef<HTMLDivElement>(null);
-	const location = useSelector(selectLocation);
-	const dispatch = useDispatch();
+	const projectsRef = useRef<HTMLDivElement>(null);
+	gsap.registerPlugin(Observer);
 
-	useEffect(() => {
-		const handleScroll = (e: WheelEvent) => {
-			if (location === "home" && Math.abs(e.deltaY) > 5) {
-				dispatch(setLocation("projects"));
-			}
-		};
-		window.addEventListener("wheel", handleScroll, { passive: true });
-		return () => window.removeEventListener("wheel", handleScroll);
-	}, [location, dispatch]);
+	useGSAP(() => {
+		Observer.create({
+			target: window,
+			type: "wheel,touch,scroll",
+			preventDefault: true,
+			wheelSpeed: 1,
+			onDown: () => {
+				if (projectsRef.current) {
+					gsap.to(window, {
+						scrollTo: {
+							y: projectsRef.current,
+						},
+						duration: 0.5,
+					});
+				}
+			},
+			onUp: () => {
+				if (homeRef.current) {
+					gsap.to(window, {
+						scrollTo: {
+							y: homeRef.current,
+						},
+						duration: 0.5,
+					});
+				}
+			},
+		});
+	});
 
 	return (
 		<div className={styles.wrapper}>
 			<NavBar />
-			<div
-				ref={homeRef}
-				className={`${styles.homePanel} ${
-					location === "projects" ? styles.hide : ""
-				}`}
-			>
+			<div ref={homeRef} className={styles.homePanel}>
 				<WelcomePanel />
 			</div>
-			<div
-				className={`${styles.projectsPanel} ${
-					location === "projects" ? styles.show : ""
-				}`}
-			>
+			<div ref={projectsRef} className={styles.projectsPanel}>
 				<ProjectsSelection />
 			</div>
 		</div>

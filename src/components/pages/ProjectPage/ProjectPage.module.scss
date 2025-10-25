@@ -1,0 +1,150 @@
+@use "../../../styles/variables.scss" as vars;
+
+.wrapper {
+	background-color: vars.$background-basic;
+	min-height: 100vh;
+}
+
+// Project Header Section
+
+.projectHeader {
+	position: relative;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+	background-image: url("../../../assets/.placeholders/placebgc.png");
+	background-size: cover;
+	background-position: center;
+}
+
+.projectImage {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100%;
+	background: linear-gradient(
+		transparent 0,
+		rgba(vars.$background-basic, 0.5) 20%,
+		vars.$background-basic 100%
+	);
+	z-index: 0;
+	pointer-events: none;
+}
+
+.projectTitle {
+	font-family: vars.$font-main-bold;
+	font-size: 48px;
+	color: vars.$text-color-light;
+	margin-top: 20vh;
+	z-index: 1;
+}
+
+.projectMotto {
+	font-family: vars.$font-special;
+	font-size: vars.$font-lg;
+	color: vars.$text-color-light;
+	margin-top: 20vh;
+	z-index: 1;
+}
+
+.goDownButton {
+	width: 20px;
+	height: 20px;
+	background-color: transparent;
+	border: none;
+	border-radius: vars.$radius-md;
+	cursor: pointer;
+	z-index: 1;
+	img {
+		rotate: 90deg;
+		width: 20px;
+		position: absolute;
+		bottom: 60px;
+	}
+}
+
+// Main Section
+
+.mainSection {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 40px;
+	padding: 40px 20px;
+	background-color: vars.$background-basic;
+	height: 100vh;
+}
+
+// Project Info Section
+
+.projectInfo {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 50%;
+	height: 100%;
+}
+
+.description {
+	height: 90%;
+	border: solid 1px vars.$text-color-light;
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.technologiesUsed {
+	height: 10%;
+	border: solid 1px vars.$text-color-light;
+}
+
+// Gallery Section
+
+.projectGallery {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 50%;
+	height: 100%;
+	border: solid 1px vars.$text-color-light;
+	padding: 20px;
+	gap: 20px;
+}
+
+.imageTitle {
+	font-family: vars.$font-main-bold;
+	font-size: vars.$font-2xl;
+	color: vars.$text-color-light;
+}
+
+.imageMain {
+	width: 70%;
+	aspect-ratio: 1/1;
+	object-fit: cover;
+	border: solid 1px vars.$text-color-light;
+}
+
+.otherImages {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 10px;
+	width: 100%;
+	.imageOther {
+		width: 15%;
+		aspect-ratio: 1/1;
+		object-fit: cover;
+		border: solid 1px vars.$text-color-light;
+	}
+}
+
+.githubLink {
+	position: absolute;
+	top: 5vh;
+	right: 5vw;
+}

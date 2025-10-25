@@ -2,15 +2,20 @@
 
 // MAIN COLORS
 
-$primary-color: #ff204e;
-$primary-color-dark: color.adjust($primary-color, $lightness: -20%);
-$primary-color-light: color.adjust($primary-color, $lightness: 10%);
+$primary-color: #cc0a34;
+$primary-color-dark: #99142f;
+$primary-color-light: #ff214e;
+$secondary-color: #ffc621;
+$secondary-color-dark: color.adjust($secondary-color, $lightness: -20%);
+$secondary-color-light: color.adjust($secondary-color, $lightness: 10%);
 
 // TEXT & BACKGROUND COLORS
 
 $background-primary: #e0e0e0;
 $background-secondary: #949494;
 $background-teritary: #727272;
+$background-basic: #111111;
+
 $text-color: #1a1a1a;
 $text-color-light: #dddddd;
 
@@ -50,11 +55,34 @@ $font-main: "Roboto-Regular", sans-serif;
 $font-main-bold: "Roboto-Bold", sans-serif;
 $font-secondary: "RobotoCondensed-Regular", sans-serif;
 $font-special: "Amarante-Regular", sans-serif;
-$font-size-basic: 18px;
+$font-size-md: 18px;
+
+$font-2xs: 0.6rem;
+$font-xs: 0.7rem;
+$font-sm: 0.8rem;
+$font-lg: 1.1rem;
+$font-xl: 1.3rem;
+$font-2xl: 1.6rem;
+$font-3xl: 2rem;
+$font-4xl: 2.7rem;
+$font-5xl: 3.5rem;
+
+// SPACING & DIMENSIONS
+$spacing-2xs: 0.2rem;
+$spacing-xs: 0.4rem;
+$spacing-sm: 0.6rem;
+$spacing-md: 0.9rem;
+$spacing-lg: 1.3rem;
+$spacing-xl: 1.8rem;
+$spacing-2xl: 2.2rem;
 
 // OTHER VARIABLES
 
-$border-radius: 5px;
-$border-radius-large: 10px;
+$radius-sm: 0.4rem;
+$radius-md: 0.8rem;
+$radius-lg: 1.2rem;
+$radius-xl: 1.6rem;
+$radius-2xl: 2rem;
+
 $shadow-color: rgba(0, 0, 0, 0.5);
 $transition-basic: 0.3s;

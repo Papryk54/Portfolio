@@ -3,18 +3,28 @@ import styles from "./Logo.module.scss";
 import { setLocation } from "../../../../../redux/locationReducer/locationReducer.slice";
 import { selectLocation } from "../../../../../redux/locationReducer/locationReducer.selectors";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import arrowDark from "../../../../../assets/icons/arrow-dark.png";
+import arrowLight from "../../../../../assets/icons/arrow-light.png";
 
 const Logo = () => {
 	const [isHovered, setIsHovered] = useState(false);
 	const location = useSelector(selectLocation);
 	const dispatch = useDispatch();
+
+	const navigate = useNavigate();
 	const handleBackToTop = () => {
 		dispatch(setLocation("home"));
+		navigate("/");
 	};
 
 	return (
 		<div className={styles.wrapper}>
-			<button className={styles.logoButton} onClick={handleBackToTop}>
+			<button
+				type="button"
+				className={styles.logoButton}
+				onClick={handleBackToTop}
+			>
 				<img
 					src="/src/assets/images/logo.png"
 					alt="Logo"
@@ -37,14 +47,14 @@ const Logo = () => {
 						<div className={styles.backToTopContainer}>
 							<div className={styles.arrowFadeWrapper}>
 								<img
-									src="/src/assets/images/arrow-light.png"
+									src={arrowLight}
 									alt="Back"
 									className={`${styles.backToTopIcon} ${
 										!isHovered ? styles.arrowVisible : styles.arrowHidden
 									}`}
 								/>
 								<img
-									src="/src/assets/images/arrow-dark.png"
+									src={arrowDark}
 									alt="Back"
 									className={`${styles.backToTopIcon} ${
 										isHovered ? styles.arrowVisible : styles.arrowHidden

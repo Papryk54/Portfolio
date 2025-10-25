@@ -1,0 +1,95 @@
+// ...existing code...
+@use "../../../styles/variables.scss" as vars;
+
+.form {
+	width: 100%;
+	max-width: 600px;
+	background: transparent;
+	padding: 12px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	color: vars.$text-color-light;
+}
+
+.label {
+	font-size: vars.$font-sm;
+	font-family: vars.$font-main-bold;
+	letter-spacing: 0.02em;
+	margin-left: 4px;
+	margin-bottom: 4px;
+	color: rgba(255, 255, 255, 0.75);
+}
+
+.input,
+.textarea {
+	width: 100%;
+	background: transparent;
+	border: none;
+	border-bottom: 2px solid vars.$text-color;
+	color: vars.$text-color-light;
+	height: 44px;
+	padding: 0 14px;
+	font-family: vars.$font-main;
+	font-size: vars.$font-sm;
+	box-shadow: none;
+	transition: transform 0.08s ease, box-shadow 0.12s ease;
+	display: block;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+	color: rgba(255, 255, 255, 0.45);
+}
+
+.input:focus,
+.textarea:focus {
+	outline: 2px solid rgba(255, 255, 255, 0.06);
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+	transform: translateY(-1px);
+}
+
+.textarea {
+	min-height: 120px;
+	padding: 12px 14px;
+	resize: vertical;
+}
+
+.button {
+	align-self: flex-start;
+	padding: 10px 16px;
+	border-radius: 8px;
+	border: none;
+	cursor: pointer;
+	font-family: vars.$font-main-bold;
+	font-size: vars.$font-sm;
+	color: vars.$background-primary;
+	background: linear-gradient(
+		90deg,
+		vars.$primary-color,
+		vars.$primary-color-dark
+	);
+	transition: transform 0.12s ease, opacity 0.12s ease;
+}
+
+.button:hover {
+	transform: translateY(-2px);
+	opacity: 0.98;
+}
+
+.button:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+	transform: none;
+}
+
+@media (max-width: 720px) {
+	.form {
+		max-width: 100%;
+		padding: 10px;
+	}
+	.button {
+		width: 100%;
+	}
+}
+// ...existing code...

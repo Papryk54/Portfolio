@@ -1,0 +1,70 @@
+@use "../../../styles/variables.scss" as vars;
+
+.slideImage {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	aspect-ratio: 16 / 9;
+}
+
+.sliderMain {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	width: 120%;
+	background-color: rgba($color: #000000, $alpha: 0.5);
+	box-shadow: 0 0 60px 20px rgba(0, 0, 0, 0.7);
+	margin-right: 20%;
+}
+
+:global(.swiper) {
+	width: 100%;
+}
+
+:global(.swiper-slide) {
+	position: relative;
+	height: calc(90vh - 550px);
+	max-height: 600px;
+	aspect-ratio: 16 / 9;
+	border-radius: 30px;
+	overflow: hidden;
+	transition: 1s;
+	user-select: none;
+}
+
+:global(.swiper-slide-active) {
+	transition: width 1s ease-in-out;
+	border: 3px solid vars.$primary-color;
+}
+
+:global(.swiper-slide img) {
+	position: absolute;
+	height: calc(100% - 50px);
+	padding: 5px;
+	border-radius: 30px;
+	inset: 0;
+	filter: grayscale(90%);
+}
+
+:global(.swiper-slide-active img) {
+	filter: grayscale(0%);
+}
+
+.slideTitle {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	padding: 25px 25px 30px;
+}
+
+@media (max-height: 800px) {
+	.sliderMain {
+		display: none;
+	}
+}

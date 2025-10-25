@@ -1,0 +1,107 @@
+@use "../../../styles/variables.scss" as vars;
+
+.wrapper {
+	max-height: calc(100vh - 120px);
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+	margin-top: 20vh;
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	width: 100%;
+	height: 80px;
+	margin-left: 5%;
+	gap: 20px;
+	z-index: 2;
+}
+
+.navArrows {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+	height: 50px;
+	width: 120px;
+}
+
+.arrowButtonLeft {
+	height: 90%;
+	width: 37.5%;
+	border: none;
+	border-radius: 50px 2px 2px 50px;
+}
+
+.arrowButtonRight {
+	height: 90%;
+	width: 37.5%;
+	border: none;
+	border-radius: 2px 50px 50px 2px;
+}
+
+.arrowLeft,
+.arrowRight {
+	height: 24px;
+	width: 24px;
+	cursor: pointer;
+	margin: 0 auto;
+}
+
+.arrowLeft {
+	transform: rotate(180deg);
+}
+
+.title {
+	font-size: 35px;
+	font-weight: 600;
+	margin-top: 40px;
+	font-family: vars.$font-main-bold;
+	color: vars.$text-color-light;
+	letter-spacing: 2px;
+}
+
+.imgGallery {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+	flex-wrap: wrap;
+	padding: 1rem;
+	margin-top: 20px;
+	height: 270px;
+	max-height: 270px;
+	overflow: hidden;
+}
+
+.img {
+	height: 250px;
+	width: 400px;
+	border-radius: vars.$radius-sm;
+	object-fit: cover;
+	cursor: pointer;
+	transition: vars.$transition-basic;
+}
+
+@media (max-height: 800px) {
+	.header {
+		justify-content: center;
+		flex-direction: column;
+		margin-left: 0;
+		height: 100%;
+
+		.title {
+			margin-top: 0;
+		}
+	}
+}
+
+@media (max-height: 600px) {
+	.header {
+		flex-direction: row;
+	}
+}

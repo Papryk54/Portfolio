@@ -1,0 +1,157 @@
+@use "../../../styles/variables.scss" as vars;
+
+.projectStack {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	padding: vars.$spacing-lg;
+	scrollbar-width: none;
+	text-align: start;
+	position: relative;
+}
+
+.track {
+	display: flex;
+	cursor: grab;
+	width: max-content;
+	height: 100%;
+	padding: 0 vars.$spacing-md;
+}
+
+.stackItem {
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	border-radius: vars.$radius-md;
+	padding: vars.$spacing-xs vars.$spacing-md;
+	width: auto;
+	flex: 0 0 auto;
+	p {
+		text-transform: uppercase;
+		font-size: vars.$font-sm;
+	}
+}
+
+.stackIcon {
+	height: 100%;
+	margin: 0 5px;
+	vertical-align: middle;
+}
+
+.arrow {
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 24px;
+	height: 24px;
+	margin-left: 10px;
+	transform: translateY(-50%);
+}
+
+.react {
+	background: linear-gradient(
+		90deg,
+		#61dafb 0%,
+		vars.$background-basic vars.$spacing-md
+	);
+	p {
+		color: #61dafb;
+	}
+}
+
+.redux {
+	color: #764abc;
+	background: linear-gradient(
+		90deg,
+		#764abc 0%,
+		vars.$background-basic vars.$spacing-md
+	);
+	p {
+		color: #764abc;
+	}
+}
+
+.typescript {
+	color: #3178c6;
+	background: linear-gradient(
+		90deg,
+		#3178c6 0%,
+		vars.$background-basic vars.$spacing-md
+	);
+	p {
+		color: #3178c6;
+	}
+}
+
+.sass {
+	color: #cc6699;
+	background: linear-gradient(
+		90deg,
+		#cc6699 0%,
+		vars.$background-basic vars.$spacing-md
+	);
+	p {
+		color: #cc6699;
+	}
+}
+
+.gsap {
+	color: #88ce02;
+	background: linear-gradient(
+		90deg,
+		#88ce02 0%,
+		vars.$background-basic vars.$spacing-md
+	);
+	p {
+		color: #88ce02;
+	}
+}
+
+.appwrite {
+	color: #f02d65;
+	background: linear-gradient(
+		90deg,
+		#f02d65 0%,
+		vars.$background-basic vars.$spacing-md
+	);
+	p {
+		color: #f02d65;
+	}
+}
+
+.electron {
+	color: #47848f;
+	background: linear-gradient(
+		90deg,
+		#47848f 0%,
+		vars.$background-basic vars.$spacing-md
+	);
+	p {
+		color: #47848f;
+	}
+}
+
+.mysql {
+	color: #4479a1;
+	background: linear-gradient(
+		90deg,
+		#4479a1 0%,
+		vars.$background-basic vars.$spacing-md
+	);
+	p {
+		color: #4479a1;
+	}
+}
+
+.vitejs {
+	color: #41d1ff;
+	background: linear-gradient(
+		90deg,
+		#41d1ff 0%,
+		vars.$background-basic vars.$spacing-md
+	);
+	p {
+		color: #41d1ff;
+	}
+}

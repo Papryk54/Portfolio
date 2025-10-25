@@ -40,7 +40,7 @@ h6,
 span,
 strong {
 	overflow-wrap: break-word;
-	color: vars.$text-color;
+	color: vars.$text-color-light;
 }
 
 span,
@@ -50,7 +50,6 @@ strong {
 
 p {
 	text-wrap: pretty;
-	font-size: vars.$font-size-basic;
 	font-weight: 400;
 }
 
@@ -91,18 +90,14 @@ body {
 	display: flex;
 	min-width: 320px;
 	min-height: 100vh;
-	background-color: vars.$background-primary;
+	background-color: vars.$background-basic;
 	font-family: vars.$font-main;
 	align-items: center;
 	text-align: center;
-	overflow: hidden;
+	overflow-x: hidden;
 }
 
 #root {
-	width: 100vw;
-	height: 100vh;
-}
-
-:root {
-	font-size: vars.$font-size-basic;
+	font-size: vars.$font-size-md;
+	width: 100%;
 }

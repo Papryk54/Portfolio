@@ -1,11 +1,10 @@
+import StackSchowcase from "../../features/StackSchowcase/StackSchowcase";
 import styles from "./WelcomePanel.module.scss";
 
 const WelcomePanel = () => {
 	return (
 		<div className={styles.wrapper}>
-			<div className={styles.slider}>
-				<p className={styles.sliderText}>Developer</p>
-			</div>
+			<StackSchowcase />
 			<div className={styles.text}>
 				<h3 className={styles.name}>Patryk Olszewski</h3>
 				<p className={styles.introduction}>

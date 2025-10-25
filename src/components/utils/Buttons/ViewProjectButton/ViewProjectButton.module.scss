@@ -1,0 +1,36 @@
+@use '../../../../styles/variables.scss' as vars;
+
+.detailsButton {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	margin-top: 20px;
+}
+
+.viewProjectButton {
+	background: vars.$primary-color-dark;
+	color: vars.$text-color-light;
+	border: none;
+	padding: 10px 20px;
+	width: 70%;
+	height: 40px;
+	border-radius: 0.7rem;
+	font-size: 1rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: background 0.2s;
+}
+
+.viewProjectButton:hover {
+	background: vars.$primary-color-light;
+}
+
+.animationPlaceholder {
+	height: 40px;
+	width: 40px;
+	object-fit: contain;
+	filter: invert(92%) sepia(8%) saturate(749%) hue-rotate(175deg)
+		brightness(105%) contrast(89%);
+}
