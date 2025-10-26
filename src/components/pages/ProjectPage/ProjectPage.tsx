@@ -31,7 +31,7 @@ const ProjectPage = () => {
 
 	return (
 		<div ref={wrapperRef} className={`${styles.wrapper} ${styles.scrollable}`}>
-			<NavBar />
+			<NavBar variant="absolute" />
 			<div ref={headerRef} className={styles.projectHeader}>
 				<div className={styles.projectImage}></div>
 				<p className={styles.projectTitle}>Project Name</p>

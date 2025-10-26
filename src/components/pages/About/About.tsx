@@ -19,7 +19,7 @@ export const About = () => {
 	}, []);
 	return (
 		<div className={`${styles.wrapper} ${styles.scrollable}`}>
-			{!loading && <NavBar />}
+			{!loading && <NavBar variant="absolute" />}
 			<div className={styles.spacer}></div>
 			<div className={styles.heroSection}>
 				<div className={styles.introSection}>

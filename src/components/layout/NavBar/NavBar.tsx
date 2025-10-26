@@ -4,11 +4,15 @@ import LanguageButton from "./utils/LanguageButton/LanguageButton";
 import { useSelector } from "react-redux";
 import { selectLocation } from "../../../redux/locationReducer/locationReducer.selectors";
 
-const NavBar = () => {
+type Params = {
+	variant?: "fixed" | "absolute";
+};
+
+const NavBar = ( { variant }: Params ) => {
 	const location = useSelector(selectLocation);
 
 	return (
-		<div className={styles.wrapper}>
+		<div className={styles.wrapper} style={{ position: variant ? variant : "fixed" }}>
 			<div className={styles.left}>
 				<Logo />
 			</div>

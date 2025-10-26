@@ -143,11 +143,9 @@ const ProjectGallery = () => {
 				</div>
 			)}
 			<div className={styles.mainImageContainer} ref={normalSizeContainerRef}>
-				{!isFullSize && (
-					<p className={styles.imageHoverText} onClick={handleFullSize}>
-						Click for full size
-					</p>
-				)}
+				<button className={styles.imageHoverText} onClick={handleFullSize}>
+					Click for full size
+				</button>
 				<img
 					src={mainImgSrc || "/placeholder.png"}
 					alt="Image"

@@ -43,7 +43,7 @@ const Home = () => {
 
 	return (
 		<div className={styles.wrapper}>
-			<NavBar />
+			<NavBar variant="fixed" />
 			<div ref={homeRef} className={styles.homePanel}>
 				<WelcomePanel />
 			</div>
