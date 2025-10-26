@@ -121,11 +121,8 @@
 
 	button {
 		position: fixed;
-		top: vars.$spacing-lg;
-		right: vars.$spacing-lg;
 		width: 3%;
 		aspect-ratio: 1 / 1;
-		background-image: url(../../../assets/icons/remove.png);
 		background-size: contain;
 		background-color: transparent;
 		border: none;
@@ -134,6 +131,29 @@
 		&:hover {
 			cursor: pointer;
 			transform: scale(1.1);
+		}
+	}
+
+	.closeFullScreen {
+		top: vars.$spacing-lg;
+		right: vars.$spacing-lg;
+		background-image: url(../../../assets/icons/remove.png);
+	}
+
+	.nextImg {
+		top: 50%;
+		right: vars.$spacing-xl;
+		background-image: url(../../../assets/icons/arrow-light.png);
+	}
+
+	.prevImg {
+		top: 50%;
+		left: vars.$spacing-xl;
+		background-image: url(../../../assets/icons/arrow-light.png);
+		transform: rotateY(180deg);
+
+		&:hover {
+			transform: scale(1.1) rotateY(180deg);
 		}
 	}
 }

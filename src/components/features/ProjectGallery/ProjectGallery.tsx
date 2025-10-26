@@ -79,6 +79,38 @@ const ProjectGallery = () => {
 		setMainImgSrc(src);
 	};
 
+	const handleChangeImg = (direction: "next" | "prev") => {
+		const currentIndex = imagesSrcs.indexOf(mainImgSrc);
+		let newIndex = currentIndex;
+
+		if (direction === "next") {
+			newIndex = (currentIndex + 1) % imagesSrcs.length;
+		} else if (direction === "prev") {
+			newIndex = (currentIndex - 1 + imagesSrcs.length) % imagesSrcs.length;
+		}
+
+		const img = imgMainRef.current;
+		if (!img) return;
+
+		const hideTo = direction === "next" ? -300 : 300;
+		const showFrom = direction === "next" ? 300 : -300;
+
+		gsap.to(img, {
+			x: hideTo,
+			opacity: 0,
+			duration: 0.4,
+			ease: "power2.in",
+			onComplete: () => {
+				setMainImgSrc(imagesSrcs[newIndex]);
+				gsap.fromTo(
+					img,
+					{ x: showFrom, opacity: 0 },
+					{ x: 0, opacity: 1, duration: 0.4, ease: "power2.out" }
+				);
+			},
+		});
+	};
+
 	return (
 		<div className={styles.projectGallery}>
 			<div className={styles.galleryHeader}>
@@ -95,7 +127,19 @@ const ProjectGallery = () => {
 			></div>
 			{isFullSize && (
 				<div className={styles.fullSizeMode}>
-					<button onClick={handleFullSize} ref={fullSizeButtonRef}></button>
+					<button
+						onClick={handleFullSize}
+						ref={fullSizeButtonRef}
+						className={styles.closeFullScreen}
+					></button>
+					<button
+						onClick={() => handleChangeImg("next")}
+						className={styles.nextImg}
+					></button>
+					<button
+						onClick={() => handleChangeImg("prev")}
+						className={styles.prevImg}
+					></button>
 				</div>
 			)}
 			<div className={styles.mainImageContainer} ref={normalSizeContainerRef}>
