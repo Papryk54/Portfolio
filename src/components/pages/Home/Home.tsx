@@ -42,15 +42,15 @@ const Home = () => {
 	});
 
 	return (
-		<div className={styles.wrapper}>
+		<main className={styles.wrapper}>
 			<NavBar variant="fixed" />
-			<div ref={homeRef} className={styles.homePanel}>
+			<section ref={homeRef} className={styles.homePanel}>
 				<WelcomePanel />
-			</div>
-			<div ref={projectsRef} className={styles.projectsPanel}>
+			</section>
+			<section ref={projectsRef} className={styles.projectsPanel}>
 				<ProjectsSelection />
-			</div>
-		</div>
+			</section>
+		</main>
 	);
 };
 

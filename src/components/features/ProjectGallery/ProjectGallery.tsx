@@ -112,9 +112,9 @@ const ProjectGallery = () => {
 	};
 
 	return (
-		<div className={styles.projectGallery}>
+		<section className={styles.projectGallery}>
 			<div className={styles.galleryHeader}>
-				<h3 className={styles.imageTitle}>Image Title</h3>{" "}
+				<h3 className={styles.imageTitle}>Image Title</h3>
 				<a className={styles.githubLink} href="#">
 					<img src={githubIcon} alt="githubLogo" />
 				</a>
@@ -166,7 +166,7 @@ const ProjectGallery = () => {
 					/>
 				))}
 			</div>
-		</div>
+		</section>
 	);
 };
 

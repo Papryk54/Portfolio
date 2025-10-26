@@ -10,24 +10,28 @@ const LanguageButton = () => {
 		dispatch(setLanguage(lang));
 	};
 	return (
-		<div className={styles.wrapper}>
-			<button
-				className={
-					styles.button + ` ${currentLang === "PL" ? styles.active : ""}`
-				}
-				onClick={() => handleLanguageChange("PL")}
-			>
-				<p>PL</p>
-			</button>
-			<button
-				className={
-					styles.button + ` ${currentLang === "EN" ? styles.active : ""}`
-				}
-				onClick={() => handleLanguageChange("EN")}
-			>
-				<p>EN</p>
-			</button>
-		</div>
+		<menu className={styles.wrapper}>
+			<li>
+				<button
+					className={
+						styles.button + ` ${currentLang === "PL" ? styles.active : ""}`
+					}
+					onClick={() => handleLanguageChange("PL")}
+				>
+					<p>PL</p>
+				</button>
+			</li>
+			<li>
+				<button
+					className={
+						styles.button + ` ${currentLang === "EN" ? styles.active : ""}`
+					}
+					onClick={() => handleLanguageChange("EN")}
+				>
+					<p>EN</p>
+				</button>
+			</li>
+		</menu>
 	);
 };
 

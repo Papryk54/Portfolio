@@ -30,9 +30,9 @@ const ProjectPage = () => {
 	};
 
 	return (
-		<div ref={wrapperRef} className={`${styles.wrapper} ${styles.scrollable}`}>
+		<main ref={wrapperRef} className={`${styles.wrapper} ${styles.scrollable}`}>
 			<NavBar variant="absolute" />
-			<div ref={headerRef} className={styles.projectHeader}>
+			<header ref={headerRef} className={styles.projectHeader}>
 				<div className={styles.projectImage}></div>
 				<p className={styles.projectTitle}>Project Name</p>
 				<p className={styles.projectMotto}>Main idea of the project</p>
@@ -41,16 +41,16 @@ const ProjectPage = () => {
 					<img src={arrowIcon} alt="V" />
 					<img src={arrowIcon} alt="V" />
 				</button>
-			</div>
-			<div ref={mainRef} className={styles.mainSection}>
+			</header>
+			<section ref={mainRef} className={styles.mainSection}>
 				<ProjectDescription />
 				<ProjectGallery />
-			</div>
-			<div className={styles.seeAlsoSection}>
+			</section>
+			<section className={styles.seeAlsoSection}>
 				<p>also see section</p>
-			</div>
+			</section>
 			<ContactForm />
-		</div>
+		</main>
 	);
 };
 

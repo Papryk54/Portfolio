@@ -5,7 +5,7 @@ import googleIcon from "../../../assets/icons/socials/google.png";
 
 const Socials = () => {
 	return (
-		<div className={styles.wrapper}>
+		<aside className={styles.wrapper}>
 			<ul className={styles.socialLinksList}>
 				<li className={styles.socialLinkItem}>
 					<a href="#" className={styles.socialLink}>
@@ -23,7 +23,7 @@ const Socials = () => {
 					</a>
 				</li>
 			</ul>
-		</div>
+		</aside>
 	);
 };
 

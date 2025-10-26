@@ -14,7 +14,7 @@ const ProjectInfo = () => {
 	}
 
 	return (
-		<div className={styles.wrapper}>
+		<section className={styles.wrapper}>
 			<div className={styles.spec}>
 				<h2 className={styles.projectName}>{activeProject.name}</h2>
 				<span className={styles.stackLabel}>Stack Used:</span>
@@ -34,7 +34,7 @@ const ProjectInfo = () => {
 					</li>
 				</ul>
 			</div>
-		</div>
+		</section>
 	);
 };
 

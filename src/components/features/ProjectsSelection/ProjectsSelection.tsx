@@ -6,7 +6,7 @@ import arrowDark from "../../../assets/icons/arrow-dark.png";
 
 const ProjectsSelection = () => {
 	return (
-		<div className={styles.wrapper}>
+		<section className={styles.wrapper}>
 			<div className={styles.header}>
 				<div className={styles.navArrows}>
 					<button className={styles.arrowButtonLeft}>
@@ -21,7 +21,7 @@ const ProjectsSelection = () => {
 			<Slider />
 			<ProjectInfo />
 			<Socials />
-		</div>
+		</section>
 	);
 };
 

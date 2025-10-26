@@ -64,7 +64,7 @@ const StackSchowcase = () => {
 		});
 	}, []);
 	return (
-		<div className={styles.wrapper}>
+		<aside className={styles.wrapper}>
 			<div className={styles.showcase}>
 				<p className={styles.showcaseText} id="s">
 					FullStack
@@ -106,7 +106,7 @@ const StackSchowcase = () => {
 					FullStack
 				</p>
 			</div>
-		</div>
+		</aside>
 	);
 };
 

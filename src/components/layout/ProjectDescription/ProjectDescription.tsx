@@ -26,7 +26,7 @@ const ProjectDescription = () => {
 	}, [activeProject]);
 
 	return (
-		<div className={styles.projectInfo}>
+		<section className={styles.projectInfo}>
 			<div className={styles.description} ref={desContainerRef}>
 				<div className={styles.descriptionText}>
 					<span className={styles.descLabel}>Description:</span>
@@ -53,10 +53,10 @@ const ProjectDescription = () => {
 					</ul>
 				</div>
 			</div>
-			<div className={styles.technologiesUsed}>
+			<aside className={styles.technologiesUsed}>
 				<TechStack />
-			</div>
-		</div>
+			</aside>
+		</section>
 	);
 };
 export default ProjectDescription;

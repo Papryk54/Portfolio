@@ -3,7 +3,7 @@ import styles from "./WelcomePanel.module.scss";
 
 const WelcomePanel = () => {
 	return (
-		<div className={styles.wrapper}>
+		<header className={styles.wrapper}>
 			<StackSchowcase />
 			<div className={styles.text}>
 				<h3 className={styles.name}>Patryk Olszewski</h3>
@@ -21,7 +21,7 @@ const WelcomePanel = () => {
 					<p>Enter</p>
 				</button>
 			</div>
-		</div>
+		</header>
 	);
 };
 

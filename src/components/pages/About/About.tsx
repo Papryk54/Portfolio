@@ -18,28 +18,28 @@ export const About = () => {
 		load();
 	}, []);
 	return (
-		<div className={`${styles.wrapper} ${styles.scrollable}`}>
+		<main className={`${styles.wrapper} ${styles.scrollable}`}>
 			{!loading && <NavBar variant="absolute" />}
-			<div className={styles.spacer}></div>
-			<div className={styles.heroSection}>
-				<div className={styles.introSection}>
+			<aside className={styles.spacer}></aside>
+			<header className={styles.heroSection}>
+				<section className={styles.introSection}>
 					<div className={styles.mark}>
-						<h3 className={styles.markText}>About Me</h3>
+						<h1 className={styles.markText}>About Me</h1>
 					</div>
-					<div className={styles.aboutIntro}>
-						<p className={styles.introHeader}>Who am I?</p>
+					<article className={styles.aboutIntro}>
+						<h2 className={styles.introHeader}>Who am I?</h2>
 						<p className={styles.introText}>
 							This is a brief introduction about myself.
 						</p>
-					</div>
+					</article>
 					<div className={styles.borderLine}></div>
-				</div>
-				<div className={styles.skillsPanel}>
-					<div className={styles.leftSide}>
-						<div className={styles.techStack}>
-							<h4 className={styles.skillsSectionHeader}>
+				</section>
+				<section className={styles.skillsPanel}>
+					<article className={styles.leftSide}>
+						<section className={styles.techStack}>
+							<h2 className={styles.skillsSectionHeader}>
 								Technologies I work with
-							</h4>
+							</h2>
 							<div className={styles.category}>
 								<p className={styles.techStackItemCategory}>Frontend:</p>
 								<ul className={styles.stackIconsList}>
@@ -153,11 +153,11 @@ export const About = () => {
 									</li>
 								</ul>
 							</div>
-						</div>
-					</div>
-					<div className={styles.rightSide}>
-						<div className={styles.SoftSkills}>
-							<h4 className={styles.skillsSectionHeader}>Soft Skills</h4>
+						</section>
+					</article>
+					<article className={styles.rightSide}>
+						<section className={styles.SoftSkills}>
+							<h2 className={styles.skillsSectionHeader}>Soft Skills</h2>
 							<ul>
 								<li>Problem Solving</li>
 								<li>Teamwork</li>
@@ -166,29 +166,29 @@ export const About = () => {
 								<li>Work Organization</li>
 								<li>Creativity</li>
 							</ul>
-						</div>
-						<div className={styles.languages}>
-							<h4 className={styles.skillsSectionHeader}>Languages</h4>
+						</section>
+						<section className={styles.languages}>
+							<h2 className={styles.skillsSectionHeader}>Languages</h2>
 							<ul>
 								<li>English - C1</li>
 								<li>Polish - Native</li>
 							</ul>
-						</div>
-						<div className={styles.interests}>
-							<h4 className={styles.skillsSectionHeader}>Interests</h4>
+						</section>
+						<section className={styles.interests}>
+							<h2 className={styles.skillsSectionHeader}>Interests</h2>
 							<ul>
 								<li>AI & Machine Learning</li>
 								<li>Technology</li>
 							</ul>
-						</div>
-					</div>
-				</div>
+						</section>
+					</article>
+				</section>
 				<div className={styles.animatedArrow}>
 					<p>↓</p>
 				</div>
-			</div>
-			<div className={styles.spacer}></div>
-			<div className={styles.mainSection}>
+			</header>
+			<aside className={styles.spacer}></aside>
+			<section className={styles.mainSection}>
 				<p className={styles.introduction}>
 					I'm a passionate web developer. I love creating dynamic and responsive
 					web applications. My journey in web development, started year ago, and
@@ -199,14 +199,20 @@ export const About = () => {
 				<div className={styles.imagesSection}>
 					<div className={styles.ctaWrapper}>
 						<p className={styles.imageText}>View my CV</p>
-						<button className={styles.downloadButton}>Download</button>
+						<a
+							className={styles.downloadButton}
+							href="/assets/my-cv.pdf"
+							download
+						>
+							Download
+						</a>
 					</div>
 				</div>
-			</div>
-			<div className={styles.contactSection}>
-				<h3>Contact</h3>
+			</section>
+			<section className={styles.contactSection}>
+				<h2>Contact</h2>
 				<ContactForm />
-			</div>
-		</div>
+			</section>
+		</main>
 	);
 };
