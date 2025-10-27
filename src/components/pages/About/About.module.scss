@@ -1,28 +1,5 @@
 @use "../../../styles/variables.scss" as vars;
 
-.scrollable {
-	overflow: auto;
-	height: 100vh;
-}
-.scrollable::-webkit-scrollbar {
-	width: 12px;
-}
-.scrollable::-webkit-scrollbar-track {
-	background: transparent;
-}
-.scrollable::-webkit-scrollbar-thumb {
-	background: vars.$primary-color;
-	border-radius: 10px;
-	border: 3px solid transparent;
-	background-clip: padding-box;
-}
-.scrollable::-webkit-scrollbar-thumb:hover {
-	background: vars.$primary-color-dark;
-	border-radius: 10px;
-	border: 3px solid transparent;
-	background-clip: padding-box;
-}
-
 .wrapper {
 	background-color: vars.$background-basic;
 	min-height: 100vh;

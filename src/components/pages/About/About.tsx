@@ -1,25 +1,14 @@
-import { useEffect, useState } from "react";
 import NavBar from "../../layout/NavBar/NavBar";
 import styles from "./About.module.scss";
-import { useDispatch } from "react-redux";
-import { setLocation } from "../../../redux/locationReducer/locationReducer.slice";
-import ContactForm from "../../features/ContactForm/ContactForm";
 import StackIcon from "tech-stack-icons";
+import ContactFormSection from "../../layout/ContactFormSection/ContactFormSection";
+import LoadingScreen from "../../utils/LoadingScreen/LoadingScreen";
 
 export const About = () => {
-	const [loading, setLoading] = useState(false);
-	const dispatch = useDispatch();
-	const load = () => {
-		setLoading(true);
-		dispatch(setLocation("about"));
-		setLoading(false);
-	};
-	useEffect(() => {
-		load();
-	}, []);
 	return (
-		<main className={`${styles.wrapper} ${styles.scrollable}`}>
-			{!loading && <NavBar variant="absolute" />}
+		<main className={styles.wrapper}>
+			<LoadingScreen />
+			<NavBar variant="absolute" />
 			<aside className={styles.spacer}></aside>
 			<header className={styles.heroSection}>
 				<section className={styles.introSection}>
@@ -210,8 +199,7 @@ export const About = () => {
 				</div>
 			</section>
 			<section className={styles.contactSection}>
-				<h2>Contact</h2>
-				<ContactForm />
+				<ContactFormSection />
 			</section>
 		</main>
 	);

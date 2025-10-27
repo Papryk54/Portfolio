@@ -6,6 +6,7 @@ import ProjectsSelection from "../../features/ProjectsSelection/ProjectsSelectio
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Observer from "gsap/Observer";
+import LoadingScreen from "../../utils/LoadingScreen/LoadingScreen";
 
 const Home = () => {
 	const homeRef = useRef<HTMLDivElement>(null);
@@ -43,6 +44,7 @@ const Home = () => {
 
 	return (
 		<main className={styles.wrapper}>
+			<LoadingScreen />
 			<NavBar variant="fixed" />
 			<section ref={homeRef} className={styles.homePanel}>
 				<WelcomePanel />

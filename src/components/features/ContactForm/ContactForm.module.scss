@@ -26,7 +26,8 @@
 	width: 100%;
 	background: transparent;
 	border: none;
-	border-bottom: 2px solid vars.$text-color;
+	border-bottom: 2px solid vars.$primary-color-dark;
+	border-radius: vars.$radius-md;
 	color: vars.$text-color-light;
 	padding: 0 14px;
 	font-family: vars.$font-main;

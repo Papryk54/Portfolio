@@ -13,7 +13,7 @@ const ContactForm = () => {
 	const formContainerRef = useRef<HTMLFormElement>(null);
 
 	const [state, handleSubmit] = useForm("mdkwbwvl");
-	
+
 	useGSAP(() => {
 		if (formContainerRef.current) {
 			gsap.from(formContainerRef.current, {
@@ -26,7 +26,7 @@ const ContactForm = () => {
 					start: "top 80%",
 				},
 			});
-		};
+		}
 
 		if (submitButtonRef.current) {
 			const tl = gsap.timeline({
@@ -100,8 +100,9 @@ const ContactForm = () => {
 	const animateFocus = (el: HTMLElement | null) => {
 		if (!el) return;
 		gsap.to(el, {
-			backgroundColor: "#111111",
+			backgroundColor: "#99142f",
 			borderRadius: 8,
+			scale: 1.01,
 			duration: 0.25,
 			ease: "power4.out",
 		});
@@ -111,14 +112,19 @@ const ContactForm = () => {
 		if (!el) return;
 		gsap.to(el, {
 			backgroundColor: "transparent",
-			borderRadius: 0,
+			borderRadius: 8,
+			scale: 1,
 			duration: 0.25,
 			ease: "power2.out",
 		});
 	};
 
 	return (
-		<form onSubmit={handleSubmit} className={styles.form} ref={formContainerRef}>
+		<form
+			onSubmit={handleSubmit}
+			className={styles.form}
+			ref={formContainerRef}
+		>
 			<label htmlFor="name" className={styles.label}>
 				Name
 			</label>
