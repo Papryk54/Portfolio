@@ -1,4 +1,4 @@
-@use '../../../../styles/variables.scss' as vars;
+@use "../../../../styles/variables.scss" as vars;
 
 .detailsButton {
 	display: flex;
@@ -21,6 +21,7 @@
 	font-weight: 600;
 	cursor: pointer;
 	transition: background 0.2s;
+	text-decoration: none;
 }
 
 .viewProjectButton:hover {

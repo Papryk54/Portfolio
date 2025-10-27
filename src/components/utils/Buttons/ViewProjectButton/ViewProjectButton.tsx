@@ -1,22 +1,13 @@
 import styles from "./ViewProjectButton.module.scss";
 import EyeIcon from "../../../../assets/icons/eye.png";
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { setLocation } from "../../../../redux/locationReducer/locationReducer.slice";
+import { Link } from "react-router-dom";
 
 const ViewProjectButton = ({ to }: { to: string }) => {
-	const navigate = useNavigate();
-	const dispatch = useDispatch();
-	
-	const handleShowProject = () => {
-		dispatch(setLocation("projectDetailsHeader"));
-		navigate(to);
-	};
 	return (
 		<div className={styles.detailsButton}>
-			<button className={styles.viewProjectButton} onClick={handleShowProject}>
-				View Project
-			</button>
+			<Link to={to} className={styles.viewProjectButton}>
+				<p>View Project</p>
+			</Link>
 			<img src={EyeIcon} className={styles.animationPlaceholder}></img>
 		</div>
 	);

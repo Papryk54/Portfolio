@@ -1,0 +1,40 @@
+@use "../../../styles/variables.scss" as vars;
+
+.wrapper {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: vars.$spacing-lg vars.$site-spacing-horizontal-md;
+	background-color: vars.$primary-color-dark;
+}
+
+.cta {
+	flex: 1;
+  height: 80%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+
+	h2 {
+		font-size: 8rem;
+		font-family: vars.$font-main-bold;
+		margin-bottom: 12px;
+		color: vars.$text-color-light;
+	}
+
+	p {
+		font-size: vars.$font-sm;
+		font-family: vars.$font-main;
+		margin-bottom: 24px;
+		color: vars.$text-color-light;
+	}
+}
+
+.formContainer {
+	flex: 1;
+  height: 60%;
+}

@@ -2,8 +2,10 @@
 
 .form {
 	width: 100%;
-	max-width: 600px;
-	background: transparent;
+	height: 100%;
+	background-color: vars.$background-basic;
+	box-shadow: 0 0 30px 20px rgba(0, 0, 0, 0.5);
+	border-radius: vars.$radius-xl;
 	padding: 12px;
 	display: flex;
 	flex-direction: column;
@@ -12,12 +14,11 @@
 }
 
 .label {
-	font-size: vars.$font-sm;
 	font-family: vars.$font-main-bold;
 	letter-spacing: 0.02em;
-	margin-left: 4px;
-	margin-bottom: 4px;
+	margin-top: vars.$spacing-md;
 	color: rgba(255, 255, 255, 0.75);
+	align-self: flex-start;
 }
 
 .input,
@@ -27,13 +28,17 @@
 	border: none;
 	border-bottom: 2px solid vars.$text-color;
 	color: vars.$text-color-light;
-	height: 44px;
 	padding: 0 14px;
 	font-family: vars.$font-main;
 	font-size: vars.$font-sm;
 	box-shadow: none;
 	transition: transform 0.08s ease, box-shadow 0.12s ease;
 	display: block;
+	min-height: 42px;
+}
+
+.textarea {
+	flex: 1 1 auto;
 }
 
 .input::placeholder,
@@ -43,37 +48,35 @@
 
 .input:focus,
 .textarea:focus {
-	outline: 2px solid rgba(255, 255, 255, 0.06);
-	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
-	transform: translateY(-1px);
+	outline: none;
+	box-shadow: none;
+	transform: none;
 }
 
 .textarea {
-	min-height: 120px;
 	padding: 12px 14px;
-	resize: vertical;
+	resize: none;
 }
 
 .button {
-	align-self: flex-start;
-	padding: 10px 16px;
-	border-radius: 8px;
+	align-self: center;
+	width: 70%;
+	margin-top: 5%;
+	padding: vars.$spacing-sm vars.$spacing-lg;
+	border-radius: vars.$radius-sm;
 	border: none;
 	cursor: pointer;
 	font-family: vars.$font-main-bold;
 	font-size: vars.$font-sm;
-	color: vars.$background-primary;
 	background: linear-gradient(
 		90deg,
-		vars.$primary-color,
-		vars.$primary-color-dark
+		vars.$secondary-color-dark,
+		vars.$secondary-color-light
 	);
 	transition: transform 0.12s ease, opacity 0.12s ease;
-}
-
-.button:hover {
-	transform: translateY(-2px);
-	opacity: 0.98;
+	span {
+		color: vars.$text-color;
+	}
 }
 
 .button:disabled {
