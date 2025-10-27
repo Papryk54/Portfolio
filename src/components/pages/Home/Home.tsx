@@ -10,8 +10,8 @@ import Observer from "gsap/Observer";
 const Home = () => {
 	const homeRef = useRef<HTMLDivElement>(null);
 	const projectsRef = useRef<HTMLDivElement>(null);
-	gsap.registerPlugin(Observer);
 
+	gsap.registerPlugin(Observer);
 	useGSAP(() => {
 		Observer.create({
 			target: window,

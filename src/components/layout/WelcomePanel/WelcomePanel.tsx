@@ -1,4 +1,5 @@
 import StackSchowcase from "../../features/StackSchowcase/StackSchowcase";
+import Socials from "../Socials/Socials";
 import styles from "./WelcomePanel.module.scss";
 
 const WelcomePanel = () => {
@@ -21,6 +22,7 @@ const WelcomePanel = () => {
 					<p>Enter</p>
 				</button>
 			</div>
+			<Socials />
 		</header>
 	);
 };

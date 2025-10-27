@@ -1,6 +1,6 @@
 import styles from "./Socials.module.scss";
 import linkedinIcon from "../../../assets/icons/socials/linkedin.png";
-import githubIcon from "../../../assets/icons/socials/github-mark-white.png";
+import githubIcon from "../../../assets/icons/socials/github-mark.png";
 import googleIcon from "../../../assets/icons/socials/google.png";
 
 const Socials = () => {

@@ -100,3 +100,12 @@ body {
 #root {
 	font-size: vars.$font-size-md;
 }
+
+
+html {
+	scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+	display: none;
+}

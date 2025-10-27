@@ -10,16 +10,20 @@ import {
 	ScrollTrigger,
 	SplitText,
 } from "gsap/all";
+import CustomScroll from "./utils/CustomScroll/CustomScroll";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, Draggable, SplitText, Flip);
 
 function App() {
 	return (
-		<Routes>
-			<Route path="/" element={<Home />} />
-			<Route path="/about" element={<About />} />
-			<Route path="/projects/:id" element={<ProjectPage />} />
-		</Routes>
+		<>
+			<CustomScroll />
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="/about" element={<About />} />
+				<Route path="/projects/:id" element={<ProjectPage />} />
+			</Routes>
+		</>
 	);
 }
 

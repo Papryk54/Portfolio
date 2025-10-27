@@ -1,23 +1,8 @@
+@use "../../../styles/variables.scss" as vars;
+
 .wrapper {
 	height: 100vh;
 	width: 100%;
-	background-image: url("../../../assets/images/bgc.jpg");
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-
-	&::before {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: rgba(0, 0, 0, 0.6);
-	}
-	> * {
-		z-index: 2;
-	}
 }
 
 .homePanel {
@@ -35,6 +20,18 @@
 	align-items: flex-start;
 	justify-content: center;
 	z-index: 1;
+	background-image: url("../../../assets/images/bgc.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+
+	&::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-color: rgba(vars.$background-basic, 0.7);
+		z-index: -1;
+	}
 }
 
 .homePanel.hide {
