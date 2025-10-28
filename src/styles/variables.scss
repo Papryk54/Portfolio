@@ -46,15 +46,24 @@ $success-color: #baffe4;
 }
 
 @font-face {
-	font-family: "Amarante-Regular";
-	src: url("../assets/fonts/Amarante/Amarante-Regular.ttf") format("truetype");
+	font-family: "Kanit-Regular";
+	src: url("../assets/fonts/Kanit/Kanit-Regular.ttf") format("truetype");
 	font-weight: normal;
 	font-style: normal;
 }
+
+@font-face {
+	font-family: "Kanit-SemiBold";
+	src: url("../assets/fonts/Kanit/Kanit-SemiBold.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
 $font-main: "Roboto-Regular", sans-serif;
 $font-main-bold: "Roboto-Bold", sans-serif;
 $font-secondary: "RobotoCondensed-Regular", sans-serif;
-$font-special: "Amarante-Regular", sans-serif;
+$font-special: "Kanit-Regular", sans-serif;
+$font-special-bold: "Kanit-SemiBold", sans-serif;
 $font-size-md: 18px;
 
 $font-2xs: 0.6rem;
@@ -76,10 +85,10 @@ $spacing-lg: 1.3rem;
 $spacing-xl: 1.8rem;
 $spacing-2xl: 2.2rem;
 
-$site-spacing-horizontal-sm: 5vw;
-$site-spacing-horizontal-md: 10vw;
-$site-spacing-horizontal-lg: 15vw;
-$site-spacing-horizontal-xl: 20vw;
+$site-spacing-horizontal-sm: 1rem;
+$site-spacing-horizontal-md: 2rem;
+$site-spacing-horizontal-lg: 3rem;
+$site-spacing-horizontal-xl: 4rem;
 
 // OTHER VARIABLES
 

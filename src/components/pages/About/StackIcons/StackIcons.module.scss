@@ -1,0 +1,84 @@
+@use "../../../../styles/variables.scss" as vars;
+
+.techStack {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-evenly;
+	height: 100%;
+}
+
+.categoriesContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 100%;
+	height: 100%;
+}
+
+.category {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.separator {
+	width: 60%;
+	height: 2px;
+	background-color: vars.$secondary-color;
+	align-self: center;
+}
+
+.techStackItemCategory {
+	text-align: center;
+	width: 100%;
+	text-transform: uppercase;
+	font-size: vars.$font-xl;
+	font-family: vars.$font-special-bold;
+	color: vars.$text-color-light;
+}
+
+.stackIconsList {
+	margin-top: 10px;
+	list-style: none;
+	width: 100%;
+
+	li {
+		display: inline-flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		min-width: 80px;
+		padding: 6px;
+		border-radius: 10px;
+		background: vars.$background-basic;
+		border: 1px solid rgba(255, 255, 255, 0.04);
+		box-shadow: 0 6px 16px rgba(0, 0, 0, 0.38);
+	}
+}
+
+.stackIconsList {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-auto-rows: 60px;
+	grid-gap: vars.$spacing-sm;
+	align-content: end;
+}
+
+.stackIcon {
+	width: 28px;
+	height: 28px;
+	display: block;
+	margin-bottom: 6px;
+}
+
+.stackLabel {
+	font-size: vars.$font-xs;
+	color: vars.$text-color-light;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	max-width: 100%;
+	text-align: center;
+}
