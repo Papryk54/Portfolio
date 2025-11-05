@@ -1,0 +1,9 @@
+@use "../../../../styles/variables.scss" as vars;
+
+.heroSection {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	padding-bottom: 20px;
+	gap: vars.$site-spacing-horizontal-md;
+}

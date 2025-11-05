@@ -7,7 +7,6 @@
 	align-items: center;
 	margin: 0 vars.$site-spacing-horizontal-lg;
 	padding: vars.$site-spacing-horizontal-lg;
-	gap: vars.$site-spacing-horizontal-md;
 	border: 1px solid vars.$text-color-light;
 	position: relative;
 
@@ -95,6 +94,7 @@
 	font-size: vars.$font-3xl;
 	font-family: vars.$font-special;
 	color: vars.$text-color-light;
+  text-align: justify;
 	flex: 4;
 }
 
@@ -105,9 +105,6 @@
 	align-items: center;
 	flex: 1;
 	border-radius: vars.$radius-lg;
-}
-
-.textWrapper {
 }
 
 .animatedText {
@@ -130,10 +127,4 @@
 	&:hover {
 		background-color: vars.$primary-color-dark;
 	}
-}
-
-:root {
-	--border: hsl(40, 65%, 80%);
-	--text: hsl(40, 70%, 85%);
-	--button-hover: hsl(280, 25%, 12%);
 }

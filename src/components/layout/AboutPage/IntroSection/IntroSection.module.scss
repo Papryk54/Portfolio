@@ -1,0 +1,67 @@
+@use "../../../../styles/variables.scss" as vars;
+
+.introSection {
+	width: 40%;
+	display: flex;
+	flex-direction: column;
+}
+
+.mark {
+	background: linear-gradient(
+		90deg,
+		vars.$primary-color-dark 60%,
+		vars.$secondary-color-dark 100%
+	);
+	padding: 4px;
+	height: 60px;
+	width: 180px;
+	border-radius: 0 30px 30px 0;
+	margin-top: 7vh;
+	.markText {
+		color: vars.$background-primary;
+		font-size: vars.$font-2xl;
+		font-weight: bold;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+	}
+}
+
+.aboutIntro {
+	margin-left: vars.$site-spacing-horizontal-xl;
+	margin-top: vars.$spacing-lg;
+	height: 100%;
+	p {
+		text-align: left;
+		color: vars.$text-color-light;
+	}
+	.introHeader {
+		font-size: vars.$font-4xl;
+		font-family: vars.$font-main-bold;
+		color: vars.$text-color-light;
+
+		text-align: left;
+	}
+}
+
+.introContainer {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+	.name {
+		font-size: vars.$font-xl;
+		font-family: vars.$font-main-bold;
+		color: vars.$text-color-light;
+		text-align: start;
+	}
+
+	.introText {
+		font-size: vars.$font-lg;
+		font-family: vars.$font-secondary;
+		color: vars.$text-color-light;
+		margin-top: vars.$spacing-sm;
+	}
+}
