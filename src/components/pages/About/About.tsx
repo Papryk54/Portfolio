@@ -4,6 +4,7 @@ import ContactFormSection from "../../layout/ContactFormSection/ContactFormSecti
 import LoadingScreen from "../../utils/LoadingScreen/LoadingScreen";
 import StackIcons from "./StackIcons/StackIcons";
 import myFoto from "../../../assets/.placeholders/placeholderImg4.png";
+import CVSection from "../../layout/CVSection/CVSection";
 
 export const About = () => {
 	return (
@@ -91,27 +92,7 @@ export const About = () => {
 				</section>
 			</header>
 			<aside className={styles.spacer}></aside>
-			<section className={styles.mainSection}>
-				<p className={styles.introduction}>
-					I'm a passionate web developer. I love creating dynamic and responsive
-					web applications. My journey in web development, started year ago, and
-					since then, I've been continuously learning and improving my skills. I
-					enjoy working with modern technologies and building projects that
-					solve real-world problems.
-				</p>
-				<div className={styles.imagesSection}>
-					<div className={styles.ctaWrapper}>
-						<p className={styles.imageText}>View my CV</p>
-						<a
-							className={styles.downloadButton}
-							href="/assets/my-cv.pdf"
-							download
-						>
-							Download
-						</a>
-					</div>
-				</div>
-			</section>
+			<CVSection />
 			<section className={styles.contactSection}>
 				<ContactFormSection />
 			</section>

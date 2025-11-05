@@ -159,7 +159,6 @@
 			list-style: none;
 			li {
 				width: calc(50% - vars.$spacing-md);
-
 			}
 			p {
 				font-size: vars.$font-lg;
@@ -170,66 +169,6 @@
 			}
 		}
 	}
-}
-
-.mainSection {
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
-.introduction {
-	font-size: vars.$font-3xl;
-	font-family: vars.$font-special;
-	margin: 0 10%;
-	color: vars.$text-color-light;
-}
-
-.imagesSection {
-	width: 90%;
-	height: 90vh;
-	border-radius: 100px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-image: url("../../../assets/.placeholders/placebgc.png");
-	background-size: cover;
-	background-position: center;
-}
-
-.imageText {
-	font-size: vars.$font-3xl;
-	font-family: vars.$font-main-bold;
-	margin-top: 10px;
-	color: vars.$text-color-light;
-}
-
-.downloadButton {
-	margin-left: 20px;
-	padding: 10px 20px;
-	font-size: vars.$font-lg;
-	font-family: vars.$font-main-bold;
-	color: vars.$text-color-light;
-	background-color: vars.$primary-color;
-	border: none;
-	border-radius: vars.$radius-md;
-	cursor: pointer;
-	transition: background-color 0.3s ease;
-
-	&:hover {
-		background-color: vars.$primary-color-dark;
-	}
-}
-
-.ctaWrapper {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	background-color: vars.$background-teritary;
-	padding: 5px 10px;
-	border-radius: 20px;
 }
 
 .contactSection {

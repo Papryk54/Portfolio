@@ -1,0 +1,139 @@
+@use "../../../styles/variables.scss" as vars;
+
+.cvSection {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin: 0 vars.$site-spacing-horizontal-lg;
+	padding: vars.$site-spacing-horizontal-lg;
+	gap: vars.$site-spacing-horizontal-md;
+	border: 1px solid vars.$text-color-light;
+	position: relative;
+
+	.corner {
+		width: 0.5rem;
+		height: 0.5rem;
+		border: 1px solid vars.$text-color-light;
+		position: absolute;
+
+		&::after,
+		&::before {
+			content: "";
+			position: absolute;
+		}
+
+		&::after {
+			width: 2rem;
+			height: calc(1rem - 1px);
+		}
+
+		&::before {
+			width: calc(1rem - 1px);
+			height: 2rem;
+		}
+
+		&.left {
+			left: -0.5rem;
+
+			&::after {
+				left: calc(-2px + 1rem);
+				border-left: 1px solid vars.$text-color-light;
+			}
+
+			&::before {
+				left: -1px;
+				border-left: 1px solid vars.$text-color-light;
+			}
+		}
+
+		&.right {
+			right: -0.5rem;
+
+			&::after {
+				right: calc(-2px + 1rem);
+				border-right: 1px solid vars.$text-color-light;
+			}
+
+			&::before {
+				right: -1px;
+				border-right: 1px solid vars.$text-color-light;
+			}
+		}
+
+		&.top {
+			top: -0.5rem;
+
+			&::after {
+				top: -1px;
+				border-top: 1px solid vars.$text-color-light;
+			}
+
+			&::before {
+				top: calc(-2px + 1rem);
+				border-top: 1px solid vars.$text-color-light;
+			}
+		}
+
+		&.bottom {
+			bottom: -0.5rem;
+
+			&::after {
+				bottom: -1px;
+				border-bottom: 1px solid vars.$text-color-light;
+			}
+
+			&::before {
+				bottom: calc(-2px + 1rem);
+				border-bottom: 1px solid vars.$text-color-light;
+			}
+		}
+	}
+}
+
+.introduction {
+	font-size: vars.$font-3xl;
+	font-family: vars.$font-special;
+	color: vars.$text-color-light;
+	flex: 4;
+}
+
+.cvWrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	flex: 1;
+	border-radius: vars.$radius-lg;
+}
+
+.textWrapper {
+}
+
+.animatedText {
+	font-size: vars.$font-3xl;
+	font-family: vars.$font-main-bold;
+	color: vars.$text-color-light;
+}
+
+.downloadButton {
+	padding: 10px 20px;
+	font-size: vars.$font-lg;
+	font-family: vars.$font-main-bold;
+	color: vars.$text-color-light;
+	background-color: vars.$primary-color;
+	border: none;
+	border-radius: vars.$radius-md;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+
+	&:hover {
+		background-color: vars.$primary-color-dark;
+	}
+}
+
+:root {
+	--border: hsl(40, 65%, 80%);
+	--text: hsl(40, 70%, 85%);
+	--button-hover: hsl(280, 25%, 12%);
+}
