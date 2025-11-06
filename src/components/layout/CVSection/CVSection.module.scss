@@ -94,7 +94,7 @@
 	font-size: vars.$font-3xl;
 	font-family: vars.$font-special;
 	color: vars.$text-color-light;
-  text-align: justify;
+	text-align: justify;
 	flex: 4;
 }
 
@@ -118,13 +118,16 @@
 	font-size: vars.$font-lg;
 	font-family: vars.$font-main-bold;
 	color: vars.$text-color-light;
-	background-color: vars.$primary-color;
-	border: none;
+	background-color: vars.$primary-color-dark;
+	border: 1px solid vars.$primary-color-dark;
 	border-radius: vars.$radius-md;
-	cursor: pointer;
-	transition: background-color 0.3s ease;
+	transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+	position: relative;
+	overflow: hidden;
 
 	&:hover {
-		background-color: vars.$primary-color-dark;
+		cursor: pointer;
+		box-shadow: 0 0 15px rgba(vars.$primary-color, 0.5);
+		border-color: vars.$primary-color-light;
 	}
 }

@@ -1,0 +1,67 @@
+@use "../../../styles/variables.scss" as vars;
+
+.wrapper {
+	width: 100vw;
+	height: 100vh;
+	z-index: 8;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+.info {
+	z-index: 9;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	padding: vars.$spacing-md;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.copyButton {
+	background-color: vars.$background-teritary;
+	border: 1px solid vars.$secondary-color-dark;
+	padding: vars.$spacing-sm vars.$spacing-2xl;
+	border-radius: vars.$radius-md;
+	transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+	position: relative;
+	overflow: hidden;
+
+	p {
+		font-family: vars.$font-special;
+		font-size: vars.$font-lg;
+		color: vars.$text-color-light;
+
+		span {
+			margin-left: vars.$spacing-xs;
+			text-decoration: underline;
+      color: vars.$secondary-color-light;
+		}
+	}
+
+	&:hover {
+		cursor: pointer;
+		box-shadow: 0 0 15px rgba(vars.$secondary-color, 0.5);
+		border-color: vars.$secondary-color-light;
+	}
+}
+
+.alert {
+	height: 0;
+	background-color: vars.$success-color;
+	border-radius: vars.$radius-md vars.$radius-md 0 0;
+	width: 100%;
+	transform: translateY(vars.$radius-md);
+	position: relative;
+	overflow: hidden;
+
+	p {
+		font-family: vars.$font-special;
+		font-size: vars.$font-lg;
+		color: vars.$text-color;
+		margin-bottom: vars.$radius-md;
+		padding: vars.$spacing-sm;
+	}
+}

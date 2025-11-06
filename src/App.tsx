@@ -11,6 +11,7 @@ import {
 	SplitText,
 } from "gsap/all";
 import CustomScroll from "./utils/CustomScroll/CustomScroll";
+import Contact from "./components/pages/Contact/Contact";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, Draggable, SplitText, Flip);
 
@@ -22,6 +23,7 @@ function App() {
 				<Route path="/" element={<Home />} />
 				<Route path="/about" element={<About />} />
 				<Route path="/projects/:id" element={<ProjectPage />} />
+				<Route path="/contact" element={<Contact />} />
 			</Routes>
 		</>
 	);
