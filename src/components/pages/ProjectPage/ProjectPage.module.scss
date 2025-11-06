@@ -3,6 +3,9 @@
 .wrapper {
 	background-color: vars.$background-basic;
 	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	gap: vars.$site-spacing-2xl;
 }
 
 // Project Header Section
@@ -13,7 +16,6 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 20px;
 	background-image: url("../../../assets/.placeholders/placebgc.png");
 	background-size: cover;
 	background-position: center;
@@ -36,7 +38,7 @@
 
 .projectTitle {
 	font-family: vars.$font-main-bold;
-	font-size: 48px;
+	font-size: vars.$font-4xl;
 	color: vars.$text-color-light;
 	margin-top: 20vh;
 	z-index: 1;
@@ -62,25 +64,16 @@
 		rotate: 90deg;
 		width: 20px;
 		position: absolute;
-		bottom: 60px;
+		bottom: 5vh;
 	}
 }
-
-// Main Section
 
 .mainSection {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	gap: vars.$spacing-xl;
 	padding: 0 vars.$spacing-xl;
 	background-color: vars.$background-basic;
 	height: 90vh;
 	width: 100vw;
 }
-
-// Project Info Section
-
-// Gallery Section
-
-

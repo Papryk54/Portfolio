@@ -56,6 +56,7 @@ p {
 h1,
 h2 {
 	color: vars.$primary-color;
+	font-family: vars.$font-special;
 }
 
 h3,
@@ -64,6 +65,7 @@ h5,
 h6 {
 	color: vars.$primary-color;
 	text-wrap: balance;
+	font-family: vars.$font-special;
 }
 
 a {

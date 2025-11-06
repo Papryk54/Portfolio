@@ -2,29 +2,24 @@ import NavBar from "../../layout/NavBar/NavBar";
 import styles from "./ProjectPage.module.scss";
 import arrowIcon from "../../../assets/icons/arrow-light.png";
 import gsap from "gsap";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { setActiveProject } from "../../../redux/projectReducer/projectReducer.slice";
 import ProjectDescription from "../../layout/ProjectDescription/ProjectDescription";
 import ProjectGallery from "../../features/ProjectGallery/ProjectGallery";
 import ContactFormSection from "../../layout/ContactFormSection/ContactFormSection";
 import LoadingScreen from "../../utils/LoadingScreen/LoadingScreen";
+import SeeAlsoSection from "../../layout/SeeAlsoSection/SeeAlsoSection";
+import { useDispatch } from "react-redux";
+import { setActiveProject } from "../../../redux/projectReducer/projectReducer.slice";
 
 const ProjectPage = () => {
-	const dispatch = useDispatch();
 	const { id } = useParams<{ id: string }>();
+	const numericId = Number(id);
 	const mainRef = useRef<HTMLDivElement>(null);
 	const headerRef = useRef<HTMLDivElement>(null);
 	const wrapperRef = useRef<HTMLDivElement>(null);
-
-	const load = async () => {
-		dispatch(setActiveProject(Number(id)));
-	};
-
-	useEffect(() => {
-		load();
-	}, []);
+	const dispatch = useDispatch();
+	dispatch(setActiveProject(numericId));
 
 	const handleGoToMainSection = () => {
 		if (mainRef.current) {
@@ -54,9 +49,7 @@ const ProjectPage = () => {
 				<ProjectDescription />
 				<ProjectGallery />
 			</section>
-			{/* <section className={styles.seeAlsoSection}>
-						<p>also see section</p>
-					</section> */}
+			<SeeAlsoSection id={numericId} />
 			<ContactFormSection />
 		</main>
 	);
