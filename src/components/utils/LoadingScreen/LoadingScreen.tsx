@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import styles from "./LoadingScreen.module.scss";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -10,15 +10,15 @@ const LoadingScreen = () => {
 	const rightRef = useRef(null);
 	const spinnerRef = useRef(null);
 
+	useEffect(() => {
+		gsap.killTweensOf(window);
+		gsap.to(window, { scrollTo: { y: 0 }, duration: 0.1 });
+	}, []);
+
 	useGSAP(() => {
-		gsap.to(window, {
-			scrollTo: 0,
-			duration: 0,
-		});
 		const tl = gsap.timeline({
 			delay: 0.5,
 		});
-
 		tl.to(leftRef.current, {
 			xPercent: -100,
 			duration: 1,

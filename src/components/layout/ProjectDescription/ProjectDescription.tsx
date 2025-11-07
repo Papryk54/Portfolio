@@ -36,7 +36,7 @@ const ProjectDescription = () => {
 						</p>
 					))}
 					<span className={styles.descLabel}>Features:</span>
-					<ul>
+					<ul className={styles.featuresTable}>
 						{activeProject?.features.map((feature, index) => (
 							<li className={styles.feature} key={index}>
 								<p>{feature}</p>
@@ -44,9 +44,9 @@ const ProjectDescription = () => {
 						))}
 					</ul>
 					<span className={styles.descLabel}>Future Development:</span>
-					<ul>
+					<ul className={styles.featuresTable}>
 						{activeProject?.futureDevelopment.map((futureDev, index) => (
-							<li className={styles.futureDevelopment} key={index}>
+							<li className={styles.feature} key={index}>
 								<p>{futureDev}</p>
 							</li>
 						))}

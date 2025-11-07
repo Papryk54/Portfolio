@@ -1,7 +1,9 @@
 @use "../../../styles//variables.scss" as vars;
+@use "../../../styles/mixins.scss" as mix;
 
 .projectInfo {
 	width: 50%;
+	border-right: 2px solid salmon;
 }
 
 .description {
@@ -17,7 +19,7 @@
 	font-size: vars.$font-xl;
 	color: vars.$primary-color;
 	margin-bottom: vars.$spacing-sm;
-	text-align: left;
+	text-align: center;
 }
 
 .descriptionText {
@@ -34,4 +36,18 @@
 
 .technologiesUsed {
 	height: 10%;
+}
+
+.featuresTable {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.feature {
+	width: 50%;
+	list-style: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	@include mix.border-style();
 }

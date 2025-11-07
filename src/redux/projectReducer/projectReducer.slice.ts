@@ -103,7 +103,7 @@ const initialState: ProjectReducerState = {
 			name: "Project 5",
 		},
 	],
-	activeId: null,
+	activeId: 1,
 };
 
 const projectReducerSlice = createSlice({

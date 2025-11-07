@@ -4,6 +4,7 @@ import { selectProject } from "../../../redux/projectReducer/projectReducer.sele
 import { useEffect, useState } from "react";
 import type { Project } from "../../../redux/projectReducer/projectReducer.types";
 import { getImageByName } from "../../../utils/images";
+import { Link } from "react-router-dom";
 
 type Props = {
 	id: number;
@@ -15,7 +16,9 @@ const SeeAlsoSection = ({ id }: Props) => {
 	const [projectsToDisplay, setProjectsToDisplay] = useState<Project[]>([]);
 
 	useEffect(() => {
-		const projectsForDraw = allProjects.filter((project) => project.id !== id);
+		const projectsForDraw = allProjects.filter(
+			(project) => project.id !== id && project.id !== 0
+		);
 		if (projectsForDraw.length === 0) {
 			setProjectsToDisplay([]);
 			return;
@@ -34,14 +37,22 @@ const SeeAlsoSection = ({ id }: Props) => {
 			<ul className={styles.list}>
 				{projectsToDisplay.map((project) => (
 					<li key={project.id} className={styles.projectItem}>
-						<div className={styles.textContent}>
-							<h4>{project.name}</h4>
-							<p>{project.description[0]}</p>
-						</div>
-						<img
-							src={getImageByName(project.images[0])}
-							alt={`Main image of ${project.name} project`}
-							className={styles.projectImage}
+						<Link
+							to={`/projects/${project.id}`}
+							className={styles.overlayLink}
+							children={
+								<>
+									<div className={styles.textContent}>
+										<h4>{project.name}</h4>
+										<p>{project.description[0]}</p>
+									</div>
+									<img
+										src={getImageByName(project.images[0])}
+										alt={`Main image of ${project.name} project`}
+										className={styles.projectImage}
+									/>
+								</>
+							}
 						/>
 					</li>
 				))}

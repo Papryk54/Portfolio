@@ -1,0 +1,29 @@
+@use "../../../../styles/variables.scss" as vars;
+
+.arrowContainer {
+	position: absolute;
+	bottom: vars.$site-spacing-md;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.arrows {
+	position: relative;
+	width: vars.$font-xl;
+}
+
+.arrow {
+	width: vars.$font-xl;
+	aspect-ratio: 1 / 1;
+	transform: rotate(90deg);
+	margin: 0 auto;
+	position: absolute;
+}
+
+.arrowStatic {
+	width: vars.$font-xl;
+	aspect-ratio: 1 / 1;
+	transform: rotate(90deg);
+	margin: 0 auto;
+	position: absolute;
+}

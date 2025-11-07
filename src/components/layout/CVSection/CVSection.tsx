@@ -1,4 +1,3 @@
-import AnimatedArrow from "../../utils/Animations/AnimatedArrow/AnimatedArrow";
 import styles from "./CVSection.module.scss";
 
 const CVSection = () => {
@@ -39,7 +38,6 @@ const CVSection = () => {
 				<div className={styles.textWrapper}>
 					<p className={styles.animatedText}>View my CV</p>
 				</div>
-				<AnimatedArrow />
 				<button className={styles.downloadButton} onClick={downloadCV}>
 					Download
 				</button>

@@ -1,0 +1,21 @@
+@use "./variables.scss" as vars;
+
+@mixin border-style(
+	$color: vars.$primary-color-dark,
+	$hoverColor: vars.$primary-color-light,
+	$bgc: transparent
+) {
+	border: 1px solid $color;
+	border-radius: vars.$radius-md;
+	padding: vars.$spacing-sm vars.$spacing-2xl;
+	transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+	background-color: $bgc;
+	position: relative;
+	overflow: hidden;
+
+	&:hover {
+		cursor: pointer;
+		box-shadow: 0 0 15px rgba($hoverColor, 0.5);
+		border-color: $hoverColor;
+	}
+}

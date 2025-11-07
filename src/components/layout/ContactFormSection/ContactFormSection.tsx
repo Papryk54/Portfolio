@@ -25,6 +25,20 @@ const ContactFormSection = () => {
 			ease: "power1.inOut",
 		});
 
+		gsap.to(window, {
+			scrollTrigger: {
+				trigger: wrapperRef.current,
+				start: "center bottom",
+				onEnter: () => {
+					gsap.to(window, {
+						duration: 1,
+						ease: "power2.out",
+						scrollTo: { y: "max" },
+					});
+				},
+			},
+		});
+
 		if (h2) {
 			const splitH2 = new SplitText(h2, {
 				type: "chars",

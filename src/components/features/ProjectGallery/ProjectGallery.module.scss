@@ -72,7 +72,7 @@
 	align-items: center;
 	flex-wrap: wrap;
 	gap: vars.$spacing-sm;
-	height: 20%;
+	height: 25%;
 	.imageOther {
 		object-fit: cover;
 		border: solid 1px vars.$text-color-light;
@@ -80,6 +80,11 @@
 		height: calc(50% - vars.$spacing-sm);
 		aspect-ratio: 1 / 1;
 		cursor: pointer;
+
+		&:hover {
+			box-shadow: 0 0 15px rgba(vars.$primary-color-light, 0.5);
+			border-color: vars.$primary-color-light;
+		}
 	}
 }
 

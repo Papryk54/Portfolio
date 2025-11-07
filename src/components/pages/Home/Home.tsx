@@ -7,6 +7,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Observer from "gsap/Observer";
 import LoadingScreen from "../../utils/LoadingScreen/LoadingScreen";
+import AnimatedArrow from "../../utils/Animations/AnimatedArrow/AnimatedArrow";
 
 const Home = () => {
 	const homeRef = useRef<HTMLDivElement>(null);
@@ -48,6 +49,7 @@ const Home = () => {
 			<NavBar variant="fixed" />
 			<section ref={homeRef} className={styles.homePanel}>
 				<WelcomePanel />
+				<AnimatedArrow />
 			</section>
 			<section ref={projectsRef} className={styles.projectsPanel}>
 				<ProjectsSelection />

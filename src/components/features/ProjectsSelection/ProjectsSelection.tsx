@@ -16,7 +16,7 @@ const ProjectsSelection = () => {
 	const projects = useSelector(selectProject);
 	const projectsArray = projects.list;
 	const activeProject = useSelector(selectActiveProject);
-	const [activeIndex, setActiveIndex] = useState<number>(1);
+	const [activeIndex, setActiveIndex] = useState<number>(projects.activeId!);
 	const swiperRef = useRef<SwiperType | null>(null);
 
 	useEffect(() => {
