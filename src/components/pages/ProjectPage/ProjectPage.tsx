@@ -7,19 +7,34 @@ import ContactFormSection from "../../layout/ContactFormSection/ContactFormSecti
 import LoadingScreen from "../../utils/LoadingScreen/LoadingScreen";
 import SeeAlsoSection from "../../layout/SeeAlsoSection/SeeAlsoSection";
 import AnimatedArrow from "../../utils/Animations/AnimatedArrow/AnimatedArrow";
+import { useSelector } from "react-redux";
+import {
+	selectActiveProject,
+	selectActiveProjectImages,
+} from "../../../redux/projectReducer/projectReducer.selectors";
+import { getImageByName } from "../../../utils/images";
 
 const ProjectPage = () => {
 	const { id } = useParams<{ id: string }>();
 	const numericId = Number(id);
+	const images = useSelector(selectActiveProjectImages);
+	const imagesSrcs = images.map(getImageByName);
+	const activeProject = useSelector(selectActiveProject);
 
 	return (
 		<main className={styles.wrapper}>
 			<LoadingScreen />
 			<NavBar variant="absolute" />
 			<header className={styles.projectHeader}>
-				<div className={styles.projectImage}></div>
-				<p className={styles.projectTitle}>Project Name</p>
-				<p className={styles.projectMotto}>Main idea of the project</p>
+				<div className={styles.projectImage}>
+					<img src={imagesSrcs[0]} alt="" />
+				</div>
+				{activeProject && (
+					<>
+						<p className={styles.projectTitle}>{activeProject.name}</p>
+						<p className={styles.projectMotto}>{activeProject.descShort}</p>
+					</>
+				)}
 				<AnimatedArrow />
 			</header>
 			<section className={styles.mainSection}>

@@ -6,7 +6,7 @@
 	justify-content: center;
 	align-items: center;
 	margin: 0 vars.$site-spacing-lg;
-	padding: vars.$site-spacing-lg;
+	padding: vars.$site-spacing-sm;
 	border: 1px solid vars.$text-color-light;
 	position: relative;
 
@@ -94,8 +94,8 @@
 	font-size: vars.$font-3xl;
 	font-family: vars.$font-special;
 	color: vars.$text-color-light;
-	text-align: justify;
-	flex: 4;
+	text-align: left;
+	flex: 3;
 }
 
 .cvWrapper {

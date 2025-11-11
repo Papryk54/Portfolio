@@ -39,7 +39,7 @@
 	width: 60%;
 	height: 80%;
 	display: flex;
-align-items: center;
+	align-items: center;
 }
 
 .description {
@@ -49,4 +49,12 @@ align-items: center;
 
 .techStackContainer {
 	height: 40%;
+}
+
+.aboutName {
+	height: 80%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: vars.$text-color-light;
 }

@@ -4,6 +4,7 @@ import styles from "./ContactFormSection.module.scss";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { useRef } from "react";
+import CopyEmail from "../../utils/CopyEmail/CopyEmail";
 
 const ContactFormSection = () => {
 	const wrapperRef = useRef<HTMLDivElement>(null);
@@ -85,6 +86,7 @@ const ContactFormSection = () => {
 			<div className={styles.formContainer}>
 				<ContactForm />
 			</div>
+			<CopyEmail />
 		</section>
 	);
 };

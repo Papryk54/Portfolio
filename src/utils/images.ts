@@ -1,4 +1,4 @@
-const modules = import.meta.glob('/src/assets/.placeholders/*.{png,jpg,jpeg,webp,svg}', { eager: true, as: 'url' });
+const modules = import.meta.glob('/src/assets/images/projectsImages/*.{png,jpg,jpeg,webp,svg}', { eager: true, as: 'url' });
 
 type ImageMap = Record<string, string>;
 

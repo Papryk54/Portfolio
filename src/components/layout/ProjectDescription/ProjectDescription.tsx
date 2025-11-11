@@ -30,7 +30,7 @@ const ProjectDescription = () => {
 			<div className={styles.description} ref={desContainerRef}>
 				<div className={styles.descriptionText}>
 					<span className={styles.descLabel}>Description:</span>
-					{activeProject?.description.map((paragraph, index) => (
+					{activeProject?.descRegular.map((paragraph, index) => (
 						<p className={styles.descriptionParagraph} key={index}>
 							{paragraph}
 						</p>
@@ -43,7 +43,9 @@ const ProjectDescription = () => {
 							</li>
 						))}
 					</ul>
-					<span className={styles.descLabel}>Future Development:</span>
+					{activeProject?.futureDevelopment && activeProject.futureDevelopment.length > 0 && (
+						<span className={styles.descLabel}>Future Development:</span>
+					)}
 					<ul className={styles.featuresTable}>
 						{activeProject?.futureDevelopment.map((futureDev, index) => (
 							<li className={styles.feature} key={index}>

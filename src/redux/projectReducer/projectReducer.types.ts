@@ -1,18 +1,38 @@
 export type ProjectStack =
+	| "html5"
+	| "css3"
+	| "javascript"
 	| "react"
 	| "redux"
 	| "typescript"
+	| "vitejs"
+	| "react native"
+	| "tailwind css"
+	| "bootstrap 5"
 	| "sass"
-	| "prettier"
-	| "appwrite"
-	| "electron"
-	| "mysql"
 	| "gsap"
-	| "vitejs";
+	| "nodejs"
+	| "nestjs"
+	| "mongodb"
+	| "mysql"
+	| "prisma"
+	| "babel"
+	| "expressjs"
+	| "appwrite"
+	| "figma"
+	| "github"
+	| "postman"
+	| "npm"
+	| "powershell"
+	| "prettier"
+	| "replit"
+	| "electron";
+
 
 export type Project = {
 	id: number;
-	description: string[];
+	descShort: string;
+	descRegular: string[];
 	features: string[];
 	futureDevelopment: string[];
 	images: string[];

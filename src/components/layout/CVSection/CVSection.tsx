@@ -1,3 +1,4 @@
+import SeeAlsoSection from "../SeeAlsoSection/SeeAlsoSection";
 import styles from "./CVSection.module.scss";
 
 const CVSection = () => {
@@ -26,14 +27,9 @@ const CVSection = () => {
 			<div
 				className={`${styles.corner} ${styles.bottom} ${styles.right}`}
 			></div>
-			<p className={styles.introduction}>
-				Jestem programistą z prawdziwą pasją do kodowania. Pod okiem
-				doświadczonych mentorów usystematyzowałem swoją wiedzę i każdego dnia
-				rozwijam swój warsztat, ucząc się, śledząc branżowe trendy i kodując.
-				Kiedy pojawiają się trudności, właśnie wtedy zaczyna się dla mnie
-				zabawa, bo traktuję je jak łamigłówki, które z przyjemnością rozkładam
-				na części i rozwiązuję krok po kroku.
-			</p>
+			<div className={styles.introduction}>
+				<SeeAlsoSection variant="cv" id={0} />
+			</div>
 			<div className={styles.cvWrapper}>
 				<div className={styles.textWrapper}>
 					<p className={styles.animatedText}>View my CV</p>

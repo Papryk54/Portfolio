@@ -8,9 +8,10 @@ import { Link } from "react-router-dom";
 
 type Props = {
 	id: number;
+	variant?: "cv";
 };
 
-const SeeAlsoSection = ({ id }: Props) => {
+const SeeAlsoSection = ({ id, variant }: Props) => {
 	const numberOfProjectsToDisplay = 3;
 	const allProjects = useSelector(selectProject).list;
 	const [projectsToDisplay, setProjectsToDisplay] = useState<Project[]>([]);
@@ -32,32 +33,65 @@ const SeeAlsoSection = ({ id }: Props) => {
 	}, [allProjects, id, numberOfProjectsToDisplay]);
 
 	return (
-		<section className={styles.seeAlsoSection}>
-			<h3>See what I also did</h3>
-			<ul className={styles.list}>
-				{projectsToDisplay.map((project) => (
-					<li key={project.id} className={styles.projectItem}>
-						<Link
-							to={`/projects/${project.id}`}
-							className={styles.overlayLink}
-							children={
-								<>
-									<div className={styles.textContent}>
-										<h4>{project.name}</h4>
-										<p>{project.description[0]}</p>
-									</div>
-									<img
-										src={getImageByName(project.images[0])}
-										alt={`Main image of ${project.name} project`}
-										className={styles.projectImage}
-									/>
-								</>
-							}
-						/>
-					</li>
-				))}
-			</ul>
-		</section>
+		<>
+			{variant === "cv" && (
+				<section className={styles.seeAlsoSectionCV}>
+					<ul className={styles.list}>
+						{projectsToDisplay.map((project) => (
+							<li key={project.id} className={styles.projectItemCV}>
+								<Link
+									to={`/projects/${project.id}`}
+									className={styles.overlayLink}
+									children={
+										<>
+											<div className={styles.textContentCV}>
+												<h4>{project.name}</h4>
+												<p className={styles.hidden}>
+													{project.descShort}
+												</p>
+											</div>
+											<img
+												src={getImageByName(project.images[0])}
+												alt={`Main image of ${project.name} project`}
+												className={styles.projectImageCV}
+											/>
+										</>
+									}
+								/>
+							</li>
+						))}
+					</ul>
+				</section>
+			)}
+			{!variant && (
+				<section className={styles.seeAlsoSection}>
+					<h3>See what I also did</h3>
+					<ul className={styles.list}>
+						{projectsToDisplay.map((project) => (
+							<li key={project.id} className={styles.projectItem}>
+								<Link
+									to={`/projects/${project.id}`}
+									className={styles.overlayLink}
+									children={
+										<>
+											<div className={styles.textContent}>
+												<h4>{project.name}</h4>
+												<p>{project.descShort}</p>
+											</div>
+											<img
+												src={getImageByName(project.images[0])}
+												alt={`Main image of ${project.name} project`}
+												className={styles.projectImage}
+											/>
+										</>
+									}
+								/>
+							</li>
+						))}
+					</ul>
+				</section>
+			)}
+		</>
 	);
 };
 

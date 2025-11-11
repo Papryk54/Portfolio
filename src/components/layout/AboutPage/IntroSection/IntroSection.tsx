@@ -11,11 +11,12 @@ const IntroSection = () => {
 				<div className={styles.introContainer}>
 					<h3 className={styles.name}>Patryk Olszewski</h3>
 					<p className={styles.introText}>
-						I am a passionate fullstack web developer who loves turning ideas
-						into reality. I thrive on solving complex problems and creating
-						beautiful, functional web applications. My dedication to learning
-						and improving drives me to stay up-to-date with the latest
-						technologies, always aiming to deliver the best possible solutions.
+						I'm a programmer with a genuine passion for coding. Under the
+						guidance of experienced mentors, I've systematized my knowledge and
+						keep improving my craft every day by learning, following industry
+						trends, and writing code. When challenges arise, that's when the fun
+						begins — I see them as puzzles I enjoy breaking down and solving
+						step by step.
 					</p>
 				</div>
 			</article>

@@ -25,9 +25,7 @@
 
 .projectItem {
 	flex: 1;
-
 	height: 100%;
-
 	background-color: vars.$background-teritary;
 	border: 1px solid vars.$primary-color-dark;
 	border-radius: vars.$radius-md;
@@ -54,6 +52,7 @@
 	justify-content: center;
 	align-items: center;
 	padding: vars.$spacing-md;
+	text-decoration: none;
 }
 
 .textContent {
@@ -63,6 +62,7 @@
 	gap: vars.$spacing-md;
 	padding: vars.$spacing-md;
 	text-align: left;
+	z-index: 2;
 }
 
 .projectImage {
@@ -71,4 +71,54 @@
 	aspect-ratio: 1 / 1;
 	object-fit: cover;
 	border-radius: vars.$radius-sm;
+}
+
+// CV variant
+
+.seeAlsoSectionCV {
+	height: 30vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.projectItemCV {
+	flex: 1;
+	background-color: vars.$background-basic;
+	border: 1px solid vars.$primary-color-dark;
+	border-radius: vars.$radius-md;
+	transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+	position: relative;
+	overflow: hidden;
+
+	&:hover {
+		cursor: pointer;
+		box-shadow: 0 0 15px rgba(vars.$primary-color, 0.5);
+		border-color: vars.$primary-color-light;
+	}
+}
+
+.textContentCV {
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: flex-end;
+
+	h4 {
+		color: vars.$text-color-light;
+	}
+}
+
+.projectImageCV {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	z-index: 1;
+	filter: opacity(0.2);
+}
+
+.hidden {
+	display: none;
 }

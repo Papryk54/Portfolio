@@ -47,10 +47,10 @@ const ProjectsSelection = () => {
 			<div className={styles.header}>
 				<div className={styles.navArrows}>
 					<button className={styles.arrowButtonLeft} onClick={handlePrev}>
-						<img src={arrowDark} alt="Logo" className={styles.arrowLeft} />
+						<img src={arrowDark} alt="previous" className={styles.arrowLeft} />
 					</button>
 					<button className={styles.arrowButtonRight} onClick={handleNext}>
-						<img src={arrowDark} alt="Logo" className={styles.arrowRight} />
+						<img src={arrowDark} alt="next" className={styles.arrowRight} />
 					</button>
 				</div>
 				<h2 className={styles.title}>{activeProject?.name}</h2>

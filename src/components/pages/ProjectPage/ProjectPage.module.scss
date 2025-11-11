@@ -27,13 +27,48 @@
 	left: 0;
 	height: 100vh;
 	width: 100%;
-	background: linear-gradient(
-		transparent 0,
-		rgba(vars.$background-basic, 0.5) 20%,
-		vars.$background-basic 100%
-	);
+	pointer-events: none;
+	z-index: 0;
+
+	&::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		background: linear-gradient(
+			transparent 0,
+			rgba(vars.$background-basic, 0.5) 20%,
+			vars.$background-basic 100%
+		);
+		z-index: 1;
+	}
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 200px;
+		pointer-events: none;
+		background: linear-gradient(
+			to bottom,
+			rgba(vars.$background-basic, 0.85) 0px,
+			rgba(vars.$background-basic, 0.6) 100px,
+			rgba(vars.$background-basic, 0) 200px
+		);
+		z-index: 1;
+	}
 	z-index: 0;
 	pointer-events: none;
+	img {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		z-index: 0;
+	}
 }
 
 .projectTitle {
@@ -41,7 +76,7 @@
 	font-size: vars.$font-4xl;
 	color: vars.$text-color-light;
 	margin-top: 20vh;
-	z-index: 1;
+	z-index: 3;
 }
 
 .projectMotto {
@@ -49,7 +84,7 @@
 	font-size: vars.$font-lg;
 	color: vars.$text-color-light;
 	margin-top: 20vh;
-	z-index: 1;
+	z-index: 3;
 }
 
 .goDownButton {
