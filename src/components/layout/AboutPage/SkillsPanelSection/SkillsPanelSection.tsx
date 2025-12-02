@@ -1,56 +1,66 @@
 import StackIcons from "../../../pages/About/StackIcons/StackIcons";
 import styles from "./SkillsPanelSection.module.scss";
+import { useTranslation } from "react-i18next";
 
 const SkillsPanelSection = () => {
+	const { t } = useTranslation();
 	return (
 		<section className={styles.skillsPanel}>
-			<h2 className={styles.skillsSectionHeader}>My Technologies & Skills</h2>
+			<h2 className={styles.skillsSectionHeader}>
+				{t("myTechnologiesSkills", "My Technologies & Skills")}
+			</h2>
 			<article className={styles.leftSide}>
 				<StackIcons />
 			</article>
 			<article className={styles.rightSide}>
 				<section className={styles.SoftSkills}>
-					<h2 className={styles.skillsSectionHeader}>Soft Skills</h2>
+					<h2 className={styles.skillsSectionHeader}>
+						{t("softSkills", "Soft Skills")}
+					</h2>
 					<ul>
 						<li>
-							<p>Problem Solving</p>
+							<p>{t("problemSolving", "Problem Solving")}</p>
 						</li>
 						<li>
-							<p>Teamwork</p>
+							<p>{t("teamwork", "Teamwork")}</p>
 						</li>
 						<li>
-							<p>Maximizing Results</p>
+							<p>{t("maximizingResults", "Maximizing Results")}</p>
 						</li>
 						<li>
-							<p>Time Management</p>
+							<p>{t("timeManagement", "Time Management")}</p>
 						</li>
 						<li>
-							<p>Work Organization</p>
+							<p>{t("workOrganization", "Work Organization")}</p>
 						</li>
 						<li>
-							<p>Creativity</p>
+							<p>{t("creativity", "Creativity")}</p>
 						</li>
 					</ul>
 				</section>
 				<section className={styles.languages}>
-					<h2 className={styles.skillsSectionHeader}>Languages</h2>
+					<h2 className={styles.skillsSectionHeader}>
+						{t("languages", "Languages")}
+					</h2>
 					<ul>
 						<li>
-							<p>English - C1</p>
+							<p>{t("englishC1", "English - C1")}</p>
 						</li>
 						<li>
-							<p>Polish - Native</p>
+							<p>{t("polishNative", "Polish - Native")}</p>
 						</li>
 					</ul>
 				</section>
 				<section className={styles.interests}>
-					<h2 className={styles.skillsSectionHeader}>Interests</h2>
+					<h2 className={styles.skillsSectionHeader}>
+						{t("interests", "Interests")}
+					</h2>
 					<ul>
 						<li>
-							<p>AI & Machine Learning</p>
+							<p>{t("aiMachineLearning", "AI & Machine Learning")}</p>
 						</li>
 						<li>
-							<p>Technology</p>
+							<p>{t("technology", "Technology")}</p>
 						</li>
 					</ul>
 				</section>

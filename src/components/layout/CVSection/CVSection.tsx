@@ -1,7 +1,9 @@
 import SeeAlsoSection from "../SeeAlsoSection/SeeAlsoSection";
 import styles from "./CVSection.module.scss";
+import { useTranslation } from "react-i18next";
 
 const CVSection = () => {
+	const { t } = useTranslation();
 	const downloadCV = async () => {
 		try {
 			const response = await fetch("/CV_Patryk_Olszewski_fullstack.pdf");
@@ -32,10 +34,10 @@ const CVSection = () => {
 			</div>
 			<div className={styles.cvWrapper}>
 				<div className={styles.textWrapper}>
-					<p className={styles.animatedText}>View my CV</p>
+					<p className={styles.animatedText}>{t("viewCV", "View my CV")}</p>
 				</div>
 				<button className={styles.downloadButton} onClick={downloadCV}>
-					Download
+					{t("downloadCV", "Download")}
 				</button>
 			</div>
 		</section>

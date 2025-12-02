@@ -13,6 +13,7 @@ import {
 	selectActiveProjectImages,
 } from "../../../redux/projectReducer/projectReducer.selectors";
 import { getImageByName } from "../../../utils/images";
+import { useTranslation } from "react-i18next";
 
 const ProjectPage = () => {
 	const { id } = useParams<{ id: string }>();
@@ -20,6 +21,7 @@ const ProjectPage = () => {
 	const images = useSelector(selectActiveProjectImages);
 	const imagesSrcs = images.map(getImageByName);
 	const activeProject = useSelector(selectActiveProject);
+	const { t } = useTranslation();
 
 	return (
 		<main className={styles.wrapper}>
@@ -31,8 +33,8 @@ const ProjectPage = () => {
 				</div>
 				{activeProject && (
 					<>
-						<p className={styles.projectTitle}>{activeProject.name}</p>
-						<p className={styles.projectMotto}>{activeProject.descShort}</p>
+						<p className={styles.projectTitle}>{t(activeProject.name)}</p>
+						<p className={styles.projectMotto}>{t(activeProject.descShort)}</p>
 					</>
 				)}
 				<AnimatedArrow />

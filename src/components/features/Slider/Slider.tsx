@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { selectProject } from "../../../redux/projectReducer/projectReducer.selectors";
 import { getImageByName } from "../../../utils/images";
 import { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 interface SliderProps {
 	activeIndex: number;
@@ -17,6 +18,7 @@ const Slider = ({ activeIndex, setSwiperRef, onSlideChange }: SliderProps) => {
 	const project = useSelector(selectProject);
 	const imagesSrcs = project.list.map((p) => getImageByName(p.images[0]));
 	const swiperInstance = useRef<SwiperType | null>(null);
+	const { t } = useTranslation();
 
 	useEffect(() => {
 		if (
@@ -47,7 +49,7 @@ const Slider = ({ activeIndex, setSwiperRef, onSlideChange }: SliderProps) => {
 			>
 				{project.list.map((slide, index: number) => (
 					<SwiperSlide key={index}>
-						<h3 className={styles.slideTitle}>{slide.name}</h3>
+						<h3 className={styles.slideTitle}>{t(slide.name)}</h3>
 						<img
 							src={imagesSrcs[index]}
 							alt={slide.name}

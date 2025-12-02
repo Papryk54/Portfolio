@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import type { Project } from "../../../redux/projectReducer/projectReducer.types";
 import { getImageByName } from "../../../utils/images";
 import { Link } from "react-router-dom";
+import { t } from "i18next";
 
 type Props = {
 	id: number;
@@ -45,9 +46,9 @@ const SeeAlsoSection = ({ id, variant }: Props) => {
 									children={
 										<>
 											<div className={styles.textContentCV}>
-												<h4>{project.name}</h4>
+												<h4>{t(project.name)}</h4>
 												<p className={styles.hidden}>
-													{project.descShort}
+													{t(project.descShort)}
 												</p>
 											</div>
 											<img
@@ -65,7 +66,7 @@ const SeeAlsoSection = ({ id, variant }: Props) => {
 			)}
 			{!variant && (
 				<section className={styles.seeAlsoSection}>
-					<h3>See what I also did</h3>
+					<h3>{t("seeAlso")}</h3>
 					<ul className={styles.list}>
 						{projectsToDisplay.map((project) => (
 							<li key={project.id} className={styles.projectItem}>
@@ -75,8 +76,8 @@ const SeeAlsoSection = ({ id, variant }: Props) => {
 									children={
 										<>
 											<div className={styles.textContent}>
-												<h4>{project.name}</h4>
-												<p>{project.descShort}</p>
+												<h4>{t(project.name)}</h4>
+												<p>{t(project.descShort)}</p>
 											</div>
 											<img
 												src={getImageByName(project.images[0])}

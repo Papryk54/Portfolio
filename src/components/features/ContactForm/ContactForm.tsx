@@ -3,6 +3,7 @@ import styles from "./ContactForm.module.scss";
 import gsap from "gsap";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
+import { useTranslation } from "react-i18next";
 
 const ContactForm = () => {
 	const nameRef = useRef<HTMLInputElement>(null);
@@ -13,6 +14,7 @@ const ContactForm = () => {
 	const formContainerRef = useRef<HTMLFormElement>(null);
 
 	const [state, handleSubmit] = useForm("mdkwbwvl");
+	const { t } = useTranslation();
 
 	useGSAP(() => {
 		if (formContainerRef.current) {
@@ -94,7 +96,7 @@ const ContactForm = () => {
 		}
 	});
 	if (state.succeeded) {
-		return <p>Thanks for joining!</p>;
+		return <p>{t("contactFormSuccess")}</p>;
 	}
 
 	const animateFocus = (el: HTMLElement | null) => {
@@ -126,7 +128,7 @@ const ContactForm = () => {
 			ref={formContainerRef}
 		>
 			<label htmlFor="name" className={styles.label}>
-				Name
+				{t("contactFormName")}
 			</label>
 			<input
 				id="name"
@@ -136,10 +138,11 @@ const ContactForm = () => {
 				ref={nameRef}
 				onFocus={() => animateFocus(nameRef.current)}
 				onBlur={() => animateBlur(nameRef.current)}
+				placeholder={t("contactFormNamePlaceholder")}
 			/>
 
 			<label htmlFor="email" className={styles.label}>
-				Email Address
+				{t("contactFormEmail")}
 			</label>
 			<input
 				id="email"
@@ -149,11 +152,16 @@ const ContactForm = () => {
 				ref={emailRef}
 				onFocus={() => animateFocus(emailRef.current)}
 				onBlur={() => animateBlur(emailRef.current)}
+				placeholder={t("contactFormEmailPlaceholder")}
 			/>
-			<ValidationError prefix="Email" field="email" errors={state.errors} />
+			<ValidationError
+				prefix={t("contactFormEmail")}
+				field="email"
+				errors={state.errors}
+			/>
 
 			<label htmlFor="message" className={styles.label}>
-				How can I help you?
+				{t("contactFormMessage")}
 			</label>
 			<textarea
 				id="message"
@@ -162,8 +170,13 @@ const ContactForm = () => {
 				ref={messageRef}
 				onFocus={() => animateFocus(messageRef.current)}
 				onBlur={() => animateBlur(messageRef.current)}
+				placeholder={t("contactFormMessagePlaceholder")}
 			/>
-			<ValidationError prefix="Message" field="message" errors={state.errors} />
+			<ValidationError
+				prefix={t("contactFormMessage")}
+				field="message"
+				errors={state.errors}
+			/>
 
 			<button
 				type="submit"
@@ -172,7 +185,7 @@ const ContactForm = () => {
 				ref={submitButtonRef}
 			>
 				<span className={styles.btnText} ref={submitTextRef}>
-					Send
+					{t("contactFormSend")}
 				</span>
 			</button>
 		</form>

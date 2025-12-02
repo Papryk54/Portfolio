@@ -6,10 +6,12 @@ import { useSelector } from "react-redux";
 import { selectActiveProject } from "../../../redux/projectReducer/projectReducer.selectors";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
+import { useTranslation } from "react-i18next";
 
 const ProjectDescription = () => {
 	const desContainerRef = useRef<HTMLDivElement>(null);
 	const activeProject = useSelector(selectActiveProject);
+	const { t } = useTranslation();
 
 	useGSAP(() => {
 		if (!desContainerRef.current) return;
@@ -29,27 +31,27 @@ const ProjectDescription = () => {
 		<section className={styles.projectInfo}>
 			<div className={styles.description} ref={desContainerRef}>
 				<div className={styles.descriptionText}>
-					<span className={styles.descLabel}>Description:</span>
+					<span className={styles.descLabel}>{t("projectDescription")}</span>
 					{activeProject?.descRegular.map((paragraph, index) => (
 						<p className={styles.descriptionParagraph} key={index}>
-							{paragraph}
+							{t(paragraph)}
 						</p>
 					))}
-					<span className={styles.descLabel}>Features:</span>
+					<span className={styles.descLabel}>{t("features")}</span>
 					<ul className={styles.featuresTable}>
 						{activeProject?.features.map((feature, index) => (
 							<li className={styles.feature} key={index}>
-								<p>{feature}</p>
+								<p>{t(feature)}</p>
 							</li>
 						))}
 					</ul>
 					{activeProject?.futureDevelopment && activeProject.futureDevelopment.length > 0 && (
-						<span className={styles.descLabel}>Future Development:</span>
+						<span className={styles.descLabel}>{t("futureDevelopment")}</span>
 					)}
 					<ul className={styles.featuresTable}>
 						{activeProject?.futureDevelopment.map((futureDev, index) => (
 							<li className={styles.feature} key={index}>
-								<p>{futureDev}</p>
+								<p>{t(futureDev)}</p>
 							</li>
 						))}
 					</ul>

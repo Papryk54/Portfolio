@@ -4,9 +4,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border-radius: 50px;
-	width: 140px;
-	height: 40px;
+	border-radius: vars.$radius-xl;
+	min-width: vars.$site-spacing-2xl;
 	border: 1px solid vars.$background-teritary;
 	z-index: 2;
 	transition: border-color vars.$transition-basic,
@@ -28,14 +27,13 @@
 	cursor: pointer;
 	transition: background-color vars.$transition-basic,
 		color vars.$transition-basic, border-radius vars.$transition-basic;
-	font-size: 24px;
-	height: 40px;
-	padding: 4px;
+	padding: vars.$spacing-2xs;
+
 	p {
 		color: vars.$text-color-light;
 		font-family: vars.$font-secondary;
-		line-height: 32px;
-		border-radius: 50px;
+		font-size: vars.$font-3xl;
+		border-radius: vars.$radius-xl;
 		transition: background-color vars.$transition-basic,
 			color vars.$transition-basic, border-radius vars.$transition-basic;
 		&:not(.active):hover {
@@ -54,7 +52,33 @@
 	}
 }
 
-.icon {
-	height: 50%;
-	transition: height vars.$transition-basic;
+@media (max-width: vars.$bp-xl) {
+	.wrapper {
+		min-width: vars.$site-spacing-xl;
+	}
+	.button {
+		p {
+			font-size: vars.$font-xl;
+		}
+	}
+}
+
+@media (max-width: vars.$bp-lg) {
+}
+
+@media (max-width: vars.$bp-md) {
+}
+
+@media (max-width: vars.$bp-xs) {
+	.wrapper {
+		min-width: vars.$site-spacing-lg;
+	}
+	.button {
+		p {
+			font-size: vars.$font-sm;
+		}
+	}
+}
+
+@media (max-width: vars.$bp-2xs) {
 }

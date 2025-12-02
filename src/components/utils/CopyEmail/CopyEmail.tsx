@@ -2,6 +2,7 @@ import { useGSAP } from "@gsap/react";
 import styles from "./CopyEmail.module.scss";
 import gsap from "gsap";
 import { useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const CopyEmail = () => {
 	const alertRef = useRef(null);
@@ -11,6 +12,7 @@ const CopyEmail = () => {
 		setTimeout(() => setCopied(false), 6500);
 	};
 	const [copied, setCopied] = useState(false);
+	const { t } = useTranslation();
 	useGSAP(() => {
 		const tl = gsap.timeline();
 		if (!copied) return;
@@ -29,11 +31,11 @@ const CopyEmail = () => {
 	return (
 		<div className={styles.info}>
 			<div className={styles.alert} ref={alertRef}>
-				<p>Copied!</p>
+				<p>{t("copied")}</p>
 			</div>
 			<button className={styles.copyButton} onClick={handleCopy}>
 				<p>
-					...or mail me directly at<span>patryk.o.dev@gmail.com</span>
+					{t("directMail")}<span>patryk.o.dev@gmail.com</span>
 				</p>
 			</button>
 		</div>

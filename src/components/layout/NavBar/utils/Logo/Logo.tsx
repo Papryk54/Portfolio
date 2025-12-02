@@ -1,10 +1,12 @@
 import gsap from "gsap";
 import styles from "./Logo.module.scss";
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Logo = () => {
 	const { pathname } = useLocation();
 	const isHome = pathname === "/";
+	const { t } = useTranslation();
 
 	const handleGoToTop = () => {
 		gsap.to(window, {
@@ -38,7 +40,7 @@ const Logo = () => {
 			)}
 
 			<div className={styles.logoText}>
-				<p className={styles.logoName}>Patryk Olszewski</p>
+				<p className={styles.logoName}>{t("name")} Olszewski</p>
 			</div>
 		</div>
 	);

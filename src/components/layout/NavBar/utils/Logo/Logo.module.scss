@@ -3,7 +3,7 @@
 .wrapper {
 	display: flex;
 	align-items: center;
-	height: 100px;
+	height: 10vh;
 }
 
 .logoButton {
@@ -11,11 +11,12 @@
 	border: none;
 	padding: 0;
 	cursor: pointer;
+	max-height: 100%;
 
 	.logo {
 		display: flex;
-		width: 40px;
-		height: 40px;
+		width: vars.$site-spacing-lg;
+		aspect-ratio: 1 / 1;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
@@ -32,13 +33,10 @@
 .logoText {
 	display: flex;
 	align-items: center;
-	height: 50px;
-	width: 200px;
-	max-width: 200px;
-	margin-left: 10px;
+	margin-left: vars.$spacing-lg;
 
 	.logoName {
-		font-size: 12px;
+		font-size: vars.$font-2xl;
 		letter-spacing: 2px;
 		font-family: vars.$font-secondary;
 		color: vars.$text-color-light;
@@ -99,5 +97,38 @@
 			opacity: 0;
 			z-index: 1;
 		}
+	}
+}
+
+@media (max-width: vars.$bp-lg) {
+}
+
+@media (max-width: vars.$bp-md) {
+	.logoButton .logo {
+		width: vars.$site-spacing-md;
+	}
+	.logoText .logoName {
+		font-size: vars.$font-size-md;
+	}
+}
+
+@media (max-width: vars.$bp-sm) {
+	.logoText {
+		margin-left: vars.$spacing-sm;
+	}
+}
+
+@media (max-width: vars.$bp-xs) {
+	.logoButton .logo {
+		width: vars.$site-spacing-sm;
+	}
+	.logoText .logoName {
+		font-size: vars.$font-sm;
+	}
+}
+
+@media (max-width: vars.$bp-2xs) {
+	.logoButton .logo {
+		width: vars.$site-spacing-sm;
 	}
 }

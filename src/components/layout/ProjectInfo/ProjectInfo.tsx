@@ -4,10 +4,12 @@ import { selectActiveProject } from "../../../redux/projectReducer/projectReduce
 import ViewProjectButton from "../../utils/Buttons/ViewProjectButton/ViewProjectButton";
 import TechStack from "../../utils/TechStack/TechStack";
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 const ProjectInfo = () => {
 	const activeProject = useSelector(selectActiveProject);
 	const descRef = useRef(null);
+	const { t } = useTranslation();
 
 	if (!activeProject) {
 		return null;
@@ -21,11 +23,11 @@ const ProjectInfo = () => {
 						activeProject.id === 0 ? styles.aboutName : styles.projectName
 					}
 				>
-					{activeProject.name}
+					{t(activeProject.name)}
 				</h2>
 				{activeProject.stack.length > 0 && (
 					<>
-						<span className={styles.stackLabel}>Stack Used:</span>
+						<span className={styles.stackLabel}>{t("stackUsed")}</span>
 						<div className={styles.techStackContainer}>
 							<TechStack />
 						</div>
@@ -39,7 +41,7 @@ const ProjectInfo = () => {
 			</div>
 			<div className={styles.descriptionBlock}>
 				<p className={styles.description} ref={descRef}>
-					{activeProject.descShort}
+					{t(activeProject.descShort)}
 				</p>
 			</div>
 		</section>

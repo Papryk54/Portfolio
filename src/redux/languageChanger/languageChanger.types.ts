@@ -1,3 +1,3 @@
 export type LanguageState = {
-	currentLanguage: string;
+	currentLanguage: "en" | "pl";
 };

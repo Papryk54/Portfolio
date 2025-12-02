@@ -10,6 +10,7 @@ import {
 import { useRef, useState, useEffect } from "react";
 import { setActiveProject } from "../../../redux/projectReducer/projectReducer.slice";
 import { Swiper as SwiperType } from "swiper";
+import { useTranslation } from "react-i18next";
 
 const ProjectsSelection = () => {
 	const dispatch = useDispatch();
@@ -18,6 +19,7 @@ const ProjectsSelection = () => {
 	const activeProject = useSelector(selectActiveProject);
 	const [activeIndex, setActiveIndex] = useState<number>(projects.activeId!);
 	const swiperRef = useRef<SwiperType | null>(null);
+	const { t } = useTranslation();
 
 	useEffect(() => {
 		if (activeProject) {
@@ -53,7 +55,7 @@ const ProjectsSelection = () => {
 						<img src={arrowDark} alt="next" className={styles.arrowRight} />
 					</button>
 				</div>
-				<h2 className={styles.title}>{activeProject?.name}</h2>
+				<h2 className={styles.title}>{t(activeProject!.name)}</h2>
 			</div>
 			<Slider
 				activeIndex={activeIndex}

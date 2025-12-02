@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { useRef } from "react";
 import CopyEmail from "../../utils/CopyEmail/CopyEmail";
+import { t } from "i18next";
 
 const ContactFormSection = () => {
 	const wrapperRef = useRef<HTMLDivElement>(null);
@@ -78,9 +79,9 @@ const ContactFormSection = () => {
 	return (
 		<section className={styles.wrapper} ref={wrapperRef}>
 			<div className={styles.cta}>
-				<h2>Contact</h2>
+				<h2>{t("contact")}</h2>
 				<p>
-					Feel free to reach out for collaborations or just a friendly hello!
+					{t("contactCTA")}
 				</p>
 			</div>
 			<div className={styles.formContainer}>

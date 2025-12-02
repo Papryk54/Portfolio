@@ -7,6 +7,7 @@ import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Flip } from "gsap/all";
+import { useTranslation } from "react-i18next";
 
 const ProjectGallery = () => {
 	const images = useSelector(selectActiveProjectImages);
@@ -20,6 +21,7 @@ const ProjectGallery = () => {
 	const fullSizeContainerRef = useRef<HTMLDivElement>(null);
 	const fullSizeButtonRef = useRef<HTMLButtonElement>(null);
 	const [isFullSize, setIsFullSize] = useState(false);
+	const { t } = useTranslation();
 
 	const handleImageMouseEnter = (img: HTMLImageElement | null) => {
 		if (img) {
@@ -114,7 +116,7 @@ const ProjectGallery = () => {
 	return (
 		<section className={styles.projectGallery}>
 			<div className={styles.galleryHeader}>
-				<h3 className={styles.imageTitle}>Image Title</h3>
+				<h3 className={styles.imageTitle}>{t("projectFluxShop")}</h3>
 				<a className={styles.githubLink} href="#">
 					<img src={githubIcon} alt="githubLogo" />
 				</a>
@@ -144,7 +146,7 @@ const ProjectGallery = () => {
 			)}
 			<div className={styles.mainImageContainer} ref={normalSizeContainerRef}>
 				<button className={styles.imageHoverText} onClick={handleFullSize}>
-					Click for full size
+					{t("clickToEnlarge")}
 				</button>
 				<img
 					src={mainImgSrc || "/placeholder.png"}

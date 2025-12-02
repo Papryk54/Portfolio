@@ -1,22 +1,24 @@
 import styles from "./IntroSection.module.scss";
+import { useTranslation } from "react-i18next";
 
 const IntroSection = () => {
+	const { t } = useTranslation();
 	return (
 		<section className={styles.introSection}>
 			<div className={styles.mark}>
-				<h1 className={styles.markText}>About Me</h1>
+				<h1 className={styles.markText}>{t("aboutMe", "About Me")}</h1>
 			</div>
 			<article className={styles.aboutIntro}>
-				<h2 className={styles.introHeader}>Who am I?</h2>
+				<h2 className={styles.introHeader}>{t("whoAmI", "Who am I?")}</h2>
 				<div className={styles.introContainer}>
-					<h3 className={styles.name}>Patryk Olszewski</h3>
+					<h3 className={styles.name}>
+						{t("patrykOlszewski", "Patryk Olszewski")}
+					</h3>
 					<p className={styles.introText}>
-						I'm a programmer with a genuine passion for coding. Under the
-						guidance of experienced mentors, I've systematized my knowledge and
-						keep improving my craft every day by learning, following industry
-						trends, and writing code. When challenges arise, that's when the fun
-						begins — I see them as puzzles I enjoy breaking down and solving
-						step by step.
+						{t(
+							"aboutMeIntroText",
+							"I'm a programmer with a genuine passion for coding. Under the guidance of experienced mentors, I've systematized my knowledge and keep improving my craft every day by learning, following industry trends, and writing code. When challenges arise, that's when the fun begins — I see them as puzzles I enjoy breaking down and solving step by step."
+						)}
 					</p>
 				</div>
 			</article>

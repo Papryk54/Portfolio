@@ -3,12 +3,14 @@ import styles from "./LoadingScreen.module.scss";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import logo from "../../../assets/images/logo.png";
+import { useTranslation } from "react-i18next";
 
 const LoadingScreen = () => {
 	const wrapperRef = useRef(null);
 	const leftRef = useRef(null);
 	const rightRef = useRef(null);
 	const spinnerRef = useRef(null);
+	const { t } = useTranslation();
 
 	useEffect(() => {
 		gsap.killTweensOf(window);
@@ -50,7 +52,7 @@ const LoadingScreen = () => {
 			<div className={styles.left} ref={leftRef}>
 				<div className={styles.logoContainer}>
 					<img src={logo} alt="Logo" />
-					<h3 className={styles.name}>Patryk Olszewski</h3>
+					<h3 className={styles.name}>{t("name")} Olszewski</h3>
 				</div>
 			</div>
 			<div className={styles.right} ref={rightRef}>

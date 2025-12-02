@@ -1,25 +1,26 @@
 import StackSchowcase from "../../features/StackSchowcase/StackSchowcase";
 import Socials from "../Socials/Socials";
 import styles from "./WelcomePanel.module.scss";
+import { useTranslation } from "react-i18next";
+import enterImg from "../../../assets/icons/enter.png";
 
 const WelcomePanel = () => {
+	const { t } = useTranslation();
 	return (
 		<header className={styles.wrapper}>
 			<StackSchowcase />
 			<div className={styles.text}>
-				<h3 className={styles.name}>Patryk Olszewski</h3>
+				<h3 className={styles.name}>{t("hi")} {t("name")}</h3>
 				<p className={styles.introduction}>
-					Welcome to my portfolio! I'm Patryk Olszewski, a full stack web
-					developer. In this space, I'll share a glimpse into my work and what I
-					love to do.
+					{t("introduction")}
 				</p>
 			</div>
 			<div className={styles.scrollDown}>
 				<div className={styles.scrollTextWrapper}>
-					<p className={styles.scrollText}>Scroll</p>
+					<p className={styles.scrollText}>{t("scroll")}</p>
 				</div>
 				<button className={styles.scrollButton}>
-					<p>Enter</p>
+					<img src={enterImg} alt="Enter" />
 				</button>
 			</div>
 			<Socials />
