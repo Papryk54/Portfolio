@@ -7,46 +7,48 @@ import {
 	selectActiveProject,
 	selectProject,
 } from "../../../redux/projectReducer/projectReducer.selectors";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useCallback } from "react";
 import { setActiveProject } from "../../../redux/projectReducer/projectReducer.slice";
 import { Swiper as SwiperType } from "swiper";
 import { useTranslation } from "react-i18next";
 
 const ProjectsSelection = () => {
 	const dispatch = useDispatch();
+	const { t } = useTranslation();
+
 	const projects = useSelector(selectProject);
 	const projectsArray = projects.list;
 	const activeProject = useSelector(selectActiveProject);
-	const [activeIndex, setActiveIndex] = useState<number>(projects.activeId!);
-	const swiperRef = useRef<SwiperType | null>(null);
-	const { t } = useTranslation();
 
-	useEffect(() => {
-		if (activeProject) {
-			const idx = projectsArray.findIndex((p) => p.id === activeProject.id);
-			if (idx !== -1) setActiveIndex(idx);
-		}
-	}, [activeProject, projectsArray]);
+	const activeIndex = projectsArray.findIndex(
+		(p) => p.id === activeProject?.id
+	);
+
+	const swiperRef = useRef<SwiperType | null>(null);
+	const setSwiperRef = useCallback((swiper: SwiperType) => {
+		swiperRef.current = swiper;
+	}, []);
+
+	const goToIndex = (newIndex: number) => {
+		dispatch(setActiveProject(projectsArray[newIndex].id));
+		swiperRef.current?.slideTo(newIndex);
+	};
 
 	const handlePrev = () => {
 		const newIndex =
 			activeIndex > 0 ? activeIndex - 1 : projectsArray.length - 1;
-		setActiveIndex(newIndex);
-		dispatch(setActiveProject(projectsArray[newIndex].id));
-		if (swiperRef.current) swiperRef.current.slideTo(newIndex);
+		goToIndex(newIndex);
 	};
 
 	const handleNext = () => {
 		const newIndex =
 			activeIndex < projectsArray.length - 1 ? activeIndex + 1 : 0;
-		setActiveIndex(newIndex);
-		dispatch(setActiveProject(projectsArray[newIndex].id));
-		if (swiperRef.current) swiperRef.current.slideTo(newIndex);
+		goToIndex(newIndex);
 	};
 
 	return (
 		<section className={styles.wrapper}>
-			<div className={styles.header}>
+			<header className={styles.header}>
 				<div className={styles.navArrows}>
 					<button className={styles.arrowButtonLeft} onClick={handlePrev}>
 						<img src={arrowDark} alt="previous" className={styles.arrowLeft} />
@@ -56,15 +58,16 @@ const ProjectsSelection = () => {
 					</button>
 				</div>
 				<h2 className={styles.title}>{t(activeProject!.name)}</h2>
-			</div>
+			</header>
+
 			<Slider
 				activeIndex={activeIndex}
-				setSwiperRef={(swiper: SwiperType) => (swiperRef.current = swiper)}
-				onSlideChange={(index: number) => {
-					setActiveIndex(index);
-					dispatch(setActiveProject(projectsArray[index].id));
-				}}
+				setSwiperRef={setSwiperRef}
+				onSlideChange={(index: number) => goToIndex(index)}
 			/>
+
+			<div style={{ flex: 1 }} />
+
 			<ProjectInfo />
 		</section>
 	);

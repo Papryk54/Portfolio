@@ -1,19 +1,25 @@
 import styles from "./ProjectGallery.module.scss";
 import githubIcon from "../../../assets/icons/socials/github-mark-white.png";
 import { useSelector } from "react-redux";
-import { selectActiveProjectImages } from "../../../redux/projectReducer/projectReducer.selectors";
+import { selectProject } from "../../../redux/projectReducer/projectReducer.selectors";
 import { getImageByName } from "../../../utils/images";
 import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Flip } from "gsap/all";
 import { useTranslation } from "react-i18next";
+import { useParams } from "react-router-dom";
+import websiteIcon from "../../../assets/icons/website.png";
 
 const ProjectGallery = () => {
-	const images = useSelector(selectActiveProjectImages);
+	const params = useParams<{ id: string }>();
+	const activeProject = useSelector(selectProject).list.find(
+		(project) => project.id === Number(params.id),
+	);
+	const images = activeProject?.images || [];
 	const imagesSrcs = images.map(getImageByName);
 	const [mainImgSrc, setMainImgSrc] = useState(
-		imagesSrcs[0] || "placeholder.png"
+		imagesSrcs[0] || "placeholder.png",
 	);
 	const imgContainerRef = useRef<HTMLImageElement>(null);
 	const imgMainRef = useRef<HTMLImageElement>(null);
@@ -107,7 +113,7 @@ const ProjectGallery = () => {
 				gsap.fromTo(
 					img,
 					{ x: showFrom, opacity: 0 },
-					{ x: 0, opacity: 1, duration: 0.4, ease: "power2.out" }
+					{ x: 0, opacity: 1, duration: 0.4, ease: "power2.out" },
 				);
 			},
 		});
@@ -117,16 +123,25 @@ const ProjectGallery = () => {
 		<section className={styles.projectGallery}>
 			<div className={styles.galleryHeader}>
 				<h3 className={styles.imageTitle}>{t("projectFluxShop")}</h3>
-				<a className={styles.githubLink} href="#">
+				<a
+					className={styles.githubLink}
+					href={activeProject?.githubLink}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
 					<img src={githubIcon} alt="githubLogo" />
 				</a>
+				{activeProject?.websiteLink && (
+					<a
+						className={styles.websiteLink}
+						href={activeProject?.websiteLink}
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<img src={websiteIcon} alt="websiteLogo" />
+					</a>
+				)}
 			</div>
-			<div
-				className={`${styles.fullSizeImgContainer} ${
-					isFullSize ? "" : styles.hidden
-				}`}
-				ref={fullSizeContainerRef}
-			></div>
 			{isFullSize && (
 				<div className={styles.fullSizeMode}>
 					<button
@@ -144,6 +159,12 @@ const ProjectGallery = () => {
 					></button>
 				</div>
 			)}
+			<div
+				className={`${styles.fullSizeImgContainer} ${
+					isFullSize ? "" : styles.hidden
+				}`}
+				ref={fullSizeContainerRef}
+			></div>
 			<div className={styles.mainImageContainer} ref={normalSizeContainerRef}>
 				<button className={styles.imageHoverText} onClick={handleFullSize}>
 					{t("clickToEnlarge")}

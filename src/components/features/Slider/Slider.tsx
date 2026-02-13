@@ -5,8 +5,9 @@ import styles from "./Slider.module.scss";
 import { useSelector } from "react-redux";
 import { selectProject } from "../../../redux/projectReducer/projectReducer.selectors";
 import { getImageByName } from "../../../utils/images";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useMemo } from "react";
 import { useTranslation } from "react-i18next";
+import gsap from "gsap";
 
 interface SliderProps {
 	activeIndex: number;
@@ -16,45 +17,73 @@ interface SliderProps {
 
 const Slider = ({ activeIndex, setSwiperRef, onSlideChange }: SliderProps) => {
 	const project = useSelector(selectProject);
-	const imagesSrcs = project.list.map((p) => getImageByName(p.images[0]));
-	const swiperInstance = useRef<SwiperType | null>(null);
 	const { t } = useTranslation();
 
+	const images = useMemo(
+		() => project.list.map((p) => getImageByName(p.images[0])),
+		[project.list]
+	);
+
+	const swiperRef = useRef<SwiperType | null>(null);
+	const titleRefs = useRef<(HTMLHeadingElement | null)[]>([]);
+
 	useEffect(() => {
-		if (
-			swiperInstance.current &&
-			typeof swiperInstance.current.slideTo === "function"
-		) {
-			swiperInstance.current.slideTo(activeIndex);
-		}
+		titleRefs.current.forEach((ref, i) => {
+			if (ref) {
+				if (i === activeIndex) {
+					gsap.to(ref, { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" });
+				} else {
+					gsap.to(ref, {
+						y: -40,
+						opacity: 0,
+						duration: 0.5,
+						ease: "power2.in",
+					});
+				}
+			}
+		});
+	}, [activeIndex, project.list]);
+
+	useEffect(() => {
+		swiperRef.current?.slideTo(activeIndex);
 	}, [activeIndex]);
 
 	return (
 		<main className={styles.sliderMain}>
 			<Swiper
-				grabCursor={true}
+				grabCursor
 				initialSlide={activeIndex}
-				centeredSlides={true}
-				slidesPerView={4}
-				speed={800}
-				slideToClickedSlide={true}
-				spaceBetween={30}
-				onSlideChange={(swiper) => {
-					onSlideChange(swiper.activeIndex);
+				centeredSlides
+				slidesPerView={2}
+				breakpoints={{
+					540: { slidesPerView: 3 },
+					768: { slidesPerView: 4 },
 				}}
+				speed={600}
+				slideToClickedSlide
+				spaceBetween={30}
+				onSlideChange={(swiper) => onSlideChange(swiper.activeIndex)}
 				onSwiper={(swiper) => {
-					swiperInstance.current = swiper;
+					swiperRef.current = swiper;
 					setSwiperRef(swiper);
 				}}
 			>
-				{project.list.map((slide, index: number) => (
-					<SwiperSlide key={index}>
-						<h3 className={styles.slideTitle}>{t(slide.name)}</h3>
+				{project.list.map((slide, i) => (
+					<SwiperSlide key={slide.id}>
 						<img
-							src={imagesSrcs[index]}
+							src={images[i]}
 							alt={slide.name}
 							className={styles.slideImage}
 						/>
+						<h3
+							className={styles.slideTitle}
+							ref={(el) => {
+								titleRefs.current[i] = el;
+							}}
+							style={{ transform: "translateY(40px)", opacity: 0 }}
+						>
+							{t(slide.name)}
+						</h3>
 					</SwiperSlide>
 				))}
 			</Swiper>

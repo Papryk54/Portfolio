@@ -1,6 +1,7 @@
 import SeeAlsoSection from "../SeeAlsoSection/SeeAlsoSection";
 import styles from "./CVSection.module.scss";
 import { useTranslation } from "react-i18next";
+import downloadIcon from "../../../assets/icons/download.png";
 
 const CVSection = () => {
 	const { t } = useTranslation();
@@ -29,15 +30,19 @@ const CVSection = () => {
 			<div
 				className={`${styles.corner} ${styles.bottom} ${styles.right}`}
 			></div>
-			<div className={styles.introduction}>
+			<div className={styles.seeAlsoWrapper}>
 				<SeeAlsoSection variant="cv" id={0} />
 			</div>
 			<div className={styles.cvWrapper}>
 				<div className={styles.textWrapper}>
-					<p className={styles.animatedText}>{t("viewCV", "View my CV")}</p>
+					<p className={styles.animatedText}>{t("viewCV", "View my CV")} </p>
 				</div>
 				<button className={styles.downloadButton} onClick={downloadCV}>
-					{t("downloadCV", "Download")}
+					<img
+						className={styles.downloadIcon}
+						src={downloadIcon}
+						alt="Download icon"
+					/>
 				</button>
 			</div>
 		</section>

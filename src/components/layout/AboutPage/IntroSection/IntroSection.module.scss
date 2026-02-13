@@ -2,8 +2,10 @@
 
 .introSection {
 	width: 40%;
+	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
+	gap: 2rem;
 }
 
 .mark {
@@ -16,7 +18,7 @@
 	height: 60px;
 	width: 180px;
 	border-radius: 0 30px 30px 0;
-	margin-top: 7vh;
+	margin-top: 5vh;
 	.markText {
 		color: vars.$background-primary;
 		font-size: vars.$font-2xl;
@@ -29,39 +31,201 @@
 }
 
 .aboutIntro {
-	margin-left: vars.$site-spacing-xl;
-	margin-top: vars.$spacing-lg;
-	height: 100%;
-	p {
-		text-align: left;
-		color: vars.$text-color-light;
-	}
-	.introHeader {
-		font-size: vars.$font-4xl;
-		font-family: vars.$font-main-bold;
-		color: vars.$text-color-light;
+	display: flex;
+	flex-direction: column;
+	padding: 0 0 0 vars.$site-spacing-lg;
+}
 
-		text-align: left;
-	}
+.introHeader {
+	text-align: left;
+	color: vars.$text-color-light;
+}
+
+.name {
+	font-size: vars.$font-sm;
+	font-weight: 700;
+	text-align: left;
 }
 
 .introContainer {
-  height: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-	.name {
-		font-size: vars.$font-xl;
-		font-family: vars.$font-main-bold;
-		color: vars.$text-color-light;
-		text-align: start;
+	display: flex;
+	flex-direction: column;
+	margin-top: 2vh;
+}
+
+.introText {
+	font-size: calc(vars.$font-size-md * 0.9);
+	color: vars.$text-color-light;
+	text-align: left;
+}
+
+.contactButton {
+	margin-top: vars.$spacing-md;
+	background-color: vars.$primary-color-dark;
+	color: vars.$text-color-light;
+	padding: vars.$spacing-sm vars.$spacing-md;
+	font-size: vars.$font-size-md;
+	font-weight: 600;
+	border: none;
+	border-radius: vars.$radius-sm;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	width: 100%;
+
+	&:hover {
+		background-color: vars.$primary-color-light;
+		box-shadow: 0 4px 12px rgba(vars.$primary-color-light, 0.3);
+	}
+}
+
+.mail {
+	margin: 0.5rem 0;
+	text-align: left;
+	font-size: vars.$font-sm;
+}
+
+.socials {
+	margin-top: vars.$spacing-md;
+	width: 100%;
+
+	.socialLinksList {
+		display: flex;
+		gap: 1rem;
+		list-style: none;
+	}
+
+	.socialLinkItem {
+		a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			transition: all 0.2s ease;
+
+			img {
+				width: 70%;
+				height: 70%;
+				object-fit: contain;
+				filter: brightness(0) saturate(100%) invert(100%) sepia(0%)
+					saturate(100%) hue-rotate(0deg);
+
+				&:hover {
+					filter: brightness(0) saturate(100%) invert(12%) sepia(16%)
+						saturate(39%) hue-rotate(314deg) brightness(101%) contrast(85%);
+				}
+			}
+
+			&:hover {
+				background-color: vars.$secondary-color-light;
+				transform: scale(1.1);
+			}
+		}
+	}
+}
+
+@media (max-width: vars.$bp-xl) {
+	.introSection {
+		width: 100%;
+		height: 300px;
+		gap: 0;
+		justify-content: space-between;
+	}
+	.aboutIntro {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		padding: 0 vars.$site-spacing-lg;
+		gap: vars.$spacing-lg;
+	}
+
+	.introContainer {
+		flex: 2;
 	}
 
 	.introText {
-		font-size: vars.$font-lg;
-		font-family: vars.$font-secondary;
-		color: vars.$text-color-light;
-		margin-top: vars.$spacing-sm;
+		font-size: vars.$font-sm;
+	}
+
+	.socials {
+		display: flex;
+		flex-direction: column;
+		margin-top: 0;
+		height: 100%;
+		justify-content: end;
+		flex: 1;
+	}
+	.contactButton {
+		margin-top: 0;
+	}
+}
+
+@media (max-width: vars.$bp-md) {
+	.aboutIntro {
+		padding: 0 vars.$site-spacing-xs;
+	}
+
+	.mark {
+		padding: 2px;
+		height: 40px;
+		width: 130px;
+		margin-top: 3vh;
+		.markText {
+			font-size: vars.$font-xl;
+		}
+	}
+	.introText {
+		font-size: vars.$font-xs;
+	}
+	.contactButton {
+		padding: vars.$spacing-xs vars.$spacing-sm;
+		font-size: vars.$font-sm;
+	}
+
+	.mail {
+		margin: vars.$spacing-2xs 0;
+		font-size: vars.$font-xs;
+	}
+
+	.socials {
+		margin-top: 0;
+
+		.socialLinksList {
+			gap: vars.$spacing-xs;
+		}
+
+		.socialLinkItem {
+			a {
+				width: 30px;
+				height: 30px;
+
+				&:hover {
+					background-color: vars.$secondary-color-light;
+					transform: scale(1.1);
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: vars.$bp-sm) {
+	.introSection {
+		width: 100%;
+		height: 170px;
+		gap: vars.$spacing-xs;
+		justify-content: space-around;
+	}
+	.mark {
+		padding: 2px;
+		height: 30px;
+		width: 100px;
+		margin-top: 2vh;
+		.markText {
+			font-size: vars.$font-lg;
+		}
+	}
+	.introText {
+		display: none;
 	}
 }

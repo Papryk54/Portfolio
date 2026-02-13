@@ -1,6 +1,9 @@
 import { useSelector } from "react-redux";
 import styles from "./ProjectInfo.module.scss";
-import { selectActiveProject } from "../../../redux/projectReducer/projectReducer.selectors";
+import {
+	selectActiveProject,
+	selectProject,
+} from "../../../redux/projectReducer/projectReducer.selectors";
 import ViewProjectButton from "../../utils/Buttons/ViewProjectButton/ViewProjectButton";
 import TechStack from "../../utils/TechStack/TechStack";
 import { useRef } from "react";
@@ -8,12 +11,17 @@ import { useTranslation } from "react-i18next";
 
 const ProjectInfo = () => {
 	const activeProject = useSelector(selectActiveProject);
+	const projectState = useSelector(selectProject);
 	const descRef = useRef(null);
 	const { t } = useTranslation();
 
 	if (!activeProject) {
 		return null;
 	}
+
+	const isLastProject =
+		projectState.list.length > 0 &&
+		activeProject.id === projectState.list[projectState.list.length - 1].id;
 
 	return (
 		<section className={styles.wrapper}>
@@ -35,7 +43,11 @@ const ProjectInfo = () => {
 				)}
 				<ViewProjectButton
 					to={
-						activeProject.id === 0 ? "/about" : `/projects/${activeProject.id}`
+						activeProject.id === 0
+							? "/about"
+							: isLastProject
+							? "https://github.com/patryk-o-dev"
+							: `/projects/${activeProject.id}`
 					}
 				/>
 			</div>

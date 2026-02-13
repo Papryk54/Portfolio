@@ -1,14 +1,14 @@
 export type ProjectStack =
 	| "html5"
 	| "css3"
-	| "javascript"
+	| "js"
 	| "react"
 	| "redux"
 	| "typescript"
 	| "vitejs"
 	| "react native"
-	| "tailwind css"
-	| "bootstrap 5"
+	| "tailwindcss"
+	| "bootstrap5"
 	| "sass"
 	| "gsap"
 	| "nodejs"
@@ -26,8 +26,8 @@ export type ProjectStack =
 	| "powershell"
 	| "prettier"
 	| "replit"
-	| "electron";
-
+	| "electron"
+	| "jira";
 
 export type Project = {
 	id: number;
@@ -37,6 +37,8 @@ export type Project = {
 	futureDevelopment: string[];
 	images: string[];
 	stack: ProjectStack[];
+	githubLink?: string;
+	websiteLink?: string;
 	name: string;
 };
 

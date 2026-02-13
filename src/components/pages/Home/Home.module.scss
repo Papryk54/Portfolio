@@ -5,6 +5,15 @@
 	width: 100%;
 }
 
+.gradientOverlay {
+	position: absolute;
+	height: 100px;
+	width: 100%;
+	bottom: 0;
+	background: linear-gradient(transparent 0%, vars.$background-basic 100%);
+	z-index: -1;
+}
+
 .homePanel {
 	transition: opacity 0.7s cubic-bezier(0.77, 0, 0.18, 1),
 		transform 0.7s cubic-bezier(0.77, 0, 0.18, 1);
@@ -14,7 +23,7 @@
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100vh;
+	height: 100dvh;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
@@ -56,4 +65,36 @@
 	opacity: 1;
 	transform: translateY(0);
 	pointer-events: auto;
+}
+
+@media (max-width: vars.$bp-md) {
+	.wrapper {
+		height: auto;
+	}
+}
+
+@media (max-width: vars.$bp-md) {
+	.homePanel,
+	.projectsPanel {
+		height: 90vh;
+		max-width: 100dvw;
+		transition: opacity 0.5s ease, transform 0.5s ease;
+		margin: 0;
+		padding: 0;
+	}
+
+	.homePanel {
+	}
+
+	.projectsPanel {
+		height: auto;
+		transform: translateY(90vh);
+		display: flex;
+		flex-direction: column;
+		position: absolute;
+	}
+
+	main {
+		display: block;
+	}
 }

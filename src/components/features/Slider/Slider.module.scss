@@ -1,22 +1,21 @@
 @use "../../../styles/variables.scss" as vars;
 
-.slideImage {
-	display: block;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	aspect-ratio: 16 / 9;
-}
-
 .sliderMain {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	overflow: hidden;
 	width: 120%;
-	background-color: rgba($color: #000000, $alpha: 0.5);
-	box-shadow: 0 0 60px 20px rgba(0, 0, 0, 0.7);
 	margin-right: 20%;
+	height: 35vh;
+	background-color: rgba(0, 0, 0, 0.5);
+	box-shadow: 0 0 60px 20px rgba(0, 0, 0, 0.7);
+}
+
+.slideImage {
+	width: 100%;
+	object-fit: cover;
+	display: block;
 }
 
 :global(.swiper) {
@@ -24,26 +23,22 @@
 }
 
 :global(.swiper-slide) {
-	position: relative;
-	max-height: 30vh;
-	aspect-ratio: 16 / 9;
+	height: 30vh;
 	border-radius: vars.$radius-2xl;
-	overflow: hidden;
-	transition: 1s;
 	user-select: none;
+	transition: all 0.6s ease;
+	position: relative;
 }
 
 :global(.swiper-slide-active) {
-	transition: width 1s ease-in-out;
 	border: 3px solid vars.$text-color-light;
 }
 
 :global(.swiper-slide img) {
 	position: absolute;
-	height: calc(100% - 50px);
-	padding: 5px;
-	border-radius: 30px;
 	inset: 0;
+	height: calc(100% - 50px);
+	border-radius: 30px;
 	filter: grayscale(90%);
 	object-position: top center;
 }
@@ -54,19 +49,28 @@
 
 .slideTitle {
 	position: absolute;
-	inset: 0;
+	bottom: 0;
+	height: 50px;
 	width: 100%;
-	height: 100%;
 	display: flex;
 	flex-direction: column;
-	justify-content: end;
-	padding: vars.$spacing-md;
+	justify-content: center;
 	color: vars.$text-color-light;
-	font-size: vars.$font-lg;
+	font-size: vars.$font-size-md;
+	pointer-events: none;
 }
 
-@media (max-height: 800px) {
+@media (max-width: vars.$bp-xl) {
+	.slideTitle {
+		font-size: calc(vars.$font-size-md * 0.9);
+	}
+}
+
+@media (max-width: vars.$bp-md) {
 	.sliderMain {
-		display: none;
+		height: 40%;
+	}
+	:global(.swiper-slide) {
+		height: 25vh;
 	}
 }

@@ -1,7 +1,7 @@
 @use "../../../styles/variables.scss" as vars;
 
 .info {
-	z-index: 9;
+	z-index: 3;
 	position: absolute;
 	bottom: 0;
 	right: 0;
@@ -9,6 +9,24 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+.alert {
+	height: 0;
+	background-color: vars.$success-color;
+	border-radius: vars.$radius-md vars.$radius-md 0 0;
+	width: 100%;
+	transform: translateY(vars.$radius-md);
+	position: relative;
+	overflow: hidden;
+
+	p {
+		font-family: vars.$font-special;
+		font-size: vars.$font-lg;
+		color: vars.$text-color;
+		margin-bottom: vars.$radius-md;
+		padding: vars.$spacing-sm;
+	}
 }
 
 .copyButton {
@@ -39,20 +57,44 @@
 	}
 }
 
-.alert {
-	height: 0;
-	background-color: vars.$success-color;
-	border-radius: vars.$radius-md vars.$radius-md 0 0;
-	width: 100%;
-	transform: translateY(vars.$radius-md);
-	position: relative;
-	overflow: hidden;
+@media (max-width: vars.$bp-lg) {
+	.info {
+		padding: vars.$spacing-xs vars.$spacing-md;
+	}
 
-	p {
-		font-family: vars.$font-special;
-		font-size: vars.$font-lg;
-		color: vars.$text-color;
-		margin-bottom: vars.$radius-md;
-		padding: vars.$spacing-sm;
+	.alert p {
+		font-size: vars.$font-sm;
+		padding: vars.$spacing-2xs;
+	}
+
+	.copyButton {
+		padding: vars.$spacing-xs;
+
+		p {
+			font-size: vars.$font-sm;
+			color: vars.$text-color-light;
+
+			span {
+				margin-left: vars.$spacing-2xs;
+			}
+		}
+	}
+}
+
+@media (max-width: vars.$bp-sm) {
+	.info {
+		padding: vars.$spacing-2xs vars.$spacing-sm;
+		margin-right: vars.$spacing-2xs;
+	}
+
+	.alert p {
+		font-size: vars.$font-xs;
+	}
+
+	.copyButton {
+		p {
+			font-size: vars.$font-xs;
+			line-height: 2vh;
+		}
 	}
 }

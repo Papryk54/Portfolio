@@ -1,43 +1,66 @@
 @use "../../../styles/variables.scss" as vars;
 
 .wrapper {
-	position: absolute;
-	bottom: 0;
+	width: 100%;	
+	height: 250px;
 	display: flex;
-	flex-direction: row;
 	align-items: center;
-	background: vars.$background-basic;
-	width: 100%;
-	height: 35%;
-	gap: 10px;
-	padding: 0 10%;
-	border-top: 2px solid vars.$primary-color-dark;
+	gap: vars.$spacing-md;
+	padding: vars.$spacing-sm vars.$site-spacing-md;
+	border-top: 1px solid vars.$primary-color-dark;
 }
 
 .spec {
-	width: 40%;
-	height: 80%;
-	border-right: 1px solid #3f3f46;
+	width: 50%;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	gap: vars.$spacing-md;
+	padding-right: vars.$spacing-md;
+	border-right: 1px solid #3f3f46;
+	justify-content: center;
 }
 
-.projectName {
-	height: 10%;
+.projectName,
+.aboutName {
 	color: vars.$text-color-light;
 }
 
-.stackLabel {
+.projectName {
+	font-size: vars.$font-xl;
+	font-weight: 600;
+}
+
+.aboutName {
 	display: flex;
-	margin-top: 5%;
+	align-items: center;
+	justify-content: center;
+	font-size: vars.$font-xl;
+	font-weight: 600;
+	height: auto;
+}
+
+.stackLabel {
+	margin-top: vars.$spacing-sm;
 	font-size: vars.$font-sm;
 	color: vars.$text-color-light;
 }
 
+.stackGroup {
+	display: flex;
+	flex-direction: column;
+	gap: vars.$spacing-sm;
+}
+
+.techStackContainer {
+	display: flex;
+	flex-wrap: wrap;
+	gap: vars.$spacing-sm;
+	height: 20%;
+}
+
 .descriptionBlock {
-	width: 60%;
-	height: 80%;
+	width: 50%;
 	display: flex;
 	align-items: center;
 }
@@ -45,16 +68,49 @@
 .description {
 	color: vars.$text-color-light;
 	text-align: left;
+	line-height: 1.5;
 }
 
-.techStackContainer {
-	height: 40%;
+@media (max-width: vars.$bp-md) {
+	.wrapper {
+		flex-direction: column;
+		justify-content: space-between;
+		padding: vars.$spacing-xs vars.$site-spacing-xs;
+		height: 40%;
+	}
+	.projectName {
+		text-align: left;
+		font-size: vars.$font-lg;
+	}
+	.spec,
+	.descriptionBlock {
+		width: 100%;
+		padding: 0;
+		border: none;
+	}
+
+	.stackLabel {
+		margin-top: vars.$spacing-xs;
+		font-size: vars.$font-sm;
+		color: vars.$text-color-light;
+		text-align: left;
+	}
+
+	.descriptionBlock {
+		display: flex;
+		align-items: flex-start;
+	}
+
+	.description {
+		color: vars.$text-color-light;
+		text-align: left;
+		line-height: 1.5;
+		display: none;
+	}
 }
 
-.aboutName {
-	height: 80%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	color: vars.$text-color-light;
+@media (max-width: vars.$bp-sm) {
+	.description {
+		font-size: calc(vars.$font-size-md * 0.9);
+	}
 }

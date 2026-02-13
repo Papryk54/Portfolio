@@ -15,32 +15,37 @@ const Home = () => {
 
 	gsap.registerPlugin(Observer);
 	useGSAP(() => {
-		Observer.create({
-			target: window,
-			type: "wheel,touch,scroll",
-			preventDefault: true,
-			wheelSpeed: 1,
-			onDown: () => {
-				if (projectsRef.current) {
-					gsap.to(window, {
-						scrollTo: {
-							y: projectsRef.current,
-						},
-						duration: 0.5,
-					});
-				}
-			},
-			onUp: () => {
-				if (homeRef.current) {
-					gsap.to(window, {
-						scrollTo: {
-							y: homeRef.current,
-						},
-						duration: 0.5,
-					});
-				}
-			},
-		});
+		if (window.innerWidth > 768) {
+			Observer.create({
+				target: window,
+				type: "wheel",
+				preventDefault: true,
+				wheelSpeed: 1,
+				tolerance: 100,
+				onChangeY: (self) => {
+					let deltaY = self.deltaY;
+					const eventType = self.event.type;
+					if (eventType && eventType.startsWith("touch")) {
+						deltaY = -deltaY;
+					}
+					if (deltaY > 0) {
+						if (projectsRef.current) {
+							gsap.to(window, {
+								scrollTo: { y: projectsRef.current },
+								duration: 0.5,
+							});
+						}
+					} else if (deltaY < 0) {
+						if (homeRef.current) {
+							gsap.to(window, {
+								scrollTo: { y: homeRef.current },
+								duration: 0.5,
+							});
+						}
+					}
+				},
+			});
+		}
 	});
 
 	return (
@@ -50,7 +55,9 @@ const Home = () => {
 			<section ref={homeRef} className={styles.homePanel}>
 				<WelcomePanel />
 				<AnimatedArrow />
+				<div className={styles.gradientOverlay} />
 			</section>
+
 			<section ref={projectsRef} className={styles.projectsPanel}>
 				<ProjectsSelection />
 			</section>

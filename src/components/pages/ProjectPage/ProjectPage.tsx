@@ -8,43 +8,110 @@ import LoadingScreen from "../../utils/LoadingScreen/LoadingScreen";
 import SeeAlsoSection from "../../layout/SeeAlsoSection/SeeAlsoSection";
 import AnimatedArrow from "../../utils/Animations/AnimatedArrow/AnimatedArrow";
 import { useSelector } from "react-redux";
-import {
-	selectActiveProject,
-	selectActiveProjectImages,
-} from "../../../redux/projectReducer/projectReducer.selectors";
+import { selectProject } from "../../../redux/projectReducer/projectReducer.selectors";
 import { getImageByName } from "../../../utils/images";
 import { useTranslation } from "react-i18next";
+import { useRef, useState } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const ProjectPage = () => {
-	const { id } = useParams<{ id: string }>();
-	const numericId = Number(id);
-	const images = useSelector(selectActiveProjectImages);
+	const params = useParams<{ id: string }>();
+	const activeProject = useSelector(selectProject).list.find(
+		(project) => project.id === Number(params.id)
+	);
+	const images = activeProject?.images || [];
 	const imagesSrcs = images.map(getImageByName);
-	const activeProject = useSelector(selectActiveProject);
 	const { t } = useTranslation();
+
+	const bgRef = useRef<HTMLDivElement>(null);
+	const titleRef1 = useRef<HTMLHeadingElement>(null);
+	const titleRef2 = useRef<HTMLHeadingElement>(null);
+	const [showArrow, setShowArrow] = useState(false);
+	const arrowRef = useRef<HTMLDivElement>(null);
+
+	useGSAP(() => {
+		const tl = gsap.timeline({
+			onComplete: () => setShowArrow(true),
+		});
+		if (bgRef.current) {
+			tl.from(bgRef.current, {
+				filter: "blur(0px) brightness(1) grayscale(0) saturate(1)",
+				duration: 3,
+				ease: "power2.out",
+			});
+		}
+		if (titleRef1.current) {
+			tl.to(
+				titleRef1.current,
+				{
+					scale: 0.6,
+					duration: 3,
+					ease: "power2.out",
+					y: "-15%",
+					filter: "none",
+				},
+				"<"
+			);
+		}
+		if (titleRef2.current) {
+			tl.to(
+				titleRef2.current,
+				{ scale: 0.6, duration: 3, ease: "power2.out" },
+				"<"
+			);
+		}
+	}, []);
+
+	useGSAP(() => {
+		if (showArrow && arrowRef.current) {
+			gsap.fromTo(
+				arrowRef.current,
+				{ opacity: 0 },
+				{ opacity: 1, duration: 1, ease: "power2.out" }
+			);
+		}
+	}, [showArrow]);
 
 	return (
 		<main className={styles.wrapper}>
 			<LoadingScreen />
 			<NavBar variant="absolute" />
 			<header className={styles.projectHeader}>
-				<div className={styles.projectImage}>
-					<img src={imagesSrcs[0]} alt="" />
-				</div>
-				{activeProject && (
-					<>
-						<p className={styles.projectTitle}>{t(activeProject.name)}</p>
-						<p className={styles.projectMotto}>{t(activeProject.descShort)}</p>
-					</>
+				{imagesSrcs[0] && (
+					<div className={styles.projectBg}>
+						<div
+							className={styles.projectBgImage}
+							style={{ backgroundImage: `url(${imagesSrcs[0]})` }}
+							ref={bgRef}
+						/>
+						<div className={styles.projectBgGradient} />
+					</div>
 				)}
-				<AnimatedArrow />
+				<div className={styles.headerContent} ref={titleRef1}>
+					{activeProject && (
+						<>
+							<h1 className={styles.projectTitle}>{t(activeProject.name)}</h1>
+							<p className={styles.projectMotto}>
+								{t(activeProject.descShort)}
+							</p>
+						</>
+					)}
+				</div>
+				{showArrow && (
+					<div ref={arrowRef}>
+						<AnimatedArrow />
+					</div>
+				)}
 			</header>
 			<section className={styles.mainSection}>
 				<ProjectDescription />
 				<ProjectGallery />
 			</section>
-			<SeeAlsoSection id={numericId} />
-			<ContactFormSection />
+			<SeeAlsoSection id={params.id ? Number(params.id) : 1} />
+			<section className={styles.contactSection}>
+				<ContactFormSection />
+			</section>
 		</main>
 	);
 };

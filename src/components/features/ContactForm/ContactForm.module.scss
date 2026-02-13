@@ -6,19 +6,57 @@
 	background-color: vars.$background-basic;
 	box-shadow: 0 0 30px 20px rgba(0, 0, 0, 0.5);
 	border-radius: vars.$radius-xl;
-	padding: 12px;
+	padding: 24px 12px 12px 12px;
 	display: flex;
 	flex-direction: column;
-	gap: 10px;
 	color: vars.$text-color-light;
+	gap: 1vh;
+}
+
+.rowWrapper {
+	display: flex;
+	flex-direction: row;
+	gap: 2vw;
+	width: 100%;
+	height: 100%;
+}
+.sideFields {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5vh;
+	width: 33%;
+	justify-content: space-between;
+	height: 100%;
+}
+.messageSection {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5vh;
+	width: 67%;
+	height: 100%;
+}
+
+.inputGroup {
+	width: 100%;
+	flex: 3;
+	display: flex;
+	flex-direction: column;
+}
+
+.textareaGroup {
+	width: 100%;
+	flex: 15;
+	display: flex;
+	flex-direction: column;
 }
 
 .label {
 	font-family: vars.$font-main-bold;
 	letter-spacing: 0.02em;
-	margin-top: vars.$spacing-md;
 	color: rgba(255, 255, 255, 0.75);
 	align-self: flex-start;
+	text-align: left;
+	width: 100%;
 }
 
 .input,
@@ -33,9 +71,12 @@
 	font-family: vars.$font-main;
 	font-size: vars.$font-sm;
 	box-shadow: none;
-	transition: transform 0.08s ease, box-shadow 0.12s ease;
+	transition:
+		transform 0.08s ease,
+		box-shadow 0.12s ease;
 	display: block;
-	min-height: 42px;
+	min-height: 2.5vh;
+	box-sizing: border-box;
 }
 
 .textarea {
@@ -62,8 +103,7 @@
 .button {
 	align-self: center;
 	width: 70%;
-	margin-top: 5%;
-	padding: vars.$spacing-sm vars.$spacing-lg;
+	flex: 1;
 	border-radius: vars.$radius-sm;
 	border: none;
 	cursor: pointer;
@@ -74,7 +114,10 @@
 		vars.$secondary-color-dark,
 		vars.$secondary-color-light
 	);
-	transition: transform 0.12s ease, opacity 0.12s ease;
+	transition:
+		transform 0.12s ease,
+		opacity 0.12s ease;
+	box-sizing: border-box;
 	span {
 		color: vars.$text-color;
 	}
@@ -86,11 +129,28 @@
 	transform: none;
 }
 
-@media (max-width: 720px) {
-	.form {
-		max-width: 100%;
-		padding: 10px;
+@media (max-width: vars.$bp-lg) {
+	.input,
+	.textarea,
+	.label,
+	.button {
+		font-size: vars.$font-xs;
 	}
+
+	.inputGroup {
+		width: 100%;
+		flex: 2;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.textareaGroup {
+		width: 100%;
+		flex: 7;
+		display: flex;
+		flex-direction: column;
+	}
+
 	.button {
 		width: 100%;
 	}

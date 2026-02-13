@@ -49,8 +49,6 @@
 		align-items: center;
 		justify-content: center;
 		width: 100%;
-		min-width: 80px;
-		padding: 6px;
 		border-radius: 10px;
 		background: vars.$background-basic;
 		border: 1px solid rgba(255, 255, 255, 0.04);
@@ -81,4 +79,37 @@
 	overflow: hidden;
 	max-width: 100%;
 	text-align: center;
+}
+
+@media (max-width: vars.$bp-md) {
+	.stackIconsList {
+		grid-template-columns: repeat(5, 1fr);
+		grid-auto-rows: 60px;
+		grid-gap: vars.$spacing-xs;
+	}
+
+	.categoriesContainer {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		width: 100%;
+		height: 100%;
+		gap: vars.$spacing-xs;
+	}
+}
+
+@media (max-width: vars.$bp-sm) {
+	.stackIconsList {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	.techStackItemCategory {
+		font-size: vars.$font-lg;
+	}
+}
+
+@media (max-width: vars.$bp-xs) {
+	.stackIconsList {
+		grid-template-columns: repeat(3, 1fr);
+	}
 }

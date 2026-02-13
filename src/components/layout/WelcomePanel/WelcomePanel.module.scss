@@ -15,7 +15,7 @@
 	display: flex;
 	flex-direction: column;
 	.name {
-		font-size: vars.$font-4xl;
+		font-size: vars.$font-3xl;
 		font-weight: 700;
 		color: vars.$text-color-light;
 		text-align: left;
@@ -23,7 +23,7 @@
 		letter-spacing: 3px;
 	}
 	.introduction {
-		font-size: 14px;
+		font-size: 15px;
 		font-weight: 300;
 		line-height: 20px;
 		color: vars.$text-color-light;
@@ -63,10 +63,10 @@
 		border-radius: 10px 50px 50px 10px;
 		height: 100%;
 		border: none;
-		p {
-			color: vars.$text-color;
-			font-family: vars.$font-main-bold;
-			text-transform: uppercase;
+		img {
+			height: 100%;
+			width: auto;
+			margin: 0 auto;
 		}
 	}
 }
@@ -103,6 +103,14 @@
 }
 
 @media (max-width: vars.$bp-sm) {
+	.text {
+		.name {
+			font-size: vars.$font-2xl;
+		}
+		.introduction {
+			font-size: vars.$font-sm;
+		}
+	}
 }
 
 @media (max-width: vars.$bp-xs) {

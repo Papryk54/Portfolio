@@ -5,7 +5,7 @@
 	align-items: center;
 	justify-content: center;
 	border-radius: vars.$radius-xl;
-	min-width: vars.$site-spacing-2xl;
+	min-width: calc(vars.$site-spacing-2xl * 0.7);
 	border: 1px solid vars.$background-teritary;
 	z-index: 2;
 	transition: border-color vars.$transition-basic,
@@ -32,7 +32,7 @@
 	p {
 		color: vars.$text-color-light;
 		font-family: vars.$font-secondary;
-		font-size: vars.$font-3xl;
+		font-size: calc(vars.$font-3xl * 0.7);
 		border-radius: vars.$radius-xl;
 		transition: background-color vars.$transition-basic,
 			color vars.$transition-basic, border-radius vars.$transition-basic;
@@ -54,11 +54,11 @@
 
 @media (max-width: vars.$bp-xl) {
 	.wrapper {
-		min-width: vars.$site-spacing-xl;
+		min-width: calc(vars.$site-spacing-xl * 0.7);
 	}
 	.button {
 		p {
-			font-size: vars.$font-xl;
+			font-size: calc(vars.$font-xl * 0.8);
 		}
 	}
 }
@@ -71,11 +71,12 @@
 
 @media (max-width: vars.$bp-xs) {
 	.wrapper {
-		min-width: vars.$site-spacing-lg;
+		min-width: calc(vars.$site-spacing-lg * 0.9);
 	}
 	.button {
+		padding: calc(vars.$spacing-2xs * 0.6);
 		p {
-			font-size: vars.$font-sm;
+			font-size: calc(vars.$font-sm * 0.9);
 		}
 	}
 }

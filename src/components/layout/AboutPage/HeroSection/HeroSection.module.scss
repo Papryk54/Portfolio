@@ -4,6 +4,31 @@
 	width: 100%;
 	display: flex;
 	flex-direction: row;
-	padding-bottom: 20px;
-	gap: vars.$site-spacing-md;
+	padding-bottom: vars.$spacing-lg;
+	gap: vars.$site-spacing-sm;
+	margin: vars.$site-spacing-lg 0;
+}
+
+.skillsPanelSection {
+	width: 60%;
+	padding: vars.$site-spacing-xs;
+}
+
+@media (max-width: vars.$bp-xl) {
+	.heroSection {
+		flex-direction: column;
+		margin: -1vh 0;
+	}
+
+	.skillsPanelSection {
+		width: 100%;
+		padding: vars.$site-spacing-md;
+	}
+}
+
+@media (max-width: vars.$bp-md) {
+	.skillsPanelSection {
+		width: 100%;
+		padding: vars.$site-spacing-xs;
+	}
 }

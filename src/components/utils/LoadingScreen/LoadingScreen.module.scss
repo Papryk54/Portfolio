@@ -85,3 +85,36 @@
 .hide {
 	display: none;
 }
+
+
+@media (max-width: vars.$bp-md) {
+	.logoContainer {
+		width: 70%;
+	}
+	.name {
+		font-size: vars.$font-3xl;
+	}
+	.profession h2 {
+		font-size: vars.$font-xl;
+	}
+	.spinner {
+		width: 6vw;
+		height: 6vw;
+	}
+}
+
+@media (max-width: vars.$bp-sm) {
+	.logoContainer {
+		width: 50%;
+	}
+	.name {
+		display: none;
+	}
+	.profession h2 {
+		display: none;
+	}
+	.spinner {
+		width: 8vw;
+		height: 8vw;
+	}
+}

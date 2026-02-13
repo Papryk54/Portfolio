@@ -19,18 +19,18 @@ const LoadingScreen = () => {
 
 	useGSAP(() => {
 		const tl = gsap.timeline({
-			delay: 0.5,
+			delay: 0.7,
 		});
 		tl.to(leftRef.current, {
-			xPercent: -100,
-			duration: 1,
+			xPercent: -200,
+			duration: 1.5,
 			ease: "power3.inOut",
 		})
 			.to(
 				rightRef.current,
 				{
-					xPercent: 100,
-					duration: 1,
+					xPercent: 200,
+					duration: 1.5,
 					ease: "power3.inOut",
 				},
 				0

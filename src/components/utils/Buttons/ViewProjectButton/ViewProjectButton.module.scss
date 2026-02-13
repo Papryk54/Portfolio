@@ -6,7 +6,6 @@
 	align-items: center;
 	justify-content: center;
 	gap: 10px;
-	margin-top: 20px;
 }
 
 .viewProjectButton {
@@ -28,9 +27,9 @@
 	background: vars.$primary-color-light;
 }
 
-.animationPlaceholder {
-	height: 40px;
-	width: 40px;
+.animationEye {
+	height: 30px;
+	width: 30px;
 	object-fit: contain;
 	filter: invert(92%) sepia(8%) saturate(749%) hue-rotate(175deg)
 		brightness(105%) contrast(89%);

@@ -5,7 +5,7 @@
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	margin: 0 vars.$site-spacing-lg;
+	margin: 0 vars.$site-spacing-lg vars.$site-spacing-lg vars.$site-spacing-lg;
 	padding: vars.$site-spacing-sm;
 	border: 1px solid vars.$text-color-light;
 	position: relative;
@@ -90,7 +90,7 @@
 	}
 }
 
-.introduction {
+.seeAlsoWrapper {
 	font-size: vars.$font-3xl;
 	font-family: vars.$font-special;
 	color: vars.$text-color-light;
@@ -114,10 +114,8 @@
 }
 
 .downloadButton {
+	display: flex;
 	padding: 10px 20px;
-	font-size: vars.$font-lg;
-	font-family: vars.$font-main-bold;
-	color: vars.$text-color-light;
 	background-color: vars.$primary-color-dark;
 	border: 1px solid vars.$primary-color-dark;
 	border-radius: vars.$radius-md;
@@ -129,5 +127,61 @@
 		cursor: pointer;
 		box-shadow: 0 0 15px rgba(vars.$primary-color, 0.5);
 		border-color: vars.$primary-color-light;
+	}
+
+	p {
+		font-size: vars.$font-lg;
+		font-family: vars.$font-main-bold;
+		color: vars.$text-color-light;
+	}
+
+	.downloadIcon {
+		width: 20px;
+		height: 20px;
+	}
+}
+
+@media (max-width: vars.$bp-xl) {
+	.animatedText {
+		font-size: vars.$font-2xl;
+	}
+	.cvSection {
+		gap: vars.$spacing-md;
+	}
+}
+
+@media (max-width: vars.$bp-lg) {
+	.animatedText {
+		font-size: vars.$font-xl;
+	}
+	.downloadButton {
+		padding: 5px 10px;
+	}
+}
+
+@media (max-width: vars.$bp-md) {
+	.cvSection {
+		gap: vars.$spacing-xl;
+		margin: 0 vars.$site-spacing-md vars.$site-spacing-md vars.$site-spacing-md;
+		padding: vars.$site-spacing-xs;
+	}
+
+	.seeAlsoWrapper {
+		flex: 2;
+	}
+}
+
+@media (max-width: vars.$bp-sm) {
+	.cvSection {
+		flex-direction: column;
+	}
+
+	.downloadButton {
+		padding: 5px 30px;
+		font-size: vars.$font-xs;
+	}
+
+	.seeAlsoWrapper {
+		width: 100%;
 	}
 }

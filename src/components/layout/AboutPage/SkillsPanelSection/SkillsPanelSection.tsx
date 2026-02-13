@@ -6,9 +6,6 @@ const SkillsPanelSection = () => {
 	const { t } = useTranslation();
 	return (
 		<section className={styles.skillsPanel}>
-			<h2 className={styles.skillsSectionHeader}>
-				{t("myTechnologiesSkills", "My Technologies & Skills")}
-			</h2>
 			<article className={styles.leftSide}>
 				<StackIcons />
 			</article>

@@ -1,19 +1,42 @@
 @use "../../../styles/variables.scss" as vars;
 
+$tech-colors: (
+	react: #61dafb,
+	redux: #764abc,
+	js: #f7df1e,
+	typescript: #3178c6,
+	nodejs: #8cc84b,
+	nestjs: #e0234e,
+	prisma: #2d3748,
+	figma: #0acf83,
+	github: #ccc,
+	postman: #ff6c37,
+	jira: #2684ff,
+	prettier: #56b3b4,
+	replit: #fd5402,
+	powershell: #e0eaf5,
+	sass: #cc6699,
+	gsap: #88ce02,
+	appwrite: #f02d65,
+	bootstrap5: #7952b3,
+	electron: #47848f,
+	mysql: #4479a1,
+	vitejs: #41d1ff,
+	tailwindcss: #06b6d4,
+);
+
 .projectStack {
 	position: relative;
 	overflow: hidden;
 	height: 100%;
-	width: 100%;
-	padding: vars.$spacing-lg;
 
 	&::before,
 	&::after {
 		content: "";
 		position: absolute;
 		top: 0;
-		width: 20px;
 		height: 100%;
+		width: vars.$spacing-lg;
 		pointer-events: none;
 		z-index: 2;
 	}
@@ -22,7 +45,7 @@
 		left: 0;
 		background: linear-gradient(
 			to right,
-			vars.$background-basic 10%,
+			vars.$background-basic 0%,
 			transparent 100%
 		);
 	}
@@ -31,7 +54,7 @@
 		right: 0;
 		background: linear-gradient(
 			to left,
-			vars.$background-basic 50%,
+			vars.$background-basic 0%,
 			transparent 100%
 		);
 	}
@@ -41,19 +64,17 @@
 	display: flex;
 	cursor: grab;
 	width: max-content;
+	padding-left: 10px;
 	height: 100%;
-	padding: 0 vars.$spacing-md;
 }
 
 .stackItem {
-	height: 100%;
 	display: flex;
-	flex-direction: row;
 	align-items: center;
-	border-radius: vars.$radius-md;
 	padding: vars.$spacing-xs vars.$spacing-md;
-	width: auto;
-	flex: 0 0 auto;
+	border-radius: vars.$radius-sm;
+	height: 100%;
+
 	p {
 		text-transform: uppercase;
 		font-size: vars.$font-sm;
@@ -62,124 +83,51 @@
 
 .stackIcon {
 	height: 100%;
-	margin: 0 5px;
-	vertical-align: middle;
+	margin-right: vars.$spacing-xs;
+}
+
+.opacityBlock {
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100%;
+	width: 50px;
+	background: linear-gradient(
+		to left,
+		vars.$background-basic 70%,
+		transparent 100%
+	);
+	pointer-events: none;
+	z-index: 2;
 }
 
 .arrow {
 	position: absolute;
-	right: 0;
+	right: 5px;
 	top: 50%;
 	width: 24px;
 	height: 24px;
-	margin-left: 10px;
 	transform: translateY(-50%);
 	z-index: 3;
 }
 
-.react {
-	background: linear-gradient(
-		90deg,
-		#61dafb 0%,
-		vars.$background-basic vars.$spacing-md
-	);
-	p {
-		color: #61dafb;
+@each $name, $color in $tech-colors {
+	[data-tech="#{$name}"] {
+		background: linear-gradient(
+			90deg,
+			#{$color} 0%,
+			vars.$background-basic vars.$spacing-md
+		);
+
+		p {
+			color: $color;
+		}
 	}
 }
 
-.redux {
-	color: #764abc;
-	background: linear-gradient(
-		90deg,
-		#764abc 0%,
-		vars.$background-basic vars.$spacing-md
-	);
-	p {
-		color: #764abc;
-	}
-}
-
-.typescript {
-	color: #3178c6;
-	background: linear-gradient(
-		90deg,
-		#3178c6 0%,
-		vars.$background-basic vars.$spacing-md
-	);
-	p {
-		color: #3178c6;
-	}
-}
-
-.sass {
-	color: #cc6699;
-	background: linear-gradient(
-		90deg,
-		#cc6699 0%,
-		vars.$background-basic vars.$spacing-md
-	);
-	p {
-		color: #cc6699;
-	}
-}
-
-.gsap {
-	color: #88ce02;
-	background: linear-gradient(
-		90deg,
-		#88ce02 0%,
-		vars.$background-basic vars.$spacing-md
-	);
-	p {
-		color: #88ce02;
-	}
-}
-
-.appwrite {
-	color: #f02d65;
-	background: linear-gradient(
-		90deg,
-		#f02d65 0%,
-		vars.$background-basic vars.$spacing-md
-	);
-	p {
-		color: #f02d65;
-	}
-}
-
-.electron {
-	color: #47848f;
-	background: linear-gradient(
-		90deg,
-		#47848f 0%,
-		vars.$background-basic vars.$spacing-md
-	);
-	p {
-		color: #47848f;
-	}
-}
-
-.mysql {
-	color: #4479a1;
-	background: linear-gradient(
-		90deg,
-		#4479a1 0%,
-		vars.$background-basic vars.$spacing-md
-	);
-	p {
-		color: #4479a1;
-	}
-}
-
-.vitejs {
-	color: #41d1ff;
-	background: linear-gradient(
-		90deg,
-		#41d1ff 0%,
-		vars.$background-basic vars.$spacing-md
-	);
-	p {
-		color: #41d1ff;
+@media (max-width: vars.$bp-md) {
+	.stackIcon {
+		height: 30px;
+		width: 30px;
 	}
 }

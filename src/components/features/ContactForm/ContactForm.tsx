@@ -19,13 +19,13 @@ const ContactForm = () => {
 	useGSAP(() => {
 		if (formContainerRef.current) {
 			gsap.from(formContainerRef.current, {
-				scale: 0.5,
+				scale: 0.1,
 				opacity: 0,
-				duration: 1.5,
+				duration: 2.5,
 				ease: "power4.out",
 				scrollTrigger: {
 					trigger: formContainerRef.current,
-					start: "top 80%",
+					start: "top 100%",
 				},
 			});
 		}
@@ -127,57 +127,60 @@ const ContactForm = () => {
 			className={styles.form}
 			ref={formContainerRef}
 		>
-			<label htmlFor="name" className={styles.label}>
-				{t("contactFormName")}
-			</label>
-			<input
-				id="name"
-				type="text"
-				name="name"
-				className={styles.input}
-				ref={nameRef}
-				onFocus={() => animateFocus(nameRef.current)}
-				onBlur={() => animateBlur(nameRef.current)}
-				placeholder={t("contactFormNamePlaceholder")}
-			/>
-
-			<label htmlFor="email" className={styles.label}>
-				{t("contactFormEmail")}
-			</label>
-			<input
-				id="email"
-				type="email"
-				name="email"
-				className={styles.input}
-				ref={emailRef}
-				onFocus={() => animateFocus(emailRef.current)}
-				onBlur={() => animateBlur(emailRef.current)}
-				placeholder={t("contactFormEmailPlaceholder")}
-			/>
-			<ValidationError
-				prefix={t("contactFormEmail")}
-				field="email"
-				errors={state.errors}
-			/>
-
-			<label htmlFor="message" className={styles.label}>
-				{t("contactFormMessage")}
-			</label>
-			<textarea
-				id="message"
-				name="message"
-				className={styles.textarea}
-				ref={messageRef}
-				onFocus={() => animateFocus(messageRef.current)}
-				onBlur={() => animateBlur(messageRef.current)}
-				placeholder={t("contactFormMessagePlaceholder")}
-			/>
-			<ValidationError
-				prefix={t("contactFormMessage")}
-				field="message"
-				errors={state.errors}
-			/>
-
+			<div className={styles.inputGroup}>
+				<label htmlFor="name" className={styles.label}>
+					{t("contactFormName")}
+				</label>
+				<input
+					id="name"
+					type="text"
+					name="name"
+					className={styles.input}
+					ref={nameRef}
+					onFocus={() => animateFocus(nameRef.current)}
+					onBlur={() => animateBlur(nameRef.current)}
+					placeholder={t("contactFormNamePlaceholder")}
+				/>
+			</div>
+			<div className={styles.inputGroup}>
+				<label htmlFor="email" className={styles.label}>
+					{t("contactFormEmail")}
+				</label>
+				<input
+					id="email"
+					type="email"
+					name="email"
+					className={styles.input}
+					ref={emailRef}
+					onFocus={() => animateFocus(emailRef.current)}
+					onBlur={() => animateBlur(emailRef.current)}
+					placeholder={t("contactFormEmailPlaceholder")}
+				/>
+				<ValidationError
+					prefix={t("contactFormEmail")}
+					field="email"
+					errors={state.errors}
+				/>
+			</div>
+			<div className={styles.textareaGroup}>
+				<label htmlFor="message" className={styles.label}>
+					{t("contactFormMessage")}
+				</label>
+				<textarea
+					id="message"
+					name="message"
+					className={styles.textarea}
+					ref={messageRef}
+					onFocus={() => animateFocus(messageRef.current)}
+					onBlur={() => animateBlur(messageRef.current)}
+					placeholder={t("contactFormMessagePlaceholder")}
+				/>
+				<ValidationError
+					prefix={t("contactFormMessage")}
+					field="message"
+					errors={state.errors}
+				/>
+			</div>
 			<button
 				type="submit"
 				disabled={state.submitting}

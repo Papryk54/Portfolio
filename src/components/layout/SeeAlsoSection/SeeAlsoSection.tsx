@@ -4,7 +4,6 @@ import { selectProject } from "../../../redux/projectReducer/projectReducer.sele
 import { useEffect, useState } from "react";
 import type { Project } from "../../../redux/projectReducer/projectReducer.types";
 import { getImageByName } from "../../../utils/images";
-import { Link } from "react-router-dom";
 import { t } from "i18next";
 
 type Props = {
@@ -37,28 +36,43 @@ const SeeAlsoSection = ({ id, variant }: Props) => {
 		<>
 			{variant === "cv" && (
 				<section className={styles.seeAlsoSectionCV}>
-					<ul className={styles.list}>
+					<h3>{t("seeAlso")}</h3>
+					<ul className={styles.listCV}>
 						{projectsToDisplay.map((project) => (
 							<li key={project.id} className={styles.projectItemCV}>
-								<Link
-									to={`/projects/${project.id}`}
-									className={styles.overlayLink}
-									children={
-										<>
-											<div className={styles.textContentCV}>
-												<h4>{t(project.name)}</h4>
-												<p className={styles.hidden}>
-													{t(project.descShort)}
-												</p>
-											</div>
-											<img
-												src={getImageByName(project.images[0])}
-												alt={`Main image of ${project.name} project`}
-												className={styles.projectImageCV}
-											/>
-										</>
-									}
-								/>
+								{project.name === "projectNext" ? (
+									<a
+										href="https://github.com"
+										target="_blank"
+										rel="noopener noreferrer"
+										className={styles.overlayLink}
+									>
+										<div className={styles.textContentCV}>
+											<h4>{t(project.name)}</h4>
+											<p className={styles.hidden}>{t(project.descShort)}</p>
+										</div>
+										<img
+											src={getImageByName(project.images[0])}
+											alt={`Main image of ${project.name} project`}
+											className={styles.projectImageCV}
+										/>
+									</a>
+								) : (
+									<a
+										href={`/projects/${project.id}`}
+										className={styles.overlayLink}
+									>
+										<div className={styles.textContentCV}>
+											<h4>{t(project.name)}</h4>
+											<p className={styles.hidden}>{t(project.descShort)}</p>
+										</div>
+										<img
+											src={getImageByName(project.images[0])}
+											alt={`Main image of ${project.name} project`}
+											className={styles.projectImageCV}
+										/>
+									</a>
+								)}
 							</li>
 						))}
 					</ul>
@@ -70,23 +84,39 @@ const SeeAlsoSection = ({ id, variant }: Props) => {
 					<ul className={styles.list}>
 						{projectsToDisplay.map((project) => (
 							<li key={project.id} className={styles.projectItem}>
-								<Link
-									to={`/projects/${project.id}`}
-									className={styles.overlayLink}
-									children={
-										<>
-											<div className={styles.textContent}>
-												<h4>{t(project.name)}</h4>
-												<p>{t(project.descShort)}</p>
-											</div>
-											<img
-												src={getImageByName(project.images[0])}
-												alt={`Main image of ${project.name} project`}
-												className={styles.projectImage}
-											/>
-										</>
-									}
-								/>
+								{project.name === "projectNext" ? (
+									<a
+										href="https://github.com/patryk-o-dev"
+										target="_blank"
+										rel="noopener noreferrer"
+										className={styles.overlayLink}
+									>
+										<div className={styles.textContent}>
+											<h4>{t(project.name)}</h4>
+											<p>{t(project.descShort)}</p>
+										</div>
+										<img
+											src={getImageByName(project.images[0])}
+											alt={`Main image of ${project.name} project`}
+											className={styles.projectImage}
+										/>
+									</a>
+								) : (
+									<a
+										href={`/projects/${project.id}`}
+										className={styles.overlayLink}
+									>
+										<div className={styles.textContent}>
+											<h4>{t(project.name)}</h4>
+											<p>{t(project.descShort)}</p>
+										</div>
+										<img
+											src={getImageByName(project.images[0])}
+											alt={`Main image of ${project.name} project`}
+											className={styles.projectImage}
+										/>
+									</a>
+								)}
 							</li>
 						))}
 					</ul>

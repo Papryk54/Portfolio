@@ -2,7 +2,7 @@
 
 .wrapper {
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -13,7 +13,7 @@
 
 .cta {
 	flex: 1;
-  height: 80%;
+	height: 80%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -36,5 +36,33 @@
 
 .formContainer {
 	flex: 1;
-  height: 60%;
+	height: 60%;
+}
+
+@media (max-width: vars.$bp-lg) {
+	.wrapper {
+		flex-direction: column;
+		padding: vars.$spacing-md vars.$site-spacing-sm;
+	}
+
+	.cta {
+		height: 30%;
+		flex: none;
+		align-items: center;
+		h2 {
+			font-size: vars.$font-4xl;
+			margin: 0;
+		}
+
+		p {
+			margin: 0;
+			font-size: vars.$font-sm;
+		}
+	}
+
+	.formContainer {
+		flex: none;
+		width: 100%;
+		height: 60%;
+	}
 }

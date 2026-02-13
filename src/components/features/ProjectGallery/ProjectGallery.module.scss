@@ -18,19 +18,20 @@
 	align-items: center;
 	position: relative;
 	gap: vars.$spacing-xs;
-	height: 5%;
 	width: 100%;
+	height: 10%;
 }
 
 .imageTitle {
 	font-family: vars.$font-main-bold;
 	font-size: vars.$font-2xl;
 	color: vars.$text-color-light;
+	width: 93%;
 }
 
 .mainImageContainer {
-	height: 55%;
 	width: 80%;
+	height: 60%;
 	position: relative;
 	display: flex;
 	justify-content: center;
@@ -67,18 +68,22 @@
 
 .otherImages {
 	display: flex;
+	width: 90%;
+	height: 30%;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
-	gap: vars.$spacing-sm;
-	height: 25%;
+	gap: vars.$spacing-2xs vars.$spacing-md;
+	padding-bottom: vars.$spacing-md;
+
 	.imageOther {
 		object-fit: cover;
 		border: solid 1px vars.$text-color-light;
 		border-radius: vars.$radius-sm;
-		height: calc(50% - vars.$spacing-sm);
 		aspect-ratio: 1 / 1;
+		max-height: 50%;
+		max-width: 15%;
 		cursor: pointer;
 
 		&:hover {
@@ -90,10 +95,25 @@
 
 .githubLink {
 	position: absolute;
-	right: vars.$spacing-sm;
-	height: 80%;
+	top: 0;
+	right: 0;
+	width: 5%;
+	max-width: 64px;
 	img {
 		height: 100%;
+	}
+}
+
+.websiteLink {
+	position: absolute;
+	top: 0;
+	right: 8%;
+	width: 5%;
+	max-width: 64px;
+	img {
+		height: 100%;
+		filter: brightness(0) saturate(100%) invert(100%) sepia(3%) saturate(1851%)
+			hue-rotate(224deg) brightness(113%) contrast(86%);
 	}
 }
 
@@ -123,17 +143,17 @@
 	bottom: 0;
 	background-color: rgba($color: vars.$background-basic, $alpha: 0.9);
 	width: 100%;
-	height: 100%;
-	z-index: 3;
+	height: 100vh;
+	z-index: 4;
 
 	button {
 		position: fixed;
-		width: 3%;
-		aspect-ratio: 1 / 1;
 		background-size: contain;
 		background-color: transparent;
 		border: none;
 		transition: 0.5s;
+		width: 30px;
+		height: 30px;
 
 		&:hover {
 			cursor: pointer;
@@ -166,5 +186,67 @@
 }
 
 .hidden {
-	z-index: -1;
+	display: none;
+}
+
+@media (max-width: vars.$bp-lg) {
+	.projectGallery {
+		width: 100%;
+		padding: vars.$spacing-md;
+		gap: vars.$spacing-md;
+		margin-top: vars.$site-spacing-sm;
+	}
+
+	.galleryHeader {
+		height: 40px;
+		gap: vars.$spacing-xs;
+	}
+
+	.imageTitle {
+		font-size: vars.$font-xl;
+		width: 85%;
+	}
+
+	.mainImageContainer {
+		width: 100%;
+		height: auto;
+	}
+
+	.fullSizeImgContainer {
+		width: 80vw;
+		button {
+			width: 25px;
+			height: 25px;
+		}
+	}
+
+	.closeFullScreen {
+		top: vars.$spacing-md;
+		right: vars.$spacing-md;
+	}
+
+	.otherImages {
+		width: 100%;
+		height: auto;
+		gap: vars.$spacing-2xs vars.$spacing-sm;
+	}
+
+	.fullSizeMode {
+		.nextImg {
+			top: auto;
+			bottom: vars.$spacing-md;
+			right: vars.$site-spacing-md;
+		}
+		.prevImg {
+			top: auto;
+			bottom: vars.$spacing-md;
+			left: vars.$site-spacing-md;
+		}
+	}
+}
+
+@media (max-width: vars.$bp-xs) {
+	.imageTitle {
+		font-size: vars.$font-size-md;
+	}
 }

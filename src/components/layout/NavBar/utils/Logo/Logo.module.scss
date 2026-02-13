@@ -15,7 +15,7 @@
 
 	.logo {
 		display: flex;
-		width: vars.$site-spacing-lg;
+		width: calc(vars.$site-spacing-md * 0.75);
 		aspect-ratio: 1 / 1;
 		flex-direction: column;
 		align-items: center;
@@ -33,11 +33,11 @@
 .logoText {
 	display: flex;
 	align-items: center;
-	margin-left: vars.$spacing-lg;
+	margin-left: vars.$spacing-md;
 
 	.logoName {
-		font-size: vars.$font-2xl;
-		letter-spacing: 2px;
+		font-size: calc(vars.$font-2xl * 0.7);
+		letter-spacing: 1.5px;
 		font-family: vars.$font-secondary;
 		color: vars.$text-color-light;
 	}
@@ -105,10 +105,10 @@
 
 @media (max-width: vars.$bp-md) {
 	.logoButton .logo {
-		width: vars.$site-spacing-md;
+		width: calc(vars.$site-spacing-sm * 0.85);
 	}
 	.logoText .logoName {
-		font-size: vars.$font-size-md;
+		font-size: calc(vars.$font-size-md * 0.9);
 	}
 }
 
@@ -120,15 +120,15 @@
 
 @media (max-width: vars.$bp-xs) {
 	.logoButton .logo {
-		width: vars.$site-spacing-sm;
+		width: calc(vars.$site-spacing-sm * 0.7);
 	}
 	.logoText .logoName {
-		font-size: vars.$font-sm;
+		font-size: calc(vars.$font-sm * 0.95);
 	}
 }
 
 @media (max-width: vars.$bp-2xs) {
 	.logoButton .logo {
-		width: vars.$site-spacing-sm;
+		width: calc(vars.$site-spacing-sm * 0.6);
 	}
 }

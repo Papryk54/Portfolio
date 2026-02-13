@@ -3,18 +3,14 @@
 .wrapper {
 	background-color: vars.$background-basic;
 	min-height: 100vh;
+	max-width: 100vw;
 	display: flex;
 	flex-direction: column;
-	gap: vars.$site-spacing-lg;
 }
 
 .spacer {
 	height: 10vh;
 }
-
-// Hero Section
-
-
 
 .contactSection {
 	height: 100vh;
@@ -27,5 +23,11 @@
 		font-family: vars.$font-main-bold;
 		font-size: vars.$font-5xl;
 		margin-bottom: 20px;
+	}
+}
+
+@media (max-width: vars.$bp-lg) {
+	.contactSection {
+		height: 70vh;
 	}
 }
