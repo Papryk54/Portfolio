@@ -3,7 +3,7 @@ import styles from "./Logo.module.scss";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-const Logo = () => {
+const Logo = ({ logoImage }: { logoImage: string }) => {
 	const { pathname } = useLocation();
 	const isHome = pathname === "/";
 	const { t } = useTranslation();
@@ -22,20 +22,12 @@ const Logo = () => {
 		<div className={styles.wrapper}>
 			{isHome && (
 				<button onClick={handleGoToTop} className={styles.logoButton}>
-					<img
-						src="/src/assets/images/logo.png"
-						alt="Logo"
-						className={styles.logo}
-					/>
+					<img src={logoImage} alt="Logo" className={styles.logo} />
 				</button>
 			)}
 			{!isHome && (
 				<Link to={"/"} className={styles.logoButton}>
-					<img
-						src="/src/assets/images/logo.png"
-						alt="Logo"
-						className={styles.logo}
-					/>
+					<img src={logoImage} alt="Logo" className={styles.logo} />
 				</Link>
 			)}
 

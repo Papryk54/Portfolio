@@ -7,18 +7,21 @@ import ContactFormSection from "../../layout/ContactFormSection/ContactFormSecti
 import LoadingScreen from "../../utils/LoadingScreen/LoadingScreen";
 import SeeAlsoSection from "../../layout/SeeAlsoSection/SeeAlsoSection";
 import AnimatedArrow from "../../utils/Animations/AnimatedArrow/AnimatedArrow";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { selectProject } from "../../../redux/projectReducer/projectReducer.selectors";
+import { setActiveProject } from "../../../redux/projectReducer/projectReducer.slice";
 import { getImageByName } from "../../../utils/images";
 import { useTranslation } from "react-i18next";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
 const ProjectPage = () => {
 	const params = useParams<{ id: string }>();
-	const activeProject = useSelector(selectProject).list.find(
-		(project) => project.id === Number(params.id)
+	const dispatch = useDispatch();
+	const projectList = useSelector(selectProject).list;
+	const activeProject = projectList.find(
+		(project) => project.id === Number(params.id),
 	);
 	const images = activeProject?.images || [];
 	const imagesSrcs = images.map(getImageByName);
@@ -29,6 +32,12 @@ const ProjectPage = () => {
 	const titleRef2 = useRef<HTMLHeadingElement>(null);
 	const [showArrow, setShowArrow] = useState(false);
 	const arrowRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		if (params.id) {
+			dispatch(setActiveProject(Number(params.id)));
+		}
+	}, [params.id, dispatch]);
 
 	useGSAP(() => {
 		const tl = gsap.timeline({
@@ -51,14 +60,14 @@ const ProjectPage = () => {
 					y: "-15%",
 					filter: "none",
 				},
-				"<"
+				"<",
 			);
 		}
 		if (titleRef2.current) {
 			tl.to(
 				titleRef2.current,
 				{ scale: 0.6, duration: 3, ease: "power2.out" },
-				"<"
+				"<",
 			);
 		}
 	}, []);
@@ -68,7 +77,7 @@ const ProjectPage = () => {
 			gsap.fromTo(
 				arrowRef.current,
 				{ opacity: 0 },
-				{ opacity: 1, duration: 1, ease: "power2.out" }
+				{ opacity: 1, duration: 1, ease: "power2.out" },
 			);
 		}
 	}, [showArrow]);

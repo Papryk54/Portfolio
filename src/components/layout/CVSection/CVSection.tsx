@@ -4,16 +4,18 @@ import { useTranslation } from "react-i18next";
 import downloadIcon from "../../../assets/icons/download.png";
 
 const CVSection = () => {
-	const { t } = useTranslation();
+	const { t, i18n } = useTranslation();
 	const downloadCV = async () => {
 		try {
-			const response = await fetch("/CV_Patryk_Olszewski_fullstack.pdf");
+			const lang = i18n.language === "pl" ? "pl" : "en";
+			const fileName = `CV_Patryk_Olszewski_fullstack_${lang}.pdf`;
+			const response = await fetch(`/${fileName}`);
 			if (!response.ok) throw new Error("Network response was not ok");
 			const blob = await response.blob();
 			const url = window.URL.createObjectURL(blob);
 			const a = document.createElement("a");
 			a.href = url;
-			a.download = "CV_Patryk_Olszewski_fullstack.pdf";
+			a.download = fileName;
 			document.body.appendChild(a);
 			a.click();
 			a.remove();

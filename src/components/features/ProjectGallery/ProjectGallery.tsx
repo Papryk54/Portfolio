@@ -3,7 +3,7 @@ import githubIcon from "../../../assets/icons/socials/github-mark-white.png";
 import { useSelector } from "react-redux";
 import { selectProject } from "../../../redux/projectReducer/projectReducer.selectors";
 import { getImageByName } from "../../../utils/images";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Flip } from "gsap/all";
@@ -21,6 +21,10 @@ const ProjectGallery = () => {
 	const [mainImgSrc, setMainImgSrc] = useState(
 		imagesSrcs[0] || "placeholder.png",
 	);
+
+	useEffect(() => {
+		setMainImgSrc(imagesSrcs[0] || "placeholder.png");
+	}, [imagesSrcs]);
 	const imgContainerRef = useRef<HTMLImageElement>(null);
 	const imgMainRef = useRef<HTMLImageElement>(null);
 	const normalSizeContainerRef = useRef<HTMLDivElement>(null);
@@ -122,7 +126,9 @@ const ProjectGallery = () => {
 	return (
 		<section className={styles.projectGallery}>
 			<div className={styles.galleryHeader}>
-				<h3 className={styles.imageTitle}>{t("projectFluxShop")}</h3>
+				<h3 className={styles.imageTitle}>
+					{activeProject ? t(activeProject.name) : ""}
+				</h3>
 				<a
 					className={styles.githubLink}
 					href={activeProject?.githubLink}

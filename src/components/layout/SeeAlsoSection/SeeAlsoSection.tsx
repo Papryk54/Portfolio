@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import type { Project } from "../../../redux/projectReducer/projectReducer.types";
 import { getImageByName } from "../../../utils/images";
 import { t } from "i18next";
+import { Link } from "react-router-dom";
 
 type Props = {
 	id: number;
@@ -18,7 +19,7 @@ const SeeAlsoSection = ({ id, variant }: Props) => {
 
 	useEffect(() => {
 		const projectsForDraw = allProjects.filter(
-			(project) => project.id !== id && project.id !== 0
+			(project) => project.id !== id && project.id !== 0,
 		);
 		if (projectsForDraw.length === 0) {
 			setProjectsToDisplay([]);
@@ -27,10 +28,14 @@ const SeeAlsoSection = ({ id, variant }: Props) => {
 		const shuffled = [...projectsForDraw].sort(() => Math.random() - 0.5);
 		const selected = shuffled.slice(
 			0,
-			Math.min(numberOfProjectsToDisplay, shuffled.length)
+			Math.min(numberOfProjectsToDisplay, shuffled.length),
 		);
 		setProjectsToDisplay(selected);
 	}, [allProjects, id, numberOfProjectsToDisplay]);
+
+	const handleGoTop = () => {
+		gsap.to(window, { scrollTo: 0, duration: 1, ease: "power2.out" });
+	};
 
 	return (
 		<>
@@ -58,8 +63,8 @@ const SeeAlsoSection = ({ id, variant }: Props) => {
 										/>
 									</a>
 								) : (
-									<a
-										href={`/projects/${project.id}`}
+									<Link
+										to={`/projects/${project.id}`}
 										className={styles.overlayLink}
 									>
 										<div className={styles.textContentCV}>
@@ -71,7 +76,7 @@ const SeeAlsoSection = ({ id, variant }: Props) => {
 											alt={`Main image of ${project.name} project`}
 											className={styles.projectImageCV}
 										/>
-									</a>
+									</Link>
 								)}
 							</li>
 						))}
@@ -102,9 +107,10 @@ const SeeAlsoSection = ({ id, variant }: Props) => {
 										/>
 									</a>
 								) : (
-									<a
-										href={`/projects/${project.id}`}
+									<Link
+										to={`/projects/${project.id}`}
 										className={styles.overlayLink}
+										onClick={handleGoTop}
 									>
 										<div className={styles.textContent}>
 											<h4>{t(project.name)}</h4>
@@ -115,7 +121,7 @@ const SeeAlsoSection = ({ id, variant }: Props) => {
 											alt={`Main image of ${project.name} project`}
 											className={styles.projectImage}
 										/>
-									</a>
+									</Link>
 								)}
 							</li>
 						))}
