@@ -9,13 +9,24 @@
 	scrollbar-width: none;
 	border-radius: vars.$radius-md;
 	margin-bottom: 30px;
-	.showcaseText {
-    min-width: 150px;
-    max-width: 150px;
-		font-size: 16px;
-		font-weight: 700;
-		line-height: 25px;
-		font-family: vars.$font-main;
-		color: #111;
-	}
+}
+
+.track {
+	display: flex;
+	width: max-content;
+}
+
+.items {
+	display: flex;
+	flex-shrink: 0;
+}
+
+.showcaseText {
+	min-width: 150px;
+	max-width: 150px;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 25px;
+	font-family: vars.$font-main;
+	color: #111;
 }

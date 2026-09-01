@@ -19,7 +19,7 @@ const SeeAlsoSection = ({ id, variant }: Props) => {
 
 	useEffect(() => {
 		const projectsForDraw = allProjects.filter(
-			(project) => project.id !== id && project.id !== 0,
+			(project) => project.id !== id && project.id !== 0 && project.id !== 5,
 		);
 		if (projectsForDraw.length === 0) {
 			setProjectsToDisplay([]);

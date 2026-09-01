@@ -21,7 +21,7 @@ const resources = {
 			englishC1: "English - C1",
 			polishNative: "Polish - Native",
 			interests: "Interests",
-			aiMachineLearning: "AI & Machine Learning",
+			aiMachineLearning: "Game Development",
 			technology: "Technology",
 			aboutMe: "About Me",
 			learnMoreAboutMe: "Learn more about me",
@@ -44,7 +44,7 @@ const resources = {
 			contactFormSend: "Send",
 			contactFormSuccess:
 				"Thank you for your message! I'll get back to you soon.",
-
+			getInTouch: "Get in Touch!",
 			stackUsed: "Stack used:",
 			viewProject: "See More",
 			clickToEnlarge: "Click for full size",
@@ -62,6 +62,14 @@ const resources = {
 			featureGallery: "Service gallery",
 			featureContactForm: "Contact form",
 			featureGoogleMaps: "Google Maps integration",
+			featureTwitchIntegration: "Twitch Integration",
+			featureLiveQuizzes: "Live Quizzes",
+			featureRealTimeGameplay: "Real-Time Gameplay",
+			featureMultiplayerSessions: "Multiplayer Sessions",
+			featureInteractiveGameModes: "Interactive Game Modes",
+			featureGameCategories: "Quiz Categories",
+			featureGameChips: "Special Gameplay Mechanics",
+			featureLiveResults: "Live Results",
 			futureDevelopment: "Future Development:",
 			introduction:
 				"Welcome to my portfolio! I'm Patryk Olszewski, a full stack web developer. Here, you'll get a quick look at what I create and what drives me.",
@@ -105,7 +113,13 @@ const resources = {
 				"A production-ready website created for a local beauty salon to establish a strong and professional online presence. The site presents services, pricing, and essential information in a clean, refined layout designed to reflect the salon’s premium brand identity and build client trust.",
 			projectEsthetiqueDescRegular2:
 				"The website integrates with an external booking system, allowing clients to easily check availability and schedule appointments online. The project focused on performance, responsiveness, and intuitive user experience, ensuring smooth interaction across desktop and mobile devices while supporting real business needs.",
-
+			projectLudio: "Ludio - Quiz platform for streamers and their viewers",
+			projectLudioDescShort:
+				"A platform that allows streamers to host interactive live quizzes with their viewers.",
+			projectLudioDescRegular1:
+				"Ludio is a full-featured web application designed from the ground up for Twitch streamers and their communities. The project covers the entire development and deployment process — from designing the game mechanics and user interface, through building the backend and real-time communication, to deploying the application on my own server.",
+			projectLudioDescRegular2:
+				"The project gave me hands-on experience working with full-stack architecture, WebSockets, Redis, databases, and application containerization with Docker. Ludio is currently running in production and is being used during real Twitch streams, making it not only a demonstration of my skills, but also an example of an application developed with real users in mind.",
 			projectNext: "See more...",
 			projectNextDescShort: "",
 			projectNextDescRegular1: "",
@@ -131,7 +145,7 @@ const resources = {
 			englishC1: "Angielski - C1",
 			polishNative: "Polski - ojczysty",
 			interests: "Zainteresowania",
-			aiMachineLearning: "AI i uczenie maszynowe",
+			aiMachineLearning: "Tworzenie Gier",
 			technology: "Programowanie i technologia",
 			aboutMe: "O mnie",
 			learnMoreAboutMe: "Dowiedz się więcej o mnie",
@@ -140,8 +154,7 @@ const resources = {
 			aboutMeIntroText:
 				"Jestem programistą z prawdziwą pasją do kodowania. Pod okiem doświadczonych mentorów usystematyzowałem wiedzę i codziennie rozwijam swoje umiejętności, ucząc się, śledząc trendy i pisząc kod. Wyzwania traktuję jak łamigłówki, sprowadzam je do podstawowych elementów i rozwiązuję krok po kroku.",
 			contact: "Kontakt",
-			contactCTA:
-				"Zapraszam do kontaktu w sprawie współpracy lub pogawędki!",
+			contactCTA: "Zapraszam do kontaktu w sprawie współpracy lub pogawędki!",
 			copied: "Skopiowano do schowka!",
 			directMail: "Albo napisz do mnie na",
 			contactFormName: "Imię",
@@ -152,6 +165,7 @@ const resources = {
 			contactFormMessagePlaceholder: "Napisz swoją wiadomość...",
 			contactFormSend: "Wyślij",
 			contactFormSuccess: "Dziękuję za wiadomość! Odezwię się wkrótce.",
+			getInTouch: "Napisz do mnie!",
 			stackUsed: "Użyty stack:",
 			viewProject: "Zobacz więcej",
 			clickToEnlarge: "Kliknij, aby powiększyć",
@@ -169,12 +183,20 @@ const resources = {
 			featureGallery: "Galeria usług",
 			featureContactForm: "Formularz kontaktowy",
 			featureGoogleMaps: "Integracja z Google Maps",
+			featureTwitchIntegration: "Integracja z Twitchem",
+			featureLiveQuizzes: "Quizy na żywo",
+			featureRealTimeGameplay: "Rozgrywka w czasie rzeczywistym",
+			featureMultiplayerSessions: "Sesje multiplayer",
+			featureInteractiveGameModes: "Interaktywne tryby gry",
+			featureGameCategories: "Quizy tematyczne",
+			featureGameChips: "Specjalne mechaniki rozgrywki",
+			featureLiveResults: "Wyniki na żywo",
 			futureDevelopment: "Przyszły rozwój:",
 			introduction:
-				"Witaj w moim portfolio! Jestem Full Stack Web Developerem. Tutaj poznasz mnie bliżej i zobaczysz co tworzę.",
+				"Jestem Full Stack Web Developerem, a to moje portfolio! Tutaj poznasz mnie bliżej i zobaczysz co tworzę.",
 			projectAbout: "O mnie",
 			projectAboutDescShort:
-				"Ciekawski umysł, zapalony koder - Dowiedz się więcej o mnie, osobie stojącej za projektami.",
+				"Tu dowiesz się się więcej o mnie, osobie stojącej za projektami.",
 			projectFluxShop: "Flux Shop - Aplikacja desktopowa e-commerce",
 			projectFluxShopDescShort:
 				"Aplikacja sklepu z kraftowymi napojami energetycznymi dla developerów - lekki ton, solidne wykonanie techniczne.",
@@ -184,8 +206,8 @@ const resources = {
 				"Skupiłem się na UX - prosta nawigacja, intuicyjne sortowanie i wybór wariantów, płynna obsługa zamówień. Dbałość o detale połączona z luźnym tonem pozwoliła połączyć praktykę z kreatywnością.",
 			projectFluxShopDescRegular3:
 				"Projekt nauczył mnie samodzielnej pracy bez mentora i skutecznego dzielenia zadań. Planowanie i organizacja pomogły dowozić złożone projekty w krótkich terminach.",
-
 			projectBazar: "Bazar - Projekt zespołowy",
+
 			projectBazarDescShort:
 				"Zespołowy projekt sklepu meblowego, który nauczył mnie skutecznej współpracy, organizacji pracy i zarządzania kodem zespołowo.",
 			projectBazarDescRegular1:
@@ -200,6 +222,7 @@ const resources = {
 				"CoWatch to mobilna aplikacja stworzona w React Native, pozwalająca dwóm lub większej liczbie użytkowników wspólnie wybrać film lub serial na wieczór. Cały proces przypomina Tindera — zamiast wybierać osobę na randkę, użytkownicy decydują, co obejrzeć. Wybór odbywa się w czasie rzeczywistym, a baza danych oparta jest na Appwrite, co gwarantuje płynną synchronizację i bezproblemowe zarządzanie kontami, listami filmów i wynikami głosowań.",
 			projectCoWatchDescRegular2:
 				"Aplikacja posiada kompleksowy system zarządzania filmami: dodawanie pozycji do własnej listy, wyszukiwanie w bazie TMDB, dodawanie znajomych i integracja ich list. Interfejs wymaga jeszcze szlifu graficznego, ale logika i mechanika działają perfekcyjnie. Całość umożliwia płynną, intuicyjną i angażującą współpracę użytkowników przy wyborze filmu, pokazując pełen potencjał real-time app i pracy z bazą danych.",
+
 			projectEsthetique: "Esthétique — Strona internetowa salonu kosmetycznego",
 			projectEsthetiqueDescShort:
 				"Nowoczesna i elegancka strona salonu kosmetycznego z przejrzystą prezentacją usług i wygodną rezerwacją online.",
@@ -207,6 +230,14 @@ const resources = {
 				"Gotowa do użytku produkcyjnego strona internetowa stworzona dla lokalnego salonu kosmetycznego, mająca na celu budowanie profesjonalnej obecności online i zwiększenie liczby klientów. Serwis prezentuje ofertę, ceny oraz najważniejsze informacje w estetycznym, dopracowanym wizualnie układzie dopasowanym do wizerunku marki premium.",
 			projectEsthetiqueDescRegular2:
 				"Strona została zintegrowana z zewnętrznym systemem rezerwacji, umożliwiając klientom szybkie sprawdzenie dostępnych terminów i zapisanie się na wizytę online. Projekt koncentrował się na wydajności, responsywności oraz intuicyjnym doświadczeniu użytkownika, zapewniając płynne działanie na komputerach i urządzeniach mobilnych.",
+
+			projectLudio: "Ludio - Platforma quizowa dla streamerów i ich widzów",
+			projectLudioDescShort:
+				"Platforma pozwalająca streamerom prowadzić interaktywne quizy na żywo z udziałem widzów.",
+			projectLudioDescRegular1:
+				"Ludio to pełnoprawna aplikacja webowa zaprojektowana od podstaw z myślą o streamerach Twitcha i ich społecznościach. Projekt obejmuje cały proces tworzenia i wdrażania aplikacji — od zaprojektowania mechaniki rozgrywki i interfejsu, przez stworzenie backendu oraz komunikacji w czasie rzeczywistym, aż po wdrożenie aplikacji na własnym serwerze.",
+			projectLudioDescRegular2:
+				"Projekt pozwolił mi zdobyć praktyczne doświadczenie w pracy z architekturą full-stack, WebSocketami, Redisem, bazą danych oraz konteneryzacją aplikacji za pomocą Dockera. Ludio działa obecnie produkcyjnie i jest wykorzystywane podczas rzeczywistych transmisji na Twitchu, dzięki czemu projekt stanowi nie tylko demonstrację moich umiejętności, ale również przykład aplikacji rozwijanej z myślą o realnych użytkownikach.",
 
 			projectNext: "Zobacz więcej...",
 			projectNextDescShort: "",

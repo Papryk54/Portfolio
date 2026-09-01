@@ -1,112 +1,77 @@
 import styles from "./StackSchowcase.module.scss";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
+
+const technologies = [
+	"FullStack",
+	"HTML/CSS/JS",
+	"TypeScript",
+	"React",
+	"Redux",
+	"Zustand",
+	"NestJS",
+	"Node.js",
+	"MySQL",
+	"Prisma",
+	"WebSockets",
+	"SASS/SCSS",
+	"GSAP",
+	"Git",
+];
 
 const StackSchowcase = () => {
-	const timeline = gsap.timeline({
-		repeat: -1,
-		repeatDelay: 1,
-		yoyo: true,
-	});
-	useGSAP(() => {
-		timeline.to("#s", {
-			x: -150,
-			duration: 4,
-			ease: "power4.inOut",
-		});
+	const trackRef = useRef<HTMLDivElement>(null);
+	useGSAP(
+		() => {
+			if (!trackRef.current) return;
 
-		timeline.to("#s", {
-			x: -300,
-			duration: 4,
-			ease: "power3.inOut",
-		});
+			const itemWidth = 150;
+			const pauseDuration = 1.5;
+			const moveDuration = 1;
 
-		timeline.to("#s", {
-			x: -450,
-			duration: 4,
-			ease: "power2.inOut",
-		});
+			const timeline = gsap.timeline({
+				repeat: -1,
+			});
 
-		timeline.to("#s", {
-			x: -600,
-			duration: 4,
-			ease: "power2.inOut",
-		});
+			technologies.forEach((_, index) => {
+				timeline.to(trackRef.current, {
+					x: -(index + 1) * itemWidth,
+					duration: moveDuration,
+					ease: "power2.inOut",
+				});
 
-		timeline.to("#s", {
-			x: -750,
-			duration: 4,
-			ease: "power2.inOut",
-		});
+				timeline.to(
+					{},
+					{
+						duration: pauseDuration,
+					},
+				);
+			});
+		},
+		{ scope: trackRef },
+	);
 
-		timeline.to("#s", {
-			x: -900,
-			duration: 4,
-			ease: "power2.inOut",
-		});
-
-		timeline.to("#s", {
-			x: -1050,
-			duration: 4,
-			ease: "power2.inOut",
-		});
-
-		timeline.to("#s", {
-			x: -1200,
-			duration: 4,
-			ease: "power2.inOut",
-		});
-
-		timeline.to("#s", {
-			x: -1350,
-			duration: 4,
-			ease: "power2.inOut",
-		});
-	}, []);
 	return (
-		<aside className={styles.wrapper}>
-			<div className={styles.showcase}>
-				<p className={styles.showcaseText} id="s">
-					FullStack
-				</p>
-				<p className={styles.showcaseText} id="s">
-					HTML/CSS/JS
-				</p>
-				<p className={styles.showcaseText} id="s">
-					TypeScript
-				</p>
-				<p className={styles.showcaseText} id="s">
-					React
-				</p>
-				<p className={styles.showcaseText} id="s">
-					Redux
-				</p>
-				<p className={styles.showcaseText} id="s">
-					NestJs
-				</p>
-				<p className={styles.showcaseText} id="s">
-					MySQL
-				</p>
-				<p className={styles.showcaseText} id="s">
-					PostgreSQL
-				</p>
-				<p className={styles.showcaseText} id="s">
-					MongoDB
-				</p>
-				<p className={styles.showcaseText} id="s">
-					Appwrite
-				</p>
-				<p className={styles.showcaseText} id="s">
-					SASS/SCSS
-				</p>
-				<p className={styles.showcaseText} id="s">
-					GSAP
-				</p>
-				<p className={styles.showcaseText} id="s">
-					FullStack
-				</p>
+		<div className={styles.showcase}>
+			<div className={styles.track} ref={trackRef}>
+				<div className={styles.items}>
+					{technologies.map((technology) => (
+						<p className={styles.showcaseText} key={technology}>
+							{technology}
+						</p>
+					))}
+				</div>
+
+				<div className={styles.items} aria-hidden="true">
+					{technologies.map((technology) => (
+						<p className={styles.showcaseText} key={technology}>
+							{technology}
+						</p>
+					))}
+				</div>
 			</div>
-		</aside>
+		</div>
 	);
 };
 

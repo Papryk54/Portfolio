@@ -3,7 +3,7 @@ import githubIcon from "../../../assets/icons/socials/github-mark-white.png";
 import { useSelector } from "react-redux";
 import { selectProject } from "../../../redux/projectReducer/projectReducer.selectors";
 import { getImageByName } from "../../../utils/images";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Flip } from "gsap/all";
@@ -22,9 +22,6 @@ const ProjectGallery = () => {
 		imagesSrcs[0] || "placeholder.png",
 	);
 
-	useEffect(() => {
-		setMainImgSrc(imagesSrcs[0] || "placeholder.png");
-	}, [imagesSrcs]);
 	const imgContainerRef = useRef<HTMLImageElement>(null);
 	const imgMainRef = useRef<HTMLImageElement>(null);
 	const normalSizeContainerRef = useRef<HTMLDivElement>(null);
@@ -57,7 +54,7 @@ const ProjectGallery = () => {
 		if (imgContainerRef.current) {
 			gsap.to(".img", {
 				y: 20,
-				duration: 1,
+				duration: 0.5,
 				ease: "power2.out",
 				stagger: 0.2,
 			});
